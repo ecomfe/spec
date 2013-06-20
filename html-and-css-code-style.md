@@ -20,13 +20,13 @@
 
 #### 编码
 
-使用UTF-8编码。HTML、CSS、模板等文件*不允许*（MUST NOT）包含BOM信息。
+使用UTF-8编码。HTML、CSS、模板等文件 *不允许（MUST NOT）* 包含BOM信息。
 
 ### HTML
 
 #### 缩进
 
-*必须*（MUST）采用**4个空格**为一次缩进，*不得*（MUST NOT）采用TAB作为缩进。
+*必须（MUST）* 采用 **4个空格** 为一次缩进， *不得（MUST NOT）* 采用TAB作为缩进。
 
 #### 命名
 
