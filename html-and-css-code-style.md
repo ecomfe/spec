@@ -293,9 +293,9 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 
 当属性值为0时，*不允许*（MUST NOT）包含单位。
 
-    ```css
-    margin: 10px 0;
-    ```
+```css
+margin: 10px 0;
+```
 
 #### 颜色
 
@@ -305,9 +305,9 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 
 使用url()引用时，括号内不允许（MUST NOT）包含引号。
 
-    ```css
-    background: url(asset/img/logo.png);
-    ```
+```css
+background: url(asset/img/logo.png);
+```
 
 #### expression
 
@@ -325,12 +325,12 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 
 通常较新的特性，浏览器通过私有前缀支持。编写时*必须*（MUST）先定义含私有前缀的属性，后定义标准属性。
 
-    ```css
-    -o-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    ```
+```css
+-o-border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+```
 
 
 ## 参考
