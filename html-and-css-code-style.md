@@ -22,7 +22,7 @@
 
 使用UTF-8编码。HTML、CSS、模板等文件 *不允许(MUST NOT)* 包含BOM信息。
 
-### HTML
+## HTML
 
 #### 缩进
 
@@ -139,20 +139,20 @@ HTML文档 *必须(MUST)* 以DOCTYPE声明起始。 *必须(MUST)* 使用HTML5�
 
 *尽量采用(REQUIRED)* 语义化标签。常见标签语义如下：
 
-|* 标签 *|* 语义 *|
-|p|段落|
-|h1,h2,h3,h4,h5,h6|层级标题|
-|strong,em|强调|
-|ins|插入|
-|del|删除|
-|abbr|缩写|
-|code|代码标识|
-|cite|引述来源作品的标题|
-|q|引用|
-|blockquote|一段或长篇引用|
-|ul|无序列表|
-|ol|有序列表|
-|dl,dt,dd|定义列表|
+
++ p - 段落
++ h1,h2,h3,h4,h5,h6 - 层级标题
++ strong,em - 强调
++ ins - 插入
++ del - 删除
++ abbr - 缩写
++ code - 代码标识
++ cite - 引述来源作品的标题
++ q - 引用
++ blockquote - 一段或长篇引用
++ ul - 无序列表
++ ol - 有序列表
++ dl,dt,dd - 定义列表
 
 
 #### 标签嵌套规则
