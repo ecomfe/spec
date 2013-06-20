@@ -240,11 +240,12 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 
 属性名与之后的":"之间*不得*（MUST NOT）包含空格。
 
-	:::css
+```css
 	.selector {
 	    margin: 0;
 	    padding: 0;
 	}
+```
 
 
 #### 属性定义
