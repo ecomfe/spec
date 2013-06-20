@@ -277,7 +277,7 @@ h2,
 h3 {
   padding: 5px;
 }
-```css
+```
 
 #### class命名原则
 
