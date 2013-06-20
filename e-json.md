@@ -255,12 +255,12 @@ data字段可以是除JSON Null之外的任意JSON类型，表示请求返回的
 ### 数据页可选属性
 
 
-+ {Number} page | 当前页码，计数 *必须(MUST)* 为不小于0的整数，从0开始。
-+ {Number} pageSize | 每页显示条数， *必须(MUST)* 大于0。
-+ {Number} total | 列表总记录数， *必须(MUST)* 为不小于0的整数。表示当前条件下所有记录的数目，非本页的记录数。
-+ {String} orderBy | 列表排序规则。多个排序规则之间以逗号分割（,）；正序或倒序以asc或desc表示，与字段名之间以一个空格间隔。例："id desc,name asc"
-+ {String} keyword | 列表所属的搜索关键字。
-+ {Object} condition | 列表所属的搜索条件集合。属性中可以包含或不包含keyword字段，如果不包含， *建议(RECOMMMANDED)* 在解析的时候附加搜索关键字keyword条件。 |
++ {Number} page - 当前页码，计数 *必须(MUST)* 为不小于0的整数，从0开始。
++ {Number} pageSize - 每页显示条数， *必须(MUST)* 大于0。
++ {Number} total - 列表总记录数， *必须(MUST)* 为不小于0的整数。表示当前条件下所有记录的数目，非本页的记录数。
++ {String} orderBy - 列表排序规则。多个排序规则之间以逗号分割（,）；正序或倒序以asc或desc表示，与字段名之间以一个空格间隔。例："id desc,name asc"
++ {String} keyword - 列表所属的搜索关键字。
++ {Object} condition - 列表所属的搜索条件集合。属性中可以包含或不包含keyword字段，如果不包含， *建议(RECOMMMANDED)* 在解析的时候附加搜索关键字keyword条件。 
 
 
 #### 数据场景：数据页
