@@ -1,10 +1,5 @@
 This repository contains the specifications.
 
-<style>
-.std-draft { color: rgb(211, 202, 3); font-size:11px;}
-.std-rec { color: #309C40; font-size:11px; }
-.std-edit { color: red; font-size:11px; }
-</style>
 
 - [Javascript编码规范](javascript-code-style.md) <span class="std-rec">[1.0]</span>
 - [HTML&CSS编码规范](html-and-css-code-style.md) <span class="std-rec">[1.0]</span>
