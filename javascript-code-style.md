@@ -389,46 +389,55 @@ var array = [
 #### 单一类型集合
 
 语法示例: {Array.&lt;string&gt;}
+
 解释: string类型的数组
 
 #### 多类型
 
 语法示例: {(number｜boolean)}
+
 解释: 可能是number类型, 也可能是boolean类型
 
 #### 允许为null
 
 语法示例: {?number}
+
 解释: 可能是number, 也可能是null
 
 #### 不允许为null
 
 语法示例: {!Object}
+
 解释: Object类型, 但不是null
 
 #### Function类型
 
 语法示例: {function(number, boolean)}
+
 解释: 函数, 形参类型
 
 #### Function带返回值
 
 语法示例: {function(number, boolean):string}
+
 解释: 函数, 形参, 返回值类型
 
 #### 参数可选
 
 语法示例: @param {string=} name
+
 解释: 可选参数, =为类型后缀
 
 #### 可变参数
 
 语法示例: @param {...number} args
+
 解释: 变长参数,  ...为类型前缀, args为形参名
 
 #### 任意类型
 
 语法示例: {*}, {...*}, {*=}
+
 解释: 任意类型, 任意类型可变参数，任意类型参数可选
 
 
