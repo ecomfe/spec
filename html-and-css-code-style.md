@@ -38,26 +38,28 @@
 
 HTML文档*必须*（MUST）以DOCTYPE声明起始。*必须*（MUST）使用HTML5标准的DOCTYPE声明，*不得*（MUST NOT）使用任何html4以及xhtml的DOCTYPE声明。
 
-    ```html
-    <!DOCTYPE html>
-    ```
+```html
+<!DOCTYPE html>
+```
 
 #### charset声明
 
 页面必须（MUST）声明编码方式之后。HTML文档必须（MUST）在head区域进行charset声明。
 
-    :::html
-	<meta charset="utf-8" />
+```html
+<meta charset="utf-8" />
+```
 
 #### title
 
 页面*必须*（MUST）包含title标签声明标题。title*必须*（MUST）位于head标签中，并置于charset声明之后。
 
-    :::html
-	<head>
-	    <meta charset="utf-8" />
-	    <title>页面标题</title>
-	</head>
+```html
+<head>
+    <meta charset="utf-8" />
+    <title>页面标题</title>
+</head>
+```
 
 #### 样式定义与引入
 
@@ -67,8 +69,9 @@ HTML文档*必须*（MUST）以DOCTYPE声明起始。*必须*（MUST）使用HTM
 
 后缀为".css"的外部样式资源引入，link标签*应当不*（SHOULD NOT）包含`type`属性。
 
-    :::html
-	<link rel="stylesheet" href="yourcss.css" />
+```html
+<link rel="stylesheet" href="yourcss.css" />
+```
 
 
 #### javascript引入
@@ -81,8 +84,9 @@ HTML文档*必须*（MUST）以DOCTYPE声明起始。*必须*（MUST）使用HTM
 
 后缀为".js"的外部脚本资源引入，script标签*应当不*（SHOULD NOT）包含type属性。
 
-    :::html
-	<script src="yourscript.js"></script>
+```html
+<script src="yourscript.js"></script>
+```
 
 
 #### 字符实体
@@ -106,15 +110,17 @@ HTML文档*必须*（MUST）以DOCTYPE声明起始。*必须*（MUST）使用HTM
 
 对于允许不自闭合的标签，*不得*（MUST NOT）添加闭合标签，*必须*（MUST）使用自闭合形式，且`/`前*必须*（MUST）包含一个空格。常见标签有input、br、img、hr等。
 
-    :::html
-	<input type="text" name="title" />
+```html
+<input type="text" name="title" />
+```
 
 #### 省略标签闭合
 
 *不可*（MUST NOT）省略闭合的标签。常见标签有li、dt、dd、html、tr、td、th、thead、tbody、tfoot等。
 
-    :::html
-	<li>listitem</li>
+```html
+<li>listitem</li>
+```
 
 #### 过时标签
 
@@ -125,8 +131,9 @@ HTML文档*必须*（MUST）以DOCTYPE声明起始。*必须*（MUST）使用HTM
 
 对于boolean类型的属性，*必须*（MUST）加上与属性名相同的属性值。
 
-    :::html
-	<input type="checkbox" checked="checked" />
+```html
+<input type="checkbox" checked="checked" />
+```
 
 #### 标签语义化
 
@@ -171,8 +178,9 @@ img标签*必须*（MUST）包含src、alt属性，*尽量*（SHOULD）包含wid
 
 装饰性图片*不得*（MUST NOT）使用img标签，应使用css定义background。
 
-    :::html
-	<img src="imgurl" width="80" height="60" alt="alt info" />
+```html
+<img src="imgurl" width="80" height="60" alt="alt info" />
+```
 
 #### table
 
@@ -211,26 +219,26 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 
 对于超长的样式，在样式值的空格/逗号处分隔，并*建议*（RECOMMENDED）按逻辑分组，如：
 
-	```css
-	/* 不同属性值按逻辑分组 */
-	background: 
-		transparent url(aVeryVeryVeryLongUrlIsPlacedHere)
-		no-repeat 0 0;
+```css
+/* 不同属性值按逻辑分组 */
+background: 
+    transparent url(aVeryVeryVeryLongUrlIsPlacedHere)
+    no-repeat 0 0;
 
-	/* 可重复多次的属性，每次重复一行 */
-	background-image:
-		url(aVeryVeryVeryLongUrlIsPlacedHere) 
-		url(anotherVeryVeryVeryLongUrlIsPlacedHere);
+/* 可重复多次的属性，每次重复一行 */
+background-image:
+    url(aVeryVeryVeryLongUrlIsPlacedHere) 
+    url(anotherVeryVeryVeryLongUrlIsPlacedHere);
 
-	/* 类似函数的属性值可以根据javascript函数调用的缩进进行 */
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.04, rgb(88,94,124)),
-		color-stop(0.52, rgb(115,123,162))
-	);
-	```
+/* 类似函数的属性值可以根据javascript函数调用的缩进进行 */
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.04, rgb(88,94,124)),
+    color-stop(0.52, rgb(115,123,162))
+);
+```
 
 #### 空格
 
@@ -241,10 +249,10 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 属性名与之后的":"之间*不得*（MUST NOT）包含空格。
 
 ```css
-	.selector {
-	    margin: 0;
-	    padding: 0;
-	}
+.selector {
+    margin: 0;
+    padding: 0;
+}
 ```
 
 
@@ -263,12 +271,13 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 
 当一个rule包含多个选择器时，每个选择器声明*必须*（MUST）独占一行。
 
-	:::css
-	h1,
-	h2,
-	h3 {
-	  padding: 5px;
-	}
+```css
+h1,
+h2,
+h3 {
+  padding: 5px;
+}
+```css
 
 #### class命名原则
 
@@ -284,8 +293,9 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 
 当属性值为0时，*不允许*（MUST NOT）包含单位。
 
-	:::css
-	margin: 10px 0;
+    ```css
+    margin: 10px 0;
+    ```
 
 #### 颜色
 
@@ -295,8 +305,9 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 
 使用url()引用时，括号内不允许（MUST NOT）包含引号。
 
-	:::css
-	background: url(asset/img/logo.png);
+    ```css
+    background: url(asset/img/logo.png);
+    ```
 
 #### expression
 
@@ -314,11 +325,12 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 
 通常较新的特性，浏览器通过私有前缀支持。编写时*必须*（MUST）先定义含私有前缀的属性，后定义标准属性。
 
-	:::css
-	-o-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+    ```css
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    ```
 
 
 ## 参考
