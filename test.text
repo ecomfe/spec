@@ -1,0 +1,6 @@
+TEXT
+------
+
+	function a () {
+		alert( 1 )
+	}
