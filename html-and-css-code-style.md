@@ -1,7 +1,7 @@
-HTML与CSS编码规范 (1.0)
-----------------
+# HTML与CSS编码规范 (1.0)
 
-### 简介
+
+## 简介
 
 该文档主要的设计目标是HTML和CSS开发风格保持一致，容易被理解和被维护。
 
@@ -16,7 +16,7 @@ HTML与CSS编码规范 (1.0)
 在本文档中，使用的关键字会以中文+括号包含的关键字英文表示：必须（MUST）。关键字"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"被定义在rfc2119中。
 
 
-### 通用
+## 通用
 
 #### 编码
 
@@ -38,8 +38,9 @@ HTML与CSS编码规范 (1.0)
 
 HTML文档*必须*（MUST）以DOCTYPE声明起始。*必须*（MUST）使用HTML5标准的DOCTYPE声明，*不得*（MUST NOT）使用任何html4以及xhtml的DOCTYPE声明。
 
-    :::html
+    ```html
     <!DOCTYPE html>
+    ```
 
 #### charset声明
 
@@ -197,7 +198,7 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 
 *尽量*（SHALL）为表单绑定label标签。
 
-### CSS
+## CSS
 
 #### 缩进
 
@@ -210,7 +211,7 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 
 对于超长的样式，在样式值的空格/逗号处分隔，并*建议*（RECOMMENDED）按逻辑分组，如：
 
-	:::css
+	```css
 	/* 不同属性值按逻辑分组 */
 	background: 
 		transparent url(aVeryVeryVeryLongUrlIsPlacedHere)
@@ -229,6 +230,7 @@ tr标签*必须*（MUST）位于tbody、thead、tfoot标签中，*不得*（MUST
 		color-stop(0.04, rgb(88,94,124)),
 		color-stop(0.52, rgb(115,123,162))
 	);
+	```
 
 #### 空格
 
@@ -318,7 +320,7 @@ class命名*必须*（MUST）代表相应模块或部件，如“sidebar”。*�
 	border-radius: 5px;
 
 
-### 参考
+## 参考
 
 1. <http://www.cs.tut.fi/~jkorpela/html5-dtd.html>
 2. <http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml>
