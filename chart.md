@@ -1,23 +1,23 @@
 # 百度图表库标准（1.0）
 
 
-### 简介
+## 简介
 
 Chart图表在商业产品线和其它产品中都有应用，本文档主要的设计目标是规范商业体系前端图表库的标准图表类型、接口、数据格式及样式设置，使之容易被理解、使用和维护。
 
 同时，希望通过这次标准化，推动创建出一套可用的标准图表库，使之能更快捷地应用到各个项目中。
 
-#### 编撰
+### 编撰
 
 林志峰、赵庶、erik、刘阳、杨冬
 
 本文档由`百度Flash组`与`商业运营体系前端技术组`联合审校发布。
 
-#### 要求
+### 要求
 
-在本文档中，使用的关键字会以中文+括号包含的关键字英文表示： *必须(MUST)* 。关键字"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"被定义在rfc2119中。
+在本文档中，使用的关键字会以中文+括号包含的关键字英文表示：必须（MUST）。关键字"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"被定义在rfc2119中。
 	
-### 名词解析
+## 名词解析
 基本名词
 
 
@@ -113,12 +113,12 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###图表类型
+##图表类型
 图表库标准包含单图表类型的标准图表以及多图表类型混合的混搭图表：
 
 ![标准图表类型](./chart/charts.jpg "标准图表类型")
 
-####line
+###line
 
 <table>
     <thead>
@@ -132,16 +132,16 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
     <tbody>
 
         <tr>
-            <td> ![折线图](./chart/line1.jpg "") </td>
-            <td> ![堆积折线图](./chart/line2.jpg "") </td>
-            <td> ![面积图](./chart/line3.jpg "") </td>
-            <td> ![堆积面积图](./chart/line4.jpg "") </td>
+            <td> <img src="./chart/line1.jpg" alt="折线图" /> </td>
+            <td> <img src="./chart/line2.jpg" alt="堆积折线图" /> </td>
+            <td> <img src="./chart/line3.jpg" alt="面积图" /> </td>
+            <td> <img src="./chart/line4.jpg" alt="堆积面积图" /> </td>
         </tr>
     </tbody>
 </table>
 
 
-####bar
+###bar
 
 <table>
     <thead>
@@ -155,16 +155,16 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
     <tbody>
 
         <tr>
-            <td> ![柱形图](./chart/bar1.jpg "") </td>
-            <td> ![堆积柱形图](./chart/bar2.jpg "") </td>
-            <td> ![条形图](./chart/bar3.jpg "") </td>
-            <td> ![堆积条形图](./chart/bar4.jpg "") </td>
+            <td> <img src="./chart/bar1.jpg" alt="柱形图" /> </td>
+            <td> <img src="./chart/bar2.jpg" alt="堆积柱形图" /> </td>
+            <td> <img src="./chart/bar3.jpg" alt="条形图" /> </td>
+            <td> <img src="./chart/bar4.jpg" alt="堆积条形图" /> </td>
         </tr>
     </tbody>
 </table>
 
 
-####scatter
+###scatter
 
 <table>
     <thead>
@@ -176,14 +176,14 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
     <tbody>
 
         <tr>
-            <td> ![散点图](./chart/scatter1.jpg "") </td>
-            <td> ![气泡图](./chart/scatter2.jpg "") </td>
+            <td> <img src="./chart/scatter1.jpg" alt="散点图" /> </td>
+            <td> <img src="./chart/scatter2.jpg" alt="气泡图" /> </td>
         </tr>
     </tbody>
 </table>
 
 
-####pie
+###pie
 
 <table>
     <thead>
@@ -195,14 +195,14 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
     <tbody>
 
         <tr>
-            <td> ![饼图](./chart/pie1.jpg "") </td>
-            <td> ![圆环图](./chart/pie2.jpg "") </td>
+            <td> <img src="./chart/pie1.jpg" alt="饼图" /> </td>
+            <td> <img src="./chart/pie2.jpg" alt="圆环图" /> </td>
         </tr>
     </tbody>
 </table>
 
 
-####radar
+###radar
 
 <table>
     <thead>
@@ -214,16 +214,16 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
     <tbody>
 
         <tr>
-            <td> ![雷达图](./chart/radar1.jpg "") </td>
-            <td> ![填充雷达图](./chart/radar2.jpg "") </td>
+            <td> <img src="./chart/radar1.jpg" alt="雷达图" /> </td>
+            <td> <img src="./chart/radar2.jpg" alt="填充雷达图" /> </td>
         </tr>
     </tbody>
 </table>
 
 
-###初始化
+##初始化
 
-图表库实现 *必须(MUST)* 为多实例的，实例选项 *应当(SHOULD)* 在新建时传入，同时 *可选(OPTIONAL)* 的在实例新建后通过实例方法setOption（见[方法](#方法 "")）传入，两种初始化方式最终产出效果 *必须(MUST)* 是等价的，即如下两组代码产出效果相同。
+图表库实现*必须*（MUST）为多实例的，实例选项*应当*（SHOULD）在新建时传入，同时*可选*（OPTIONAL）的在实例新建后通过实例方法setOption（见[方法](#方法 "")）传入，两种初始化方式最终产出效果*必须*（MUST）是等价的，即如下两组代码产出效果相同。
 
 	//初始化实例时传入选项
 	var myChart = new echarts(option);
@@ -232,9 +232,9 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 	var myChart = new echarts();
 	myChart.setOption(option);
 
-同时，在实例中任何个性化选项 *不得(MUST NOT)* 影响其他已存在或未来生成的实例。
+同时，在实例中任何个性化选项*不得*（MUST NOT）影响其他已存在或未来生成的实例。
 
-###方法
+##方法
 
 
 <table>
@@ -248,17 +248,17 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
         <tr>
             <td> {void} setOption( {Object} option ) </td>
-            <td> 万能接口，配置图表实例任何可配置选项（详见[option](#Option "")），多次调用时option选项 *必须(MUST)* 是合并（merge）的 </td>
+            <td> 万能接口，配置图表实例任何可配置选项（详见 <a href="#Option">option</a> ），多次调用时option选项*必须*（MUST）是合并（merge）的 </td>
         </tr>
 
         <tr>
             <td> {void} setSeries( {Array} series ) </td>
-            <td> 数据接口，驱动图表生成的数据内容（详见[series](#Series "")），效果 *应当(SHOULD)* 等同调用setOption({series:{...}}) </td>
+            <td> 数据接口，驱动图表生成的数据内容（详见 <a href="#Series">series</a> ），效果*应当*（SHOULD）等同调用setOption({series:{...}}) </td>
         </tr>
 
         <tr>
             <td> {void} on( {string} eventName, {Function} eventListener ) </td>
-            <td> 事件绑定， *必须(MUST)* 支持事件有：click，hover </td>
+            <td> 事件绑定，*必须*（MUST）支持事件有：click，hover </td>
         </tr>
 
         <tr>
@@ -268,7 +268,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
         <tr>
             <td> {void} showLoading( {Object} loadingOption) </td>
-            <td> 过渡控制（详见[loadingOption](#Loadingoption "")），显示loading（读取中） </td>
+            <td> 过渡控制（详见 <a href="#Loadingoption">loadingOption</a> ），显示loading（读取中） </td>
         </tr>
 
         <tr>
@@ -290,9 +290,9 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 
 
-###选项
+##选项
 
-####option
+###option
 图表选项，包含图表实例任何可配置选项
 
 
@@ -312,38 +312,38 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
         <tr>
             <td> {Object} legend </td>
-            <td> 图例（详见[legend](#Legend "")），每个图表最多仅有一个图例，混搭图表共享 </td>
+            <td> 图例（详见 <a href="#Legend">legend</a> ），每个图表最多仅有一个图例，混搭图表共享 </td>
         </tr>
 
         <tr>
             <td> {Object} tooltip </td>
-            <td> 提示框（详见[tooltip](#Tooltip "")）,鼠标悬浮交互时的信息提示 </td>
+            <td> 提示框（详见 <a href="#Tooltip">tooltip</a> ）,鼠标悬浮交互时的信息提示 </td>
         </tr>
 
         <tr>
             <td> {Object} grid </td>
-            <td> 直角坐标系内绘图网格（详见[grid](#Grid "")） </td>
+            <td> 直角坐标系内绘图网格（详见 <a href="#Grid">grid</a> ） </td>
         </tr>
 
         <tr>
             <td> {Array} xAxis </td>
-            <td> 直角坐标系中横轴数组（详见[xAxis](#Xaxis "")），数组中每一项代表一条横轴坐标轴，标准（1.0）中规定最多同时存在2条横轴 </td>
+            <td> 直角坐标系中横轴数组（详见 <a href="#Xaxis">xAxis</a> ），数组中每一项代表一条横轴坐标轴，标准（1.0）中规定最多同时存在2条横轴 </td>
         </tr>
 
         <tr>
             <td> {Array} yAxis </td>
-            <td> 直角坐标系中纵轴数组（详见[yAxis](#Yaxis "")），数组中每一项代表一条纵轴坐标轴，标准（1.0）中规定最多同时存在2条纵轴 </td>
+            <td> 直角坐标系中纵轴数组（详见 <a href="#Yaxis">yAxis</a> ），数组中每一项代表一条纵轴坐标轴，标准（1.0）中规定最多同时存在2条纵轴 </td>
         </tr>
 
         <tr>
             <td> {Array} series </td>
-            <td> 驱动图表生成的数据内容（详见[series](#Series "")），数组中每一项代表一个系列的特殊选项及数据 </td>
+            <td> 驱动图表生成的数据内容（详见 <a href="#Series">series</a> ），数组中每一项代表一个系列的特殊选项及数据 </td>
         </tr>
     </tbody>
 </table>
 
 
-####legend
+###legend
 图例，每个图表最多仅有一个图例
 
 
@@ -414,19 +414,19 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
         <tr>
             <td> {string} itemRender </td>
             <td> null </td>
-            <td> 默认item渲染器（详见[series](#Series "")中itemRender描述） </td>
+            <td> 默认item渲染器（详见 <a href="#Series">series</a> 中itemRender描述） </td>
         </tr>
 
         <tr>
             <td> {Object} itemStyle </td>
             <td> null </td>
-            <td> 默认item渲染样式（详见[series](#Series "")中itemStyle描述） </td>
+            <td> 默认item渲染样式（详见 <a href="#Series">series</a> 中itemStyle描述） </td>
         </tr>
 
         <tr>
             <td> {Array} data </td>
             <td> null </td>
-            <td> 图例内容（详见[legend.data](#LegendData "")，数组中每一项代表一个item </td>
+            <td> 图例内容（详见 <a href="#LegendData">legend.data</a> ，数组中每一项代表一个item </td>
         </tr>
     </tbody>
 </table>
@@ -434,7 +434,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 ![图例](./chart/legend.jpg "")
 
-#####legend.data
+####legend.data
 图例内容数组，数组中每一项代表一个item，数组项可为{Object}，可以完整指定一个图例item的内容：
 
 	[
@@ -465,7 +465,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 当不指定itemRender或itemStyle，同时根据name值索引不到[series](#Series "")中有同名name时，则会使用[legend](#Legend "")中itemRender或itemStyle，如果此时legend.itemRender或legend.itemStyle不存在则该项图例item将不被显示
 
-####tooltip
+###tooltip
 提示框,鼠标悬浮交互时的信息提示
 
 
@@ -530,7 +530,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
         <tr>
             <td> {Object} textStyle </td>
             <td> null </td>
-            <td> 文本样式（详见[textStyle](#Textstyle "")） </td>
+            <td> 文本样式（详见 <a href="#Textstyle">textStyle</a> ） </td>
         </tr>
     </tbody>
 </table>
@@ -564,14 +564,14 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
     <tbody>
 
         <tr>
-            <td> ![item触发](./chart/tooltip1.jpg "") </td>
-            <td> ![axis触发](./chart/tooltip2.jpg "") </td>
+            <td> <img src="./chart/tooltip1.jpg" alt="item触发" /> </td>
+            <td> <img src="./chart/tooltip2.jpg" alt="axis触发" /> </td>
         </tr>
     </tbody>
 </table>
 
 
-####grid
+###grid
 直角坐标系内绘图网格
 
 
@@ -614,17 +614,17 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 ![绘图网格](./chart/grid.jpg "") 
 
-####xAxis
+###xAxis
 直角坐标系中横轴数组，数组中每一项代表一条横轴坐标轴。
 标准（1.0）中规定最多同时存在2条横轴，单条横轴时可指定安放于[grid](#Grid "")的底部（默认）或顶部，2条同时存在时则默认第一条安放于底部，第二天安放于顶部。
 坐标轴有两种类型，类目型和数值型（区别详见[axis](#Axis "")），横轴通常为类目型，但条形图时则横轴为数值型，散点图时则横纵均为数值型，具体参数详见[axis](#Axis "")。
 
-####yAxis
+###yAxis
 直角坐标系中纵轴数组，数组中每一项代表一条纵轴坐标轴。
 标准（1.0）中规定最多同时存在2条纵轴，单条纵轴时可指定安放于[grid](#Grid "")的左侧（默认）或右侧，2条同时存在时则默认第一条安放于左侧，第二天安放于右侧。
 坐标轴有两种类型，类目型和数值型（区别详见[axis](#Axis "")），纵轴通常为数值型，但条形图时则纵轴为类目型，具体参数详见[axis](#Axis "")。
 
-####axis
+###axis
 坐标轴有两种类型，类目型和数值型，他们的区别在于：
 
 - 类目型：需要指定类目列表，坐标轴内有且仅有这些指定类目坐标
@@ -711,42 +711,42 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
             <td> {Object} axisLine </td>
             <td> {show : true} </td>
             <td> 通用 </td>
-            <td> 坐标轴线，默认显示，属性show控制显示与否，属性lineStyle（详见[lineStyle](#Linestyle "")）控制线条样式 </td>
+            <td> 坐标轴线，默认显示，属性show控制显示与否，属性lineStyle（详见 <a href="#Linestyle">lineStyle</a> ）控制线条样式 </td>
         </tr>
 
         <tr>
             <td> {Object} axisTick </td>
             <td> {show : false} </td>
             <td> 通用 </td>
-            <td> 坐标轴小标记，默认不显示，属性show控制显示与否，属性length控制线长，属性lineStyle（详见[lineStyle](#Linestyle "")）控制线条样式 </td>
+            <td> 坐标轴小标记，默认不显示，属性show控制显示与否，属性length控制线长，属性lineStyle（详见 <a href="#Linestyle">lineStyle</a> ）控制线条样式 </td>
         </tr>
 
         <tr>
             <td> {Object} axisLabel </td>
             <td> {show : true} </td>
             <td> 通用 </td>
-            <td> 坐标轴文本标签，详见[axis.axisLabel](#AxisAxislabel "") </td>
+            <td> 坐标轴文本标签，详见 <a href="#AxisAxislabel">axis.axisLabel</a>  </td>
         </tr>
 
         <tr>
             <td> {Object} splitLine </td>
             <td> {show : true} </td>
             <td> 通用 </td>
-            <td> 分隔线，默认显示，属性show控制显示与否，属性lineStyle（详见[lineStyle](#Linestyle "")）控制线条样式 </td>
+            <td> 分隔线，默认显示，属性show控制显示与否，属性lineStyle（详见 <a href="#Linestyle">lineStyle</a> ）控制线条样式 </td>
         </tr>
 
         <tr>
             <td> {Object} splitArea </td>
             <td> {show : false} </td>
             <td> 通用 </td>
-            <td> 分隔区域，默认不显示，属性show控制显示与否，属性areaStyle（详见[areaStyle](#Areastyle "")）控制区域样式 </td>
+            <td> 分隔区域，默认不显示，属性show控制显示与否，属性areaStyle（详见 <a href="#Areastyle">areaStyle</a> ）控制区域样式 </td>
         </tr>
 
         <tr>
             <td> {Array} data </td>
             <td> [] </td>
             <td> 类目型 </td>
-            <td> 类目列表，同时也是label内容，详见[axis.data](#AxisData "") </td>
+            <td> 类目列表，同时也是label内容，详见 <a href="#AxisData">axis.data</a>  </td>
         </tr>
     </tbody>
 </table>
@@ -766,12 +766,12 @@ boundaryGap端空白策略
 
         <tr>
             <td> boundaryGap: true </td>
-            <td> ![axisBoundaryGap1](./chart/axisBoundaryGap1.jpg "") </td>
+            <td> <img src="./chart/axisBoundaryGap1.jpg" alt="axisBoundaryGap1" /> </td>
         </tr>
 
         <tr>
             <td> boundaryGap: false </td>
-            <td>![axisBoundaryGap](./chart/axisBoundaryGap.png "") </td>
+            <td><img src="./chart/axisBoundaryGap.png" alt="axisBoundaryGap" /> </td>
         </tr>
     </tbody>
 </table>
@@ -781,7 +781,7 @@ axis属性说明
 
 ![axisDetail](./chart/axisDetail.jpg "")
 
-#####axis.axisLabel
+####axis.axisLabel
 坐标轴文本标签选项
 
 
@@ -835,7 +835,7 @@ axis属性说明
             <td> {Object} textStyle </td>
             <td> null </td>
             <td> 通用 </td>
-            <td> 文本样式（详见[textStyle](#Textstyle "")） </td>
+            <td> 文本样式（详见 <a href="#Textstyle">textStyle</a> ） </td>
         </tr>
     </tbody>
 </table>
@@ -848,7 +848,7 @@ axis属性说明
 - {Function}，传递参数同模板变量：
 	- eg：function(value){return "星期" + "日一二三四五六".charAt(value);'}
 
-#####axis.data
+####axis.data
 类目型坐标轴文本标签数组，指定label内容。
 数组项通常为文本，如: 
 
@@ -868,7 +868,7 @@ axis属性说明
 	 	'May', '...'
 	] 
 
-####series
+###series
 驱动图表生成的数据内容，数组中每一项代表一个系列的特殊选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型：
 
 
@@ -894,7 +894,7 @@ axis属性说明
             <td> {Object} tooltip </td>
             <td> null </td>
             <td> 通用 </td>
-            <td> 提示框样式，仅对本系列有效，如不设则用option.tooltip（详见[tooltip](#Tooltip "")）,鼠标悬浮交互时的信息提示 </td>
+            <td> 提示框样式，仅对本系列有效，如不设则用option.tooltip（详见 <a href="#Tooltip">tooltip</a> ）,鼠标悬浮交互时的信息提示 </td>
         </tr>
 
         <tr>
@@ -915,7 +915,7 @@ axis属性说明
             <td> {Object} itemStyle </td>
             <td> null </td>
             <td> 通用 </td>
-            <td> 图形样式（详见[itemStyle](#Itemstyle "")） </td>
+            <td> 图形样式（详见 <a href="#Itemstyle">itemStyle</a> ） </td>
         </tr>
 
         <tr>
@@ -929,14 +929,14 @@ axis属性说明
             <td> {number} xAxisIndex </td>
             <td> 0 </td>
             <td> 折线图，柱状图，散点图 </td>
-            <td> [xAxis](#Xaxis "")坐标轴数组的索引，指定该系列数据所用的横坐标轴 </td>
+            <td>  <a href="#Xaxis">xAxis</a> 坐标轴数组的索引，指定该系列数据所用的横坐标轴 </td>
         </tr>
 
         <tr>
             <td> {number} yAxisIndex </td>
             <td> 0 </td>
             <td> 折线图，柱状图，散点图 </td>
-            <td> [yAxis](#Yaxis "")坐标轴数组的索引，指定该系列数据所用的纵坐标轴 </td>
+            <td>  <a href="#Yaxis">yAxis</a> 坐标轴数组的索引，指定该系列数据所用的纵坐标轴 </td>
         </tr>
 
         <tr>
@@ -985,14 +985,14 @@ axis属性说明
             <td> {Array} data </td>
             <td> [] </td>
             <td> 通用 </td>
-            <td> 数据（详见[series.data](#SeriesData "")） </td>
+            <td> 数据（详见 <a href="#SeriesData">series.data</a> ） </td>
         </tr>
     </tbody>
 </table>
 
 
-#####series.data
-系列中的内容数组，折线图以及柱状图中当前数组长度 *必须(MUST)* 等于所使用类目轴文本标签数组[axis.data](#AxisData "")的长度，并且他们间是一一对应的，。
+####series.data
+系列中的内容数组，折线图以及柱状图中当前数组长度*必须*（MUST）等于所使用类目轴文本标签数组[axis.data](#AxisData "")的长度，并且他们间是一一对应的，。
 数组项通常为数值，如: 
 
 	[12, 34, 56, ..., 10, 23]
@@ -1014,7 +1014,7 @@ axis属性说明
 	 	..., 10, 23
 	] 
 
-特别的，当图表类型为scatter（散点图或气泡图）时，其数值设置比较特殊，他的横纵坐标轴都可能为数值型，并且气泡图时需要指定气泡大小，所以scatter型图表 *应当(SHOULD)* 设置为：
+特别的，当图表类型为scatter（散点图或气泡图）时，其数值设置比较特殊，他的横纵坐标轴都可能为数值型，并且气泡图时需要指定气泡大小，所以scatter型图表*应当*（SHOULD）设置为：
 
 	[
 		{
@@ -1029,7 +1029,7 @@ axis属性说明
 		}
 	] 
 
-再特别的，当图表类型为饼图时，需要说明每部分数据的名称name，所以 *应当(SHOULD)* 设置为：
+再特别的，当图表类型为饼图时，需要说明每部分数据的名称name，所以*应当*（SHOULD）设置为：
 
 	[
 		{
@@ -1046,7 +1046,7 @@ axis属性说明
 		}
 	] 
 
-####itemStyle
+###itemStyle
 图形样式，可设置图表内图形的默认样式和强调样式（悬浮悬浮时样式）：
 
 	itemStyle: { 
@@ -1083,14 +1083,14 @@ axis属性说明
             <td> {Object} lineStyle </td>
             <td> 图表各异 </td>
             <td> 折线图 </td>
-            <td> 线条样式，详见[lineStyle](#Linestyle "") </td>
+            <td> 线条样式，详见 <a href="#Linestyle">lineStyle</a>  </td>
         </tr>
 
         <tr>
             <td> {Object} areaStyle </td>
             <td> 图表各异 </td>
             <td> 堆积折线图，柱状图，饼图，填充雷达图</td>
-            <td> 区域样式，详见[areaStyle](#Areastyle "") </td>
+            <td> 区域样式，详见 <a href="#Areastyle">areaStyle</a>  </td>
         </tr>
 
         <tr>
@@ -1138,7 +1138,7 @@ axis属性说明
         <tr>
             <td> {Object} textStyle </td>
             <td> null </td>
-            <td> 标签的文本样式（详见[textStyle](#Textstyle "")） </td>
+            <td> 标签的文本样式（详见 <a href="#Textstyle">textStyle</a> ） </td>
         </tr>
     </tbody>
 </table>
@@ -1172,7 +1172,7 @@ axis属性说明
         <tr>
             <td> {Object} lineStyle </td>
             <td> 各异 </td>
-            <td> 线条样式，详见[lineStyle](#Linestyle "") </td>
+            <td> 线条样式，详见 <a href="#Linestyle">lineStyle</a>  </td>
         </tr>
     </tbody>
 </table>
@@ -1204,7 +1204,7 @@ axis属性说明
 	}
 
 
-####lineStyle
+###lineStyle
 线条（线段）样式
 
 
@@ -1235,7 +1235,7 @@ axis属性说明
 </table>
 
 
-####areaStyle
+###areaStyle
 区域填充样式
 
 
@@ -1261,7 +1261,7 @@ axis属性说明
 </table>
 
 
-####textStyle
+###textStyle
 文字样式
 
 
@@ -1312,7 +1312,7 @@ axis属性说明
 </table>
 
 
-####loadingOption
+###loadingOption
 过渡显示，loading（读取中）的选项
 
 
@@ -1347,13 +1347,13 @@ axis属性说明
         <tr>
             <td> {Object} textStyle </td>
             <td> null </td>
-            <td> 显示话术的文本样式（详见[textStyle](#Textstyle "")） </td>
+            <td> 显示话术的文本样式（详见 <a href="#Textstyle">textStyle</a> ） </td>
         </tr>
     </tbody>
 </table>
 
 
-####多级控制设计
+###多级控制设计
 简单的说，你可以通过这三级满足不同level的定制和个性化需求：
 
 - 通过 option.* 设置全局统一配置；
@@ -1362,7 +1362,7 @@ axis属性说明
 
 ![多级控制](./chart/multiControl.jpg "")
 
-###附录：一个直观的事例
+##附录：一个直观的事例
 
 	// 图表实例化------------------
 	var myChart = new echarts();
