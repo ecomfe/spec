@@ -375,129 +375,69 @@ var array = [
 注意：对于基本类型{string}, {number}, {boolean}，首字母 *必须(MUST)* 小写。
 
 <table>
-    <tr>
-        <th bgcolor="#eeeeee">类型定义</th>
-        <th bgcolor="#eeeeee">语法示例</th>
-        <th bgcolor="#eeeeee">解释</th>
-    </tr>
-    <tr>
-        <td>原生类型</td>
-        <td>String => {string}<br>Number => {number}<br>Boolean => {boolean}<br>Object => {Object}<br>Function => {Function}<br>RegExp => {RegExp}<br>Array => {Array}<br>Date => {Date}<br>...</td>
-        <td>--</td>
-    </tr>
-    <tr>
-        <td>单一类型集合</td>
-        <td>{Array.&lt;string&gt;}</td>
-        <td>string类型的数组</td>
-    </tr>
-    <tr>
-        <td>多类型</td>
-        <td>{(number｜boolean)}</td>
-        <td>可能是number类型, 也可能是boolean类型</td>
-    </tr>
-    <tr>
-        <td>允许为null</td>
-        <td>{?number}</td>
-        <td>可能是number, 也可能是null</td>
-    </tr>
-    <tr>
-        <td>不允许为null</td>
-        <td>{!Object}</td>
-        <td>Object类型, 但不是null</td>
-    </tr>
-    <tr>
-        <td>Function类型</td>
-        <td>{function(number, boolean)}</td>
-        <td>函数, 形参类型</td>
-    </tr>
-    <tr>
-        <td>Function带返回值</td>
-        <td>{function(number, boolean):string}</td>
-        <td>函数, 形参, 返回值类型</td>
-    </tr>
-    <tr>
-        <td>参数可选</td>
-        <td>@param {string=} opt_name</td>
-        <td>可选参数, =为类型后缀, opt_为形参前缀</td>
-    </tr>
-    <tr>
-        <td>可变参数</td>
-        <td>@param {...number} var_args</td>
-        <td>变长参数,  ...为类型前缀, var_args为形参名</td>
-    </tr>
-    <tr>
-        <td>任意类型</td>
-        <td>{*}</td>
-        <td>任意类型<br>@param {...*} var_args<br>@param {*=} opt_name</td>
-    </tr>
+    <thead>
+        <tr>
+            <td bgcolor="eeeeee">类型定义</th>
+            <td bgcolor="eeeeee">语法示例</th>
+            <td bgcolor="eeeeee">解释</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>原生类型</td>
+            <td>String => {string}<br>Number => {number}<br>Boolean => {boolean}<br>Object => {Object}<br>Function => {Function}<br>RegExp => {RegExp}<br>Array => {Array}<br>Date => {Date}<br>...</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>单一类型集合</td>
+            <td>{Array.&lt;string&gt;}</td>
+            <td>string类型的数组</td>
+        </tr>
+        <tr>
+            <td>多类型</td>
+            <td>{(number｜boolean)}</td>
+            <td>可能是number类型, 也可能是boolean类型</td>
+        </tr>
+        <tr>
+            <td>允许为null</td>
+            <td>{?number}</td>
+            <td>可能是number, 也可能是null</td>
+        </tr>
+        <tr>
+            <td>不允许为null</td>
+            <td>{!Object}</td>
+            <td>Object类型, 但不是null</td>
+        </tr>
+        <tr>
+            <td>Function类型</td>
+            <td>{function(number, boolean)}</td>
+            <td>函数, 形参类型</td>
+        </tr>
+        <tr>
+            <td>Function带返回值</td>
+            <td>{function(number, boolean):string}</td>
+            <td>函数, 形参, 返回值类型</td>
+        </tr>
+        <tr>
+            <td>参数可选</td>
+            <td>@param {string=} opt_name</td>
+            <td>可选参数, =为类型后缀, opt_为形参前缀</td>
+        </tr>
+        <tr>
+            <td>可变参数</td>
+            <td>@param {...number} var_args</td>
+            <td>变长参数,  ...为类型前缀, var_args为形参名</td>
+        </tr>
+        <tr>
+            <td>任意类型</td>
+            <td>{*}</td>
+            <td>任意类型
+                <br>@param {...*} var_args
+                <br>@param {*=} opt_name
+            </td>
+        </tr>
+    </tbody>
 </table>
-
-#### 原生类型
-
-- String => {string}
-- Number => {number}
-- Boolean => {boolean}
-- Object => {Object}
-- Function => {Function}
-- RegExp => {RegExp}
-- Array => {Array}
-- Date => {Date}
-- ...
-
-#### 单一类型集合
-
-语法示例: {Array.&lt;string&gt;}
-
-解释: string类型的数组
-
-#### 多类型
-
-语法示例: {(number｜boolean)}
-
-解释: 可能是number类型, 也可能是boolean类型
-
-#### 允许为null
-
-语法示例: {?number}
-
-解释: 可能是number, 也可能是null
-
-#### 不允许为null
-
-语法示例: {!Object}
-
-解释: Object类型, 但不是null
-
-#### Function类型
-
-语法示例: {function(number, boolean)}
-
-解释: 函数, 形参类型
-
-#### Function带返回值
-
-语法示例: {function(number, boolean):string}
-
-解释: 函数, 形参, 返回值类型
-
-#### 参数可选
-
-语法示例: @param {string=} name
-
-解释: 可选参数, =为类型后缀
-
-#### 可变参数
-
-语法示例: @param {...number} args
-
-解释: 变长参数,  ...为类型前缀, args为形参名
-
-#### 任意类型
-
-语法示例: {*}, {...*}, {*=}
-
-解释: 任意类型, 任意类型可变参数，任意类型参数可选
-
 
 
 ### 文件注释
