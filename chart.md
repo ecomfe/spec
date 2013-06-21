@@ -3,9 +3,9 @@
 
 ## 简介
 
-Chart图表在商业产品线和其它产品中都有应用，本文档主要的设计目标是规范商业体系前端图表库的标准图表类型、接口、数据格式及样式设置，使之容易被理解、使用和维护。
+图表在各种类型的产品中都有应用，本文档主要的设计目标是规范前端图表库的标准图表类型、接口、数据格式及样式设置，使之容易被理解、使用和维护。
 
-同时，希望通过这次标准化，推动创建出一套可用的标准图表库，使之能更快捷地应用到各个项目中。
+同时，希望通过这次标准化，推动创建出可用的标准图表库，使之能更快捷地应用到各个项目中。
 
 ### 编撰
 
@@ -15,10 +15,11 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 ### 要求
 
-在本文档中，使用的关键字会以中文+括号包含的关键字英文表示：必须（MUST）。关键字"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"被定义在rfc2119中。
-	
+在本文档中，使用的关键字会以中文+括号包含的关键字英文表示： *必须(MUST)* 。关键字"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL"被定义在rfc2119中。
+
 ## 名词解析
-基本名词
+
+### 基本名词
 
 
 <table>
@@ -73,7 +74,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-图表名词
+### 图表名词
 
 
 <table>
@@ -113,12 +114,13 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-##图表类型
+## 图表类型
+
 图表库标准包含单图表类型的标准图表以及多图表类型混合的混搭图表：
 
 ![标准图表类型](./chart/charts.jpg "标准图表类型")
 
-###line
+### line
 
 <table>
     <thead>
@@ -141,7 +143,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###bar
+### bar
 
 <table>
     <thead>
@@ -164,7 +166,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###scatter
+### scatter
 
 <table>
     <thead>
@@ -183,7 +185,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###pie
+### pie
 
 <table>
     <thead>
@@ -202,7 +204,7 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###radar
+### radar
 
 <table>
     <thead>
@@ -221,20 +223,22 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-##初始化
+## 初始化
 
-图表库实现*必须*（MUST）为多实例的，实例选项*应当*（SHOULD）在新建时传入，同时*可选*（OPTIONAL）的在实例新建后通过实例方法setOption（见[方法](#方法 "")）传入，两种初始化方式最终产出效果*必须*（MUST）是等价的，即如下两组代码产出效果相同。
+图表库实现 *必须(MUST)* 为多实例的，实例选项 *应当(SHOULD)* 在新建时传入，同时 *可选(OPTIONAL)* 的在实例新建后通过实例方法setOption（见[方法](#方法 "")）传入，两种初始化方式最终产出效果 *必须(MUST)* 是等价的，即如下两组代码产出效果相同。
 
-	//初始化实例时传入选项
-	var myChart = new echarts(option);
+```javascript
+//初始化实例时传入选项
+var myChart = new echarts(option);
 
-	//初始化实例选项为空，通过实例方法传入选项
-	var myChart = new echarts();
-	myChart.setOption(option);
+//初始化实例选项为空，通过实例方法传入选项
+var myChart = new echarts();
+myChart.setOption(option);
+```
 
-同时，在实例中任何个性化选项*不得*（MUST NOT）影响其他已存在或未来生成的实例。
+同时，在实例中任何个性化选项 *不得(MUST NOT)* 影响其他已存在或未来生成的实例。
 
-##方法
+## 方法
 
 
 <table>
@@ -248,17 +252,17 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
         <tr>
             <td> {void} setOption( {Object} option ) </td>
-            <td> 万能接口，配置图表实例任何可配置选项（详见 <a href="#Option">option</a> ），多次调用时option选项*必须*（MUST）是合并（merge）的 </td>
+            <td> 万能接口，配置图表实例任何可配置选项（详见 <a href="#Option">option</a> ），多次调用时option选项 *必须(MUST)* 是合并（merge）的 </td>
         </tr>
 
         <tr>
             <td> {void} setSeries( {Array} series ) </td>
-            <td> 数据接口，驱动图表生成的数据内容（详见 <a href="#Series">series</a> ），效果*应当*（SHOULD）等同调用setOption({series:{...}}) </td>
+            <td> 数据接口，驱动图表生成的数据内容（详见 <a href="#Series">series</a> ），效果 *应当(SHOULD)* 等同调用setOption({series:{...}}) </td>
         </tr>
 
         <tr>
             <td> {void} on( {string} eventName, {Function} eventListener ) </td>
-            <td> 事件绑定，*必须*（MUST）支持事件有：click，hover </td>
+            <td> 事件绑定， *必须(MUST)* 支持事件有：click，hover </td>
         </tr>
 
         <tr>
@@ -290,9 +294,10 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 
 
-##选项
+## 选项
 
-###option
+### option
+
 图表选项，包含图表实例任何可配置选项
 
 
@@ -343,7 +348,8 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###legend
+### legend
+
 图例，每个图表最多仅有一个图例
 
 
@@ -434,38 +440,46 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 ![图例](./chart/legend.jpg "")
 
-####legend.data
+#### legend.data
+
 图例内容数组，数组中每一项代表一个item，数组项可为{Object}，可以完整指定一个图例item的内容：
 
-	[
-		{
-	        name:'xxx',                         //图例名称
-	        itemRender:'yyy',                 //item渲染器，详见series中itemRender描述
-	        itemStyle:{...}                     //item渲染样式，详见series中itemStyle描述
-		}
-		/*,{...}*/
-  	]
+```javascript
+[
+    {
+        name:'xxx',                         //图例名称
+        itemRender:'yyy',                 //item渲染器，详见series中itemRender描述
+        itemStyle:{...}                     //item渲染样式，详见series中itemStyle描述
+    }
+    /*,{...}*/
+]
+```
 
 当不指定itemRender或itemStyle时，则会根据name值索引[series](#Series "")中同名name所用的itemRender或itemStyle，如果上述两项都不指定则数组项可退化为{string}，即
 
-	[
-		{
-			name:'xxx'
-		},
-		{
-			name:'zzz'
-		}
-	]
+```javascript
+[
+    {
+        name:'xxx'
+    },
+    {
+        name:'zzz'
+    }
+]
+```
 
 和
 
-	['xxx','zzz']
+```javascript
+['xxx','zzz']
+```
 
 是等价的。
 
 当不指定itemRender或itemStyle，同时根据name值索引不到[series](#Series "")中有同名name时，则会使用[legend](#Legend "")中itemRender或itemStyle，如果此时legend.itemRender或legend.itemStyle不存在则该项图例item将不被显示
 
-###tooltip
+### tooltip
+
 提示框,鼠标悬浮交互时的信息提示
 
 
@@ -539,17 +553,17 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 内容格式器formatter：
 
 - {string}，模板（Template），其变量为：
-	- {a} &brvbar; {a0} 
-	- {b} &brvbar; {b0} 
-	- {c} &brvbar; {c0} 
-	- {d} &brvbar; {d0} （部分图表类型无此项）
-	- 多值下则存在多套{a1}, {b1}, {c1}, {d1}, {a2}, {b2}, {c2}, {d2}, ...
-	- 其中变量a、b、c在不同图表类型下代表数据含义为：
-		- 折线（面积）图、柱状（条形）图、散点图 : a（系列名称），b（横轴值），c（纵轴值）, d（无）
-		- 气泡图 : a（系列名称），b（横轴值），c（纵轴值）, d（数值）
-		- 饼图、雷达图 : a（系列名称），b（数据项名称），c（数值）, d（百分比）
+    - {a} &brvbar; {a0} 
+    - {b} &brvbar; {b0} 
+    - {c} &brvbar; {c0} 
+    - {d} &brvbar; {d0} （部分图表类型无此项）
+    - 多值下则存在多套{a1}, {b1}, {c1}, {d1}, {a2}, {b2}, {c2}, {d2}, ...
+    - 其中变量a、b、c在不同图表类型下代表数据含义为：
+        - 折线（面积）图、柱状（条形）图、散点图 : a（系列名称），b（横轴值），c（纵轴值）, d（无）
+        - 气泡图 : a（系列名称），b（横轴值），c（纵轴值）, d（数值）
+        - 饼图、雷达图 : a（系列名称），b（数据项名称），c（数值）, d（百分比）
 - {Function}，传递参数为数组，数组项同模板变量：
-	- [[a, b, c, d], [a1, b1, c1, d1], ...] 
+    - [[a, b, c, d], [a1, b1, c1, d1], ...] 
 
 触发类型
 
@@ -571,7 +585,8 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 </table>
 
 
-###grid
+### grid
+
 直角坐标系内绘图网格
 
 
@@ -614,17 +629,20 @@ Chart图表在商业产品线和其它产品中都有应用，本文档主要的
 
 ![绘图网格](./chart/grid.jpg "") 
 
-###xAxis
+### xAxis
+
 直角坐标系中横轴数组，数组中每一项代表一条横轴坐标轴。
 标准（1.0）中规定最多同时存在2条横轴，单条横轴时可指定安放于[grid](#Grid "")的底部（默认）或顶部，2条同时存在时则默认第一条安放于底部，第二天安放于顶部。
 坐标轴有两种类型，类目型和数值型（区别详见[axis](#Axis "")），横轴通常为类目型，但条形图时则横轴为数值型，散点图时则横纵均为数值型，具体参数详见[axis](#Axis "")。
 
-###yAxis
+### yAxis
+
 直角坐标系中纵轴数组，数组中每一项代表一条纵轴坐标轴。
 标准（1.0）中规定最多同时存在2条纵轴，单条纵轴时可指定安放于[grid](#Grid "")的左侧（默认）或右侧，2条同时存在时则默认第一条安放于左侧，第二天安放于右侧。
 坐标轴有两种类型，类目型和数值型（区别详见[axis](#Axis "")），纵轴通常为数值型，但条形图时则纵轴为类目型，具体参数详见[axis](#Axis "")。
 
-###axis
+### axis
+
 坐标轴有两种类型，类目型和数值型，他们的区别在于：
 
 - 类目型：需要指定类目列表，坐标轴内有且仅有这些指定类目坐标
@@ -781,7 +799,8 @@ axis属性说明
 
 ![axisDetail](./chart/axisDetail.jpg "")
 
-####axis.axisLabel
+#### axis.axisLabel
+
 坐标轴文本标签选项
 
 
@@ -844,31 +863,37 @@ axis属性说明
 间隔名称格式器formatter：
 
 - {string}，模板（Template），其变量为：
-	- {value}: 内容或值
+    - {value}: 内容或值
 - {Function}，传递参数同模板变量：
-	- eg：function(value){return "星期" + "日一二三四五六".charAt(value);'}
+    - eg：function(value){return "星期" + "日一二三四五六".charAt(value);'}
 
-####axis.data
+#### axis.data
+
 类目型坐标轴文本标签数组，指定label内容。
 数组项通常为文本，如: 
 
-	['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', ..., 'Dec']
+```javascript
+['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', ..., 'Dec']
+```
 
 当需要对个别标签进行个性化定义时，数组项可用对象，如：
 
-	[
-		'Jav', 'Feb', 'Mar',
-		 {
-		 	value:'Apr',			//文本内容，如指定间隔名称格式器formatter，则这个值将被作为模板变量值或参数传入
-		 	textStyle:{				//详见textStyle
-		 	    color : 'red'
-		 		...			
-		 	}
-		 },
-	 	'May', '...'
-	] 
+```javascript
+[
+    'Jav', 'Feb', 'Mar',
+     {
+        value:'Apr',            //文本内容，如指定间隔名称格式器formatter，则这个值将被作为模板变量值或参数传入
+        textStyle:{             //详见textStyle
+            color : 'red'
+            ...         
+        }
+     },
+    'May', '...'
+] 
+```
 
-###series
+### series
+
 驱动图表生成的数据内容，数组中每一项代表一个系列的特殊选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型：
 
 
@@ -991,72 +1016,84 @@ axis属性说明
 </table>
 
 
-####series.data
-系列中的内容数组，折线图以及柱状图中当前数组长度*必须*（MUST）等于所使用类目轴文本标签数组[axis.data](#AxisData "")的长度，并且他们间是一一对应的，。
+#### series.data
+
+系列中的内容数组，折线图以及柱状图中当前数组长度 *必须(MUST)* 等于所使用类目轴文本标签数组[axis.data](#AxisData "")的长度，并且他们间是一一对应的，。
 数组项通常为数值，如: 
 
-	[12, 34, 56, ..., 10, 23]
+```javascript
+[12, 34, 56, ..., 10, 23]
+```
 
 当某类目对应数据不存在（'不存在' != 0）时，可用'-'表示，无数据在折线图中表现为折线在该点断开，在柱状图中表现为该点无柱形，如：
 
-	[12, '-', 56, ..., 10, 23]
+```javascript
+[12, '-', 56, ..., 10, 23]
+```
 
 当需要对个别内容进行个性化定义时，数组项可用对象，如：
 
-	[
-		12, 34,
-		{
-		    value : 56,			
-		 	tooltip:{},             //自定义特殊tooltip，仅对该item有效，详见tooltip
-            itemRender:{},        //自定义特殊itemRender，仅对该item有效，同itemRender
-            itemStyle:{}            //自定义特殊itemStyle，仅对该item有效，详见itemStyle
-		},
-	 	..., 10, 23
-	] 
+```javascript
+[
+    12, 34,
+    {
+        value : 56,         
+        tooltip:{},             //自定义特殊tooltip，仅对该item有效，详见tooltip
+        itemRender:{},        //自定义特殊itemRender，仅对该item有效，同itemRender
+        itemStyle:{}            //自定义特殊itemStyle，仅对该item有效，详见itemStyle
+    },
+    ..., 10, 23
+] 
+```
 
-特别的，当图表类型为scatter（散点图或气泡图）时，其数值设置比较特殊，他的横纵坐标轴都可能为数值型，并且气泡图时需要指定气泡大小，所以scatter型图表*应当*（SHOULD）设置为：
+特别的，当图表类型为scatter（散点图或气泡图）时，其数值设置比较特殊，他的横纵坐标轴都可能为数值型，并且气泡图时需要指定气泡大小，所以scatter型图表 *应当(SHOULD)* 设置为：
 
-	[
-		{
-			value : [10, 25, 5]		//[xValue, yValue, rValue]，数组内依次为横值，纵值，大小
-		},
-		...,
-		{
-		    value : [30, 128, 15],	//同上		
-		 	tooltip:{},             //自定义特殊tooltip，仅对该item有效，详见tooltip
-            itemRender:{},        //自定义特殊itemRender，仅对该item有效，同itemRender
-            itemStyle:{}            //自定义特殊itemStyle，仅对该item有效，详见itemStyle
-		}
-	] 
+```javascript
+[
+    {
+        value : [10, 25, 5]     //[xValue, yValue, rValue]，数组内依次为横值，纵值，大小
+    },
+    ...,
+    {
+        value : [30, 128, 15],  //同上        
+        tooltip:{},             //自定义特殊tooltip，仅对该item有效，详见tooltip
+        itemRender:{},          //自定义特殊itemRender，仅对该item有效，同itemRender
+        itemStyle:{}            //自定义特殊itemStyle，仅对该item有效，详见itemStyle
+    }
+] 
+```
 
-再特别的，当图表类型为饼图时，需要说明每部分数据的名称name，所以*应当*（SHOULD）设置为：
+再特别的，当图表类型为饼图时，需要说明每部分数据的名称name，所以 *应当(SHOULD)* 设置为：
 
-	[
-		{
-			value : 12，
-			name : 'apple'			//每部分数据的名称
-		},
-		...,
-		{
-		    value : 23,				//同上
-		    name : 'orange'			//同上		
-		 	tooltip:{},             //自定义特殊tooltip，仅对该item有效，详见tooltip
-            itemRender:{},        //自定义特殊itemRender，仅对该item有效，同itemRender
-            itemStyle:{}            //自定义特殊itemStyle，仅对该item有效，详见itemStyle
-		}
-	] 
+```javascript
+[
+    {
+        value : 12，
+        name : 'apple'          //每部分数据的名称
+    },
+    ...,
+    {
+        value : 23,             //同上
+        name : 'orange'         //同上        
+        tooltip:{},             //自定义特殊tooltip，仅对该item有效，详见tooltip
+        itemRender:{},          //自定义特殊itemRender，仅对该item有效，同itemRender
+        itemStyle:{}            //自定义特殊itemStyle，仅对该item有效，详见itemStyle
+    }
+] 
+```
 
-###itemStyle
+### itemStyle
+
 图形样式，可设置图表内图形的默认样式和强调样式（悬浮悬浮时样式）：
 
-	itemStyle: { 
-		normal: {
-			...
-		},
-		emphasis: {
-			...
-		} 
-	}
+    itemStyle: { 
+        normal: {
+            ...
+        },
+        emphasis: {
+            ...
+        } 
+    }
 
 其中normal和emphasis属性为对象，其包含：
 
@@ -1180,31 +1217,34 @@ axis属性说明
 
 通过有效设置itemStyle的normal和emphasis选项可实现个性化的显示策略，比如希望饼图文字标签默认隐藏，并在鼠标悬浮时通过一条红色的视觉引导线显示在饼图外部区域，可以如下设置：
 
-	itemStyle: { 
-		normal: {
-			label: {
-				show: false
-			}
-			labelLine: {
-				show: false
-			}			
-		} ,
-		emphasis: {
-			label: {
-				show: true,
-				position: 'outer'
-			}
-			labelLine: {
-				show: true,
-				lineStyle: {
-					color: 'red'
-				}
-			}
-		} 
-	}
+```javascript
+itemStyle: { 
+    normal: {
+        label: {
+            show: false
+        }
+        labelLine: {
+            show: false
+        }           
+    } ,
+    emphasis: {
+        label: {
+            show: true,
+            position: 'outer'
+        }
+        labelLine: {
+            show: true,
+            lineStyle: {
+                color: 'red'
+            }
+        }
+    } 
+}
+```
 
 
-###lineStyle
+### lineStyle
+
 线条（线段）样式
 
 
@@ -1235,7 +1275,8 @@ axis属性说明
 </table>
 
 
-###areaStyle
+### areaStyle
+
 区域填充样式
 
 
@@ -1261,7 +1302,8 @@ axis属性说明
 </table>
 
 
-###textStyle
+### textStyle
+
 文字样式
 
 
@@ -1312,7 +1354,8 @@ axis属性说明
 </table>
 
 
-###loadingOption
+### loadingOption
+
 过渡显示，loading（读取中）的选项
 
 
@@ -1353,7 +1396,8 @@ axis属性说明
 </table>
 
 
-###多级控制设计
+### 多级控制设计
+
 简单的说，你可以通过这三级满足不同level的定制和个性化需求：
 
 - 通过 option.* 设置全局统一配置；
@@ -1362,80 +1406,82 @@ axis属性说明
 
 ![多级控制](./chart/multiControl.jpg "")
 
-##附录：一个直观的事例
+## 附录：一个直观的事例
 
-	// 图表实例化------------------
-	var myChart = new echarts();
+```javascript
+// 图表实例化------------------
+var myChart = new echarts();
 
-	// 图表使用-------------------
-	var option = {
-	    // 图例配置
-	    legend: {
-	        padding: 5,                             // 图例内边距，单位px，默认上下左右内边距为5
-	        itemGap: 10,                            // Legend各个item之间的间隔，横向布局时为水平间隔，纵向布局时为纵向间隔
-	        data: ['ios', 'android']
-	    },
-	    
-	    // 气泡提示配置
-	    tooltip: {
-	        trigger: 'item',                        // 触发类型，默认数据触发，可选为：'axis'
-	    },
-	    
-	    // 直角坐标系内绘图网格
-	    grid: {                   
-	        width: 500,                             // 直角坐标系内绘图网格宽度，数值单位px，并不包括坐标label
-	        height: 300                             // 直角坐标系内绘图网格高度，数值单位px，并不包括坐标label
-	    },
-	    
-	    // 直角坐标系中横轴数组
-	    xAxis: [
-	        {
-	            type: 'category',                   // 坐标轴类型，横轴默认为类目轴，数值轴则参考yAxis说明
-	            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']       
-	        }
-	    ],
-	    
-	    // 直角坐标系中纵轴数组
-	    yAxis: [
-	        {
-	            type: 'value',                      // 坐标轴类型，纵轴默认为数值轴，类目轴则参考xAxis说明
-	            boundaryGap: [0.1, 0.1],            // 坐标轴两端空白策略，数组内数值代表百分比
-	            splitNumber: 4                      // 数值轴用，分割段数，默认为5
-	        }
-	    ]               
-	};
-	myChart.setOption(option);
+// 图表使用-------------------
+var option = {
+    // 图例配置
+    legend: {
+        padding: 5,                             // 图例内边距，单位px，默认上下左右内边距为5
+        itemGap: 10,                            // Legend各个item之间的间隔，横向布局时为水平间隔，纵向布局时为纵向间隔
+        data: ['ios', 'android']
+    },
+    
+    // 气泡提示配置
+    tooltip: {
+        trigger: 'item',                        // 触发类型，默认数据触发，可选为：'axis'
+    },
+    
+    // 直角坐标系内绘图网格
+    grid: {                   
+        width: 500,                             // 直角坐标系内绘图网格宽度，数值单位px，并不包括坐标label
+        height: 300                             // 直角坐标系内绘图网格高度，数值单位px，并不包括坐标label
+    },
+    
+    // 直角坐标系中横轴数组
+    xAxis: [
+        {
+            type: 'category',                   // 坐标轴类型，横轴默认为类目轴，数值轴则参考yAxis说明
+            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']       
+        }
+    ],
+    
+    // 直角坐标系中纵轴数组
+    yAxis: [
+        {
+            type: 'value',                      // 坐标轴类型，纵轴默认为数值轴，类目轴则参考xAxis说明
+            boundaryGap: [0.1, 0.1],            // 坐标轴两端空白策略，数组内数值代表百分比
+            splitNumber: 4                      // 数值轴用，分割段数，默认为5
+        }
+    ]               
+};
+myChart.setOption(option);
 
-	//ajax getting data...............
+//ajax getting data...............
 
-	// 过渡---------------------
-	myChart.showLoading({
-	    text: '正在努力的读取数据中...',    //loading话术
-	    x: 'center',                        //水平安放位置，默认为 'center'，可选为：'left' || 'right' || Number可指定x坐标
-	    y: 'center'                         //垂直安放位置，默认为'center'，可选为： 'top' || bottom' || Number可指定y坐标
-	});
+// 过渡---------------------
+myChart.showLoading({
+    text: '正在努力的读取数据中...',    //loading话术
+    x: 'center',                        //水平安放位置，默认为 'center'，可选为：'left' || 'right' || Number可指定x坐标
+    y: 'center'                         //垂直安放位置，默认为'center'，可选为： 'top' || bottom' || Number可指定y坐标
+});
 
-	//ajax return
-	myChart.hideLoading();
+//ajax return
+myChart.hideLoading();
 
-	// 数据数组，data from ajax
-	var series = [
-	    {
-	        name: 'ios',                            // 系列名称
-	        type: 'line',                           // 图表类型，折线图line、散点图scatter、柱状图bar、饼图pie、雷达图radar
-	        data: [112, 23, 45, 56, 233, 343, 454, 89, 343, 123, 45, 123]
-	    },
-	    {
-	        name: 'android',                        // 系列名称
-	        type: 'line',                           // 图表类型，折线图line、散点图scatter、柱状图bar、饼图pie、雷达图radar
-	        data: [45, 123, 145, 526, 233, 343, 44, 829, 33, 123, 45, 13]
-	    }
-	];
+// 数据数组，data from ajax
+var series = [
+    {
+        name: 'ios',                            // 系列名称
+        type: 'line',                           // 图表类型，折线图line、散点图scatter、柱状图bar、饼图pie、雷达图radar
+        data: [112, 23, 45, 56, 233, 343, 454, 89, 343, 123, 45, 123]
+    },
+    {
+        name: 'android',                        // 系列名称
+        type: 'line',                           // 图表类型，折线图line、散点图scatter、柱状图bar、饼图pie、雷达图radar
+        data: [45, 123, 145, 526, 233, 343, 44, 829, 33, 123, 45, 13]
+    }
+];
 
-	myChart.setSeries(series);
+myChart.setSeries(series);
 
-	// 图表清空-------------------
-	myChart.clear();
+// 图表清空-------------------
+myChart.clear();
 
-	// 图表释放-------------------
-	myChart.dispose(); 
+// 图表释放-------------------
+myChart.dispose(); 
+```
