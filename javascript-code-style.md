@@ -374,6 +374,64 @@ var array = [
 
 注意：对于基本类型{string}, {number}, {boolean}，首字母 *必须(MUST)* 小写。
 
+<table>
+    <tr>
+        <th bgcolor="#eeeeee">类型定义</th>
+        <th bgcolor="#eeeeee">语法示例</th>
+        <th bgcolor="#eeeeee">解释</th>
+    </tr>
+    <tr>
+        <td>原生类型</td>
+        <td>String => {string}<br>Number => {number}<br>Boolean => {boolean}<br>Object => {Object}<br>Function => {Function}<br>RegExp => {RegExp}<br>Array => {Array}<br>Date => {Date}<br>...</td>
+        <td>--</td>
+    </tr>
+    <tr>
+        <td>单一类型集合</td>
+        <td>{Array.&lt;string&gt;}</td>
+        <td>string类型的数组</td>
+    </tr>
+    <tr>
+        <td>多类型</td>
+        <td>{(number｜boolean)}</td>
+        <td>可能是number类型, 也可能是boolean类型</td>
+    </tr>
+    <tr>
+        <td>允许为null</td>
+        <td>{?number}</td>
+        <td>可能是number, 也可能是null</td>
+    </tr>
+    <tr>
+        <td>不允许为null</td>
+        <td>{!Object}</td>
+        <td>Object类型, 但不是null</td>
+    </tr>
+    <tr>
+        <td>Function类型</td>
+        <td>{function(number, boolean)}</td>
+        <td>函数, 形参类型</td>
+    </tr>
+    <tr>
+        <td>Function带返回值</td>
+        <td>{function(number, boolean):string}</td>
+        <td>函数, 形参, 返回值类型</td>
+    </tr>
+    <tr>
+        <td>参数可选</td>
+        <td>@param {string=} opt_name</td>
+        <td>可选参数, =为类型后缀, opt_为形参前缀</td>
+    </tr>
+    <tr>
+        <td>可变参数</td>
+        <td>@param {...number} var_args</td>
+        <td>变长参数,  ...为类型前缀, var_args为形参名</td>
+    </tr>
+    <tr>
+        <td>任意类型</td>
+        <td>{*}</td>
+        <td>任意类型<br>@param {...*} var_args<br>@param {*=} opt_name</td>
+    </tr>
+</table>
+
 #### 原生类型
 
 - String => {string}
