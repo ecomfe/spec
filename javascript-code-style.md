@@ -1,4 +1,4 @@
-# Javascript编码规范 (1.0)
+# Javascript编码规范 (1.1)
 
 
 ## 简介
@@ -85,7 +85,7 @@ catch (ex) {
 }
 
 do {
-    
+    // some statements;
 }
 while (condition);
 ```
@@ -106,7 +106,7 @@ try {
 }
 
 do {
-    
+    // some statements;
 } while (condition);
 ```
 
