@@ -10,7 +10,7 @@
 
 张立理、erik、顾轶灵、李玉北、王海洋、王杨、周莲洁。
 
-本文档由`商业运营体系前端技术组`审校发布。
+本文档由`商业前端技术组`审校发布。
 
 
 ### 要求
@@ -58,10 +58,59 @@ var foo = function foo(x, y, z) {
 在以下位置*必须*换行：
 
 - 每个独立语句结束后
-- `if`、`else`、`catch`、`finally`、`while`等关键字前
 - 运算符处换行时，运算符 *必须(MUST)* 在新行的行首
+- 单行长度超过限制时
 
 对于因为单行长度超过限制时产生的换行，参考**行长度**中的策略进行分隔。
+
+不同行为或逻辑的语句集，中间可以通过一个以上的换行做视觉上的区分，更易阅读。
+
+### 换行风格
+
+对于`if...else...`、`try...catch...finially`、`do...while`等语句，我们 *推荐(RECOMMENDED)* 使用 **在}号后添加一个换行** 的风格，使代码层次结构更清晰，阅读性更好。
+
+```javascript
+if (condition) {
+    // some statements;
+}
+else {
+    // some statements;
+}
+
+try {
+    // some statements;
+}
+catch (ex) {
+    // some statements;
+}
+
+do {
+    
+}
+while (condition);
+```
+
+也 *可以(MAY)* 使用符合[Code Conventions for the Java Programming Language](http://www.oracle.com/technetwork/java/codeconv-138413.html)的换行风格。
+
+```javascript
+if (condition) {
+    // some statements;
+} else {
+    // some statements;
+}
+
+try {
+    // some statements;
+} catch (ex) {
+    // some statements;
+}
+
+do {
+    
+} while (condition);
+```
+
+无论使用哪种换行风格，在同一个项目下 *必须(MUST)* 保证风格一致。
 
 ## 行长度
 
@@ -697,3 +746,5 @@ function foo(p1, p2, opt_p3) {
 
 1. <https://developers.google.com/closure/compiler/docs/js-for-compiler#types>
 2. <http://usejsdoc.org/>
+3. <http://www.oracle.com/technetwork/java/codeconv-138413.html>
+4. <http://www.gnu.org/prep/standards/standards.html>
