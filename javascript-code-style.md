@@ -65,6 +65,17 @@ var foo = function foo(x, y, z) {
 
 不同行为或逻辑的语句集，中间可以通过一个以上的换行做视觉上的区分，更易阅读。
 
+```javascript
+// 仅为按逻辑换行的示例，不代表setStyle的最优实现
+function setStyle(element, property, value) {
+    if (element == null) {
+        return;
+    }
+
+    element.style[property] = value;
+}
+```
+
 ### 换行风格
 
 对于`if...else...`、`try...catch...finially`、`do...while`等语句，我们 *推荐(RECOMMENDED)* 使用 **在}号后添加一个换行** 的风格，使代码层次结构更清晰，阅读性更好。
