@@ -125,7 +125,7 @@ require.config({
             css/[?]
             img/
             main.js
-        lib/
+        dep/
             foo/
             bar/
             jquery/
@@ -153,7 +153,7 @@ require.config({
         package.json
         README.md
 
-### lib
+### dep
 
 用来存放`dependencies package`的代码， *不允许(MUST NOT)* 放置任何其它的内容。
 
