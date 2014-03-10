@@ -37,9 +37,31 @@
 
 开发时，我们通常会做一些测试用例或示例，此时需要通过AMD Loader将当前包粘合到页面环境，并使其可运行。这时我们需要遵守一些规则：
 
-1. 对`内部模块依赖`，AMD Loader配置 *必须(MUST)* 将`baseUrl`配置到`${root}`下的`src`目录，并且 *不允许(MUST NOT)* 通过`paths`进行路径映射。
+1. 对`内部模块依赖`，AMD Loader配置 *推荐(RECOMMENDED)* 通过`packages`将`location`配置到`${root}`下的`src`目录， *不允许(MUST NOT)* 通过`paths`进行路径映射。
 2. 对`外部包依赖`，请参照[项目目录结构规范](directory.md)将相关依赖包导入，并且 *必须(MUST)* 通过`packages`项配置AMD Loader。
 
+```javascript
+// 示例：ER package的test配置
+require.config({
+    packages: [
+        {
+            name: 'er',
+            location: '../src',
+            main: 'main'
+        },
+        {
+            name: 'mini-event',
+            location: '../dep/mini-event/1.0.0/src',
+            main: 'main'
+        },
+        {
+            name: 'etpl',
+            location: '../dep/etpl/2.0.2/src',
+            main: 'main'
+        }
+    ]
+});
+```
 
 ### 资源
 
