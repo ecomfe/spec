@@ -22,7 +22,7 @@
 
 在特定的位置加上空格有助于代码的可读性，以下位置 *必须(MUST)* 加上空格：
 
-- 除括号外，所有运算符的前后
+- 除括号外，所有非一元运算符的前后
 - 用作代码块起始的左大括号`{`前，包括`if`、`else`、`try`、`finally`这些关键字之后，以及 **函数定义的参数列表** 之后
 - 以下关键字之后：`for`、`switch`、`while`、`function`
 - 对象初始化（`{ ... }`）的每个属性名的冒号`:`后
@@ -31,7 +31,7 @@
 
 
 ```javascript
-// 除括号外，所有运算符的前后
+// 除括号外，所有非一元运算符的前后
 a = b + c;
 c = d * (e + f);
 
@@ -63,6 +63,10 @@ function test(param) {
 switch (typeof variable) {
 }
 
+(function () {
+    //...
+})();
+
 // 对象初始化（`{ ... }`）的每个属性名的冒号`:`后
 var person = {
     name: 'erik',
@@ -93,6 +97,21 @@ var foo = function foo(x, y, z) {
 };
 ```
 
+一元运算符前后 *不允许(MUST NOT)* 包含空格。
+
+```javascript
+// ✓
+i++
+++i
+!boolVariable
+
+
+// ✗
+i ++
+++ i
+! boolVariable
+```
+
 另外，对于下面的代码场景，在非换行的情况下，`()`和`[]`内 **紧贴括号部分** *不允许(MUST NOT)* 包含空格。
 
 - 函数调用
@@ -115,7 +134,6 @@ if (num > list.length) {
 
 while (len--) {
 }
-
 
 
 
