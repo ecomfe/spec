@@ -38,38 +38,29 @@ c = d * (e + f);
 // 用作代码块起始的左大括号`{`前，包括`if`、`else`、`try`、`finally`这些关键字之后
 // 以及**函数定义的参数列表**之后
 if (condition) {
-    
 }
 else (condition) {
-    
 }
 
 try {
-    
 }
 finally {
-    
 }
 
 function test(param) {
-    
 }
 
 // 以下关键字之后：`for`、`switch`、`while`、`function`
 for (i = 0; i < len; i++) {
-    
 }
 
 while (len--) {
-    
 }
 
 function test(param) {
-    
 }
 
 switch (typeof variable) {
-    
 }
 
 // 对象初始化（`{ ... }`）的每个属性名的冒号`:`后
@@ -80,7 +71,6 @@ var person = {
 
 // 所有逗号`,`后
 function test(param1, param2, param3) {
-    
 }
 
 // 单行的对象初始化（`{ ... }`）左大括号`{`后和右大括号`}`前
