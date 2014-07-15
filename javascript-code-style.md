@@ -1,4 +1,4 @@
-# Javascript编码规范 (1.1)
+# Javascript编码规范 (1.2)
 
 
 ## 简介
@@ -22,12 +22,70 @@
 
 在特定的位置加上空格有助于代码的可读性，以下位置 *必须(MUST)* 加上空格：
 
-- 除括号外，所有运算符的前后，如
-- 用作代码块起始的左大括号`{`前，包括`if`、`else`、`try`、`finally`这些关键字之后，以及**函数定义的参数列表**之后
+- 除括号外，所有运算符的前后
+- 用作代码块起始的左大括号`{`前，包括`if`、`else`、`try`、`finally`这些关键字之后，以及 **函数定义的参数列表** 之后
 - 以下关键字之后：`for`、`switch`、`while`、`function`
 - 对象初始化（`{ ... }`）的每个属性名的冒号`:`后
 - 所有逗号`,`后
 - 单行的对象初始化（`{ ... }`）左大括号`{`后和右大括号`}`前
+
+
+```javascript
+// 除括号外，所有运算符的前后
+a = b + c;
+c = d * (e + f);
+
+// 用作代码块起始的左大括号`{`前，包括`if`、`else`、`try`、`finally`这些关键字之后
+// 以及**函数定义的参数列表**之后
+if (condition) {
+    
+}
+else (condition) {
+    
+}
+
+try {
+    
+}
+finally {
+    
+}
+
+function test(param) {
+    
+}
+
+// 以下关键字之后：`for`、`switch`、`while`、`function`
+for (i = 0; i < len; i++) {
+    
+}
+
+while (len--) {
+    
+}
+
+function test(param) {
+    
+}
+
+switch (typeof variable) {
+    
+}
+
+// 对象初始化（`{ ... }`）的每个属性名的冒号`:`后
+var person = {
+    name: 'erik',
+    email: 'errorrik@gmail.com'
+};
+
+// 所有逗号`,`后
+function test(param1, param2, param3) {
+    
+}
+
+// 单行的对象初始化（`{ ... }`）左大括号`{`后和右大括号`}`前
+var person = { name: 'erik' };
+```
 
 注意：函数声明与具名函数表达式，**函数名与括号之间** *不允许(MUST NOT)* 包含空格，以期和函数调用保持一致。以下是一个函数的正确声明方式：
 
@@ -45,8 +103,46 @@ var foo = function foo(x, y, z) {
 };
 ```
 
-另外，对于函数调用和属性访问的操作，`()`和`[]`内*不允许(MUST NOT)* 包含空格。
+另外，对于下面的代码场景，在非换行的情况下，`()`和`[]`内 **紧贴括号部分** *不允许(MUST NOT)* 包含空格。
 
+- 函数调用
+- 函数声明
+- 属性访问
+- if/for/while/switch/catch等语句中的()
+- 括号表达式
+
+```javascript
+// ✓
+
+callFunc(param1, param2, param3);
+
+save(this.list[this.indexes[i]]);
+
+needIncream && (variable += increament);
+
+if (num > list.length) {
+}
+
+while (len--) {
+}
+
+
+
+
+// ✗
+
+callFunc( param1, param2, param3 );
+
+save( this.list[ this.indexes[ i ] ] );
+
+needIncream && ( variable += increament );
+
+if ( num > list.length ) {
+}
+
+while ( len-- ) {
+}
+```
 
 ## 对齐和缩进
 
