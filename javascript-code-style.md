@@ -378,7 +378,7 @@ var mapping = [
 
 ```javascript
 setTimeout(
-    function() {
+    function () {
         alert('hello');
     },
     200
@@ -386,7 +386,7 @@ setTimeout(
 
 order.data.read(
     'id=' + me.model.id, 
-    function(data) {
+    function (data) {
         me.attchToModel(data.result);
         callback();
     }, 
