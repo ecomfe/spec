@@ -1,10 +1,10 @@
-# Less 编码规范 (1.0)
+# Less 编码规范 (1.1)
 
 ## 简介
 
 该文档主要的设计目标是提高 Less 文档的团队一致性与可维护性。
 
-Less 代码的基本规范和原则与 [HTML 与 CSS 编码规范](https://github.com/ecomfe/spec/blob/master/html-and-css-code-style.md)中的 CSS 部分保持一致。
+Less 代码的基本规范和原则与 [CSS 编码规范](https://github.com/ecomfe/spec/blob/master/css-style-guide.md) 保持一致。
 
 ### 编撰
 
@@ -20,7 +20,7 @@ erik、顾轶灵、黄后锦、李玉北、赵雷。
 
 ## 编码
 
-使用UTF-8编码。HTML、CSS、模板等文件*不得*（MUST NOT）包含BOM信息。
+使用UTF-8编码。*不得*（MUST NOT）包含BOM信息。
 
 ***
 
@@ -183,7 +183,7 @@ margin-top: 0;
 
 ### 颜色
 
-颜色定义*必须*（MUST）使用 `#RRGGBB` 格式定义，并在可能时*尽量*（SHOULD）缩写为 `#RGB` 形式，且避免直接使用颜色名称与 `rgb()` 表达式。
+颜色定义*必须*（MUST）使用 `#rrggbb` 格式定义，并在可能时*尽量*（SHOULD）缩写为 `#rgb` 形式，且避免直接使用颜色名称与 `rgb()` 表达式。
 
 ```less
 // ✗
@@ -191,8 +191,8 @@ border-color: red;
 color: rgb(254, 254, 254);
 
 // ✓
-border-color: #F00;
-color: #FEFEFE;
+border-color: #f00;
+color: #fefefe;
 ```
 
 ### 私有属性前缀
@@ -365,7 +365,7 @@ Mixin 的参数分隔符使用 `,` 和 `;` 均可，但在同一项目中*必须
 
 在进行字符串转义时，使用 `~""` 表达式与 `e()` 函数均可，但在同一项目中*必须*（MUST）保持一致。
 
-字符串两侧的引号*可以*（MAY）使用 `'` 或 `"`，但在同一项目中*必须*（MUST）保持一致。
+字符串两侧的引号*必须*（MUST）使用 `"`。
 
 ## JS 表达式
 
