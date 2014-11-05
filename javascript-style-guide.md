@@ -1431,7 +1431,7 @@ Bar.prototype.baz = function () {
 示例：
 
 ```javascript
-function foo(p1, p2, opt_p3) {
+function foo(p1, p2) {
     // 这里对具体内部逻辑进行说明
     // 说明太长需要换行
     for (...) {
