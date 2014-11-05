@@ -96,7 +96,7 @@ require.config({
 
 ### 示例
 
-    ```javascript
+ ```JavaScript
     {
         "name": "zrender",
         "version": "0.0.1",
@@ -112,7 +112,8 @@ require.config({
             "uglify-js": "*"
         }
     }
-    ```
+```
+
 
 ## 包目录结构
 
