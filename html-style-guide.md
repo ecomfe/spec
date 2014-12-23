@@ -825,7 +825,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 </table>
 ```
 
-[返回顶部](#1_preface)
+[返回顶部](#1-preface)
 
 
 
