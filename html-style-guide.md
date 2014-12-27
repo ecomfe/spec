@@ -340,6 +340,31 @@ alert(document.getElementById('foo').tagName);
 ```
 
 
+#### [建议] 属性顺序
+
+解释：
+
+HTML 属性应该按照特定的顺序出现以保证易读性。class 是为高可复用组件设计的，理论上他们应处在第一位。id 更加具体而且应该尽量少使用（例如, 页内书签），所以他们处在第二位。但为了突出id的重要性， 把id放到了第一位。
+
++ id
++ class
++ name
++ data-*
++ src, for, type, href
++ title, alt
++ aria-*, role
+
+
+```html
+<a id="..." class="..." data-modal="toggle" href="#">
+    Example link
+</a>
+
+<input class="form-control" type="text">
+
+<img src="..." alt="...">
+```
+
 
 
 <h2 id="3-general">3 通用</h2>
