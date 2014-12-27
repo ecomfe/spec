@@ -4,25 +4,25 @@
 
 
 
-[1 前言](#1-%E5%89%8D%E8%A8%80)
+[1 前言](#1-preface)
 
-[2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+[2 代码风格](#2-code-style)
 
-　　[2.1 缩进与换行](#21-%E7%BC%A9%E8%BF%9B%E4%B8%8E%E6%8D%A2%E8%A1%8C)
+　　[2.1 缩进与换行](#21-indentation-and-newline)
 
-　　[2.2 命名](#22-%E5%91%BD%E5%90%8D)
+　　[2.2 命名](#22-naming)
 
-　　[2.3 标签](#23-%E6%A0%87%E7%AD%BE)
+　　[2.3 标签](#23-tag)
 
-　　[2.4 属性](#24-%E5%B1%9E%E6%80%A7)
+　　[2.4 属性](#24-attribute)
 
-[3 通用](#3-%E9%80%9A%E7%94%A8)
+[3 通用](#3-general)
 
 　　[3.1 DOCTYPE](#31-doctype)
 
-　　[3.2 编码](#32-%E7%BC%96%E7%A0%81)
+　　[3.2 编码](#32-Encode)
 
-　　[3.3 CSS和JavaScript引入](#33-css%E5%92%8Cjavascript%E5%BC%95%E5%85%A5)
+　　[3.3 CSS和JavaScript引入](#33-css-javascript)
 
 [4 head](#4-head)
 
@@ -32,25 +32,26 @@
 
 　　[4.3 viewport](#43-viewport)
 
-[5 图片](#5-%E5%9B%BE%E7%89%87)
+[5 图片](#5-image)
 
-[6 表单](#6-%E8%A1%A8%E5%8D%95)
+[6 表单](#6-form)
 
-　　[6.1 控件标题](#61-%E6%8E%A7%E4%BB%B6%E6%A0%87%E9%A2%98)
+　　[6.1 控件标题](#61-control-label)
 
-　　[6.2 按钮](#62-%E6%8C%89%E9%92%AE)
+　　[6.2 按钮](#62-input)
 
-　　[6.3 可访问性 (A11Y)](#63-%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7-a11y)
+　　[6.3 可访问性 (A11Y)](#63-Accessibility)
 
-[7 多媒体](#7-%E5%A4%9A%E5%AA%92%E4%BD%93)
+[7 多媒体](#7-multimedia)
 
-[8 模板中的 HTML](#8-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84-html)
-
-
+[8 模板中的 HTML](#8-html-in-template)
 
 
 
-## 1 前言
+
+
+<h2 id="1-preface">1 前言</h2>   
+
 
 
 HTML作为描述网页结构的超文本标记语言，在百度一直有着广泛的应用。本文档的目标是使HTML代码风格保持一致，容易被理解和被维护。
@@ -58,10 +59,10 @@ HTML作为描述网页结构的超文本标记语言，在百度一直有着广�
 
 
 
-## 2 代码风格
+<h2 id="2-code-style">2 代码风格</h2>
 
 
-### 2.1 缩进与换行
+<h3 id="21-indentation-and-newline">2.1 缩进与换行</h3>
 
 
 #### [强制] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
@@ -83,7 +84,7 @@ HTML作为描述网页结构的超文本标记语言，在百度一直有着广�
 过长的代码不容易阅读与维护。但是考虑到 HTML 的特殊性，不做硬性要求。
 
 
-### 2.2 命名
+<h3 id="22-naming">2.2 命名</h3>
 
 
 
@@ -161,7 +162,7 @@ alert(document.getElementById('foo').tagName);
 ````
 
 
-### 2.3 标签
+<h3 id="23-tag">2.3 标签</h3>
 
 
 #### [强制] 标签名必须使用小写字母。
@@ -281,7 +282,7 @@ alert(document.getElementById('foo').tagName);
 
 
 
-### 2.4 属性
+<h3 id="24-attribute">2.4 属性</h3>
 
 
 #### [强制] 属性名必须使用小写字母。
@@ -339,12 +340,37 @@ alert(document.getElementById('foo').tagName);
 ```
 
 
+#### [建议] 属性顺序
+
+解释：
+
+HTML 属性应该按照特定的顺序出现以保证易读性。class 是为高可复用组件设计的，理论上他们应处在第一位。id 更加具体而且应该尽量少使用（例如, 页内书签），所以他们处在第二位。但为了突出id的重要性， 把id放到了第一位。
+
++ id
++ class
++ name
++ data-*
++ src, for, type, href
++ title, alt
++ aria-*, role
 
 
-## 3 通用
+```html
+<a id="..." class="..." data-modal="toggle" href="#">
+    Example link
+</a>
+
+<input class="form-control" type="text">
+
+<img src="..." alt="...">
+```
 
 
-### 3.1 DOCTYPE
+
+<h2 id="3-general">3 通用</h2>
+
+
+<h3 id="31-doctype">3.1 DOCTYPE</h3>
 
 
 #### [强制] 使用 `HTML5` 的 `doctype` 来启用标准模式，建议使用大写的 `DOCTYPE`。
@@ -377,7 +403,7 @@ alert(document.getElementById('foo').tagName);
 ```
 
 
-### 3.2 编码
+<h3 id="32-Encode">3.2 编码</h3>
 
 
 #### [强制] 页面必须使用精简形式，明确指定字符编码。指定字符编码的 `meta` 必须是 `head` 的第一个直接子元素。
@@ -408,7 +434,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 
 
 
-### 3.3 CSS和JavaScript引入
+<h3 id="33-css-javascript">3.3 CSS和JavaScript引入</h3>
 
 
 #### [强制] 引入 `CSS` 时必须指明 `rel="stylesheet"`。
@@ -476,10 +502,10 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 
 
 
-## 4 head
+<h2 id="4-head">4 head</h2>
 
 
-### 4.1 title
+<h3 id="41-title">4.1 title</h3>
 
 
 #### [强制] 页面必须包含 `title` 标签声明标题。
@@ -500,7 +526,7 @@ title 中如果包含 ascii 之外的字符，浏览器需要知道字符编码�
 </head>
 ```
 
-### 4.2 favicon
+<h3 id="42-favicon">4.2 favicon</h3>
 
 
 #### [强制] 保证 `favicon` 可访问。
@@ -519,7 +545,7 @@ title 中如果包含 ascii 之外的字符，浏览器需要知道字符编码�
 <link rel="shortcut icon" href="path/to/favicon.ico">
 ```
 
-### 4.3 viewport
+<h3 id="43-viewport">4.3 viewport</h3>
 
 
 #### [建议] 若页面欲对移动设备友好，需指定页面的 `viewport`。
@@ -535,7 +561,7 @@ viewport meta tag可以设置可视区域的宽度和初始缩放大小，避免
 
 
 
-## 5 图片
+<h2 id="5-image">5 图片</h2>
 
 
 
@@ -569,10 +595,10 @@ src 取值为空，会导致部分浏览器重新加载一次当前页面，参�
 
 
 
-## 6 表单
+<h2 id="6-form">6 表单</h2>
 
 
-### 6.1 控件标题
+<h3 id="61-control-label">6.1 控件标题</h3>
 
 
 #### [强制] 有文本标题的控件必须使用 `label` 标签将其与其标题相关联。
@@ -596,7 +622,7 @@ src 取值为空，会导致部分浏览器重新加载一次当前页面，参�
 ```
 
 
-### 6.2 按钮
+<h3 id="62-input">6.2 按钮</h3>
 
 
 #### [强制] 使用 `button` 元素时必须指明 `type` 属性值。
@@ -620,7 +646,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 由于浏览器兼容性问题，使用按钮的 name 属性会带来许多难以发现的问题。具体情况可参考[此文](http://w3help.org/zh-cn/causes/CM2001)。
 
 
-### 6.3 可访问性 (A11Y)
+<h3 id="63-Accessibility">6.3 可访问性 (A11Y)</h3>
 
 
 #### [建议] 负责主要功能的按钮在 `DOM` 中的顺序应靠前。
@@ -693,7 +719,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 
 
 
-## 7 多媒体
+<h2 id="7-multimedia">7 多媒体</h2>
 
 
 
@@ -751,7 +777,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 
 
 
-## 8 模板中的 HTML
+<h2 id="8-html-in-template">8 模板中的 HTML</h2>
 
 
 #### [建议] 模板代码的缩进优先保证 `HTML` 代码的缩进规则。
@@ -823,6 +849,8 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 </tr>
 </table>
 ```
+
+[返回顶部](#1-preface)
 
 
 
