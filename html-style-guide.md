@@ -4,47 +4,47 @@
 
 
 
-[1 前言](#1-%E5%89%8D%E8%A8%80)
+[1 前言](#user-content-1-前言)
 
-[2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+[2 代码风格](#user-content-2-代码风格)
 
-　　[2.1 缩进与换行](#21-%E7%BC%A9%E8%BF%9B%E4%B8%8E%E6%8D%A2%E8%A1%8C)
+　　[2.1 缩进与换行](#user-content-21-缩进与换行)
 
-　　[2.2 命名](#22-%E5%91%BD%E5%90%8D)
+　　[2.2 命名](#user-content-22-命名)
 
-　　[2.3 标签](#23-%E6%A0%87%E7%AD%BE)
+　　[2.3 标签](#user-content-23-标签)
 
-　　[2.4 属性](#24-%E5%B1%9E%E6%80%A7)
+　　[2.4 属性](#user-content-24-属性)
 
-[3 通用](#3-%E9%80%9A%E7%94%A8)
+[3 通用](#user-content-3-通用)
 
-　　[3.1 DOCTYPE](#31-doctype)
+　　[3.1 DOCTYPE](#user-content-31-doctype)
 
-　　[3.2 编码](#32-%E7%BC%96%E7%A0%81)
+　　[3.2 编码](#user-content-32-编码)
 
-　　[3.3 CSS和JavaScript引入](#33-css%E5%92%8Cjavascript%E5%BC%95%E5%85%A5)
+　　[3.3 CSS和JavaScript引入](#user-content-33-css和javascript引入)
 
 [4 head](#4-head)
 
-　　[4.1 title](#41-title)
+　　[4.1 title](#user-content-41-title)
 
-　　[4.2 favicon](#42-favicon)
+　　[4.2 favicon](#user-content-42-favicon)
 
-　　[4.3 viewport](#43-viewport)
+　　[4.3 viewport](#user-content-43-viewport)
 
-[5 图片](#5-%E5%9B%BE%E7%89%87)
+[5 图片](#user-content-5-图片)
 
-[6 表单](#6-%E8%A1%A8%E5%8D%95)
+[6 表单](#user-content-6-表单)
 
-　　[6.1 控件标题](#61-%E6%8E%A7%E4%BB%B6%E6%A0%87%E9%A2%98)
+　　[6.1 控件标题](#user-content-61-控件标题)
 
-　　[6.2 按钮](#62-%E6%8C%89%E9%92%AE)
+　　[6.2 按钮](#user-content-62-按钮)
 
-　　[6.3 可访问性 (A11Y)](#63-%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7-a11y)
+　　[6.3 可访问性 (A11Y)](#user-content-63-可访问性-a11y)
 
-[7 多媒体](#7-%E5%A4%9A%E5%AA%92%E4%BD%93)
+[7 多媒体](#user-content-7-多媒体)
 
-[8 模板中的 HTML](#8-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84-html)
+[8 模板中的 HTML](#user-content-8-模板中的-html)
 
 
 
