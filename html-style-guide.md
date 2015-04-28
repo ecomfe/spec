@@ -416,7 +416,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 示例：
 
 ```html
-<link rel="stylesheet" src="page.css">
+<link rel="stylesheet" href="page.css">
 ```
 
 
