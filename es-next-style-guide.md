@@ -1,5 +1,5 @@
 
-# JavaScript编码规范 - ESNext补充篇
+# JavaScript编码规范 - ESNext补充篇 (草案)
 
 
 
