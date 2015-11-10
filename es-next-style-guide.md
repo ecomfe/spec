@@ -55,8 +55,6 @@
 
 本文档仅包含新特性部分。基础部分请遵循[JavaScript Style Guide](javascript-style-guide.md)
 
-任何问题或建议，欢迎跟我们讨论: [fe-styleguide@baidu.com](mailto:fe-styleguide@baidu.com)
-
 
 
 
