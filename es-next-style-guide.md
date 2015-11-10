@@ -1,5 +1,5 @@
 
-# JavaScript编码规范 - ESNext补充篇 (草案)
+# JavaScript编码规范 - ESNext补充篇（草案）
 
 
 
@@ -568,14 +568,14 @@ let foo2 = {
 
 ```javascript
 // good
-var foo = {
+let foo = {
     bar(x, y) {
         return x + y;
     }
 };
 
 // bad
-var foo = {
+let foo = {
     bar: function (x, y) {
         return x + y;
     }
@@ -607,14 +607,14 @@ for (let key of Object.keys(foo)) {
 
 ```javascript
 // good
-var foo = {
+let foo = {
     bar(x, y) {
         return x + y;
     }
 };
 
 // bad
-var foo = {
+let foo = {
     bar: (x, y) => x + y
 };
 ```
@@ -970,7 +970,7 @@ getUser(userId, function (user) {
 
 ```javascript
 // good
-var user;
+let user;
 getUser(userId)
     .then(function (userObj) {
         user = userObj;
@@ -1042,8 +1042,8 @@ function requestData() {
 
 // bad
 async function requestData() {
-    var tags = await requestTags();
-    var articles = await requestArticles();
+    let tags = await requestTags();
+    let articles = await requestArticles();
 
     return Promise.resolve({tags, articles});
 }
@@ -1069,11 +1069,11 @@ addReport(report, userId).then(
 
 // good
 async function addReport(report, userId) {
-    var user = await getUser(userId);
-    var isValid = await validateUser(user);
+    let user = await getUser(userId);
+    let isValid = await validateUser(user);
 
     if (isValid) {
-        var savePromise = saveReport(report, user);
+        let savePromise = saveReport(report, user);
         return savePromise();
     }
 
@@ -1083,11 +1083,11 @@ async function addReport(report, userId) {
 // bad
 function addReport(report, userId) {
     return co(function* () {
-        var user = yield getUser(userId);
-        var isValid = yield validateUser(user);
+        let user = yield getUser(userId);
+        let isValid = yield validateUser(user);
 
         if (isValid) {
-            var savePromise = saveReport(report, user);
+            let savePromise = saveReport(report, user);
             return savePromise();
         }
 
