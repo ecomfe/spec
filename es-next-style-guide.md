@@ -1024,20 +1024,12 @@ requestData().then(function (data) {
 });
 
 // good
-function requestData() {
-    return Promise.all(
-        [
-            requestTags(), 
-            requestArticles()
-        ]
-    ).then(
-        function (values) {
-            return {
-                tags: value[0], 
-                articles: values[1]
-            };
-        }
-    );
+async function requestData() {
+    const [tags, articles] = await Promise.all([
+        requestTags(), 
+        requestArticles()
+    ]);
+    return {tags, articles};
 }
 
 // bad
