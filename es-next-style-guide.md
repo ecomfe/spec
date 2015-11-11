@@ -190,7 +190,7 @@ export关键字不影响后续语句类型。
 
 ```javascript
 // good
-export funciton foo() {
+export function foo() {
 }
 
 export default bar() {
@@ -198,7 +198,7 @@ export default bar() {
 
 
 // bad
-export funciton foo() {
+export function foo() {
 };
 
 export default bar() {
