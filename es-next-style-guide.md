@@ -94,7 +94,7 @@
 
 解释：
 
-4空格为一个缩进，换行后添加一层缩进。将起始和结束的`\``符号单独放一行，有助于生成HTML时的标签对齐。
+4空格为一个缩进，换行后添加一层缩进。将起始和结束的`` ` ``符号单独放一行，有助于生成HTML时的标签对齐。
 
 示例：
 
@@ -121,7 +121,7 @@ function foo() {
 #### 2.2.2 空格
 
 
-##### [强制] 使用generator时，*前面不允许有空格，*后面必须有一个空格。
+##### [强制] 使用 `generator` 时，`*` 前面不允许有空格，`*` 后面必须有一个空格。
 
 示例：
 
@@ -190,7 +190,7 @@ export关键字不影响后续语句类型。
 
 ```javascript
 // good
-export funciton foo() {
+export function foo() {
 }
 
 export default bar() {
@@ -198,7 +198,7 @@ export default bar() {
 
 
 // bad
-export funciton foo() {
+export function foo() {
 };
 
 export default bar() {
@@ -1024,20 +1024,12 @@ requestData().then(function (data) {
 });
 
 // good
-function requestData() {
-    return Promise.all(
-        [
-            requestTags(), 
-            requestArticles()
-        ]
-    ).then(
-        function (values) {
-            return {
-                tags: value[0], 
-                articles: values[1]
-            };
-        }
-    );
+async function requestData() {
+    const [tags, articles] = await Promise.all([
+        requestTags(), 
+        requestArticles()
+    ]);
+    return {tags, articles};
 }
 
 // bad
