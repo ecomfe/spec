@@ -239,12 +239,12 @@ input:checked~button {
 ```css
 /* good */
 article[character="juliet"] {
-    voice-family: "Vivien Leigh", victoria, female
+    voice-family: "Vivien Leigh", victoria, female;
 }
 
 /* bad */
 article[character='juliet'] {
-    voice-family: "Vivien Leigh", victoria, female
+    voice-family: "Vivien Leigh", victoria, female;
 }
 ```
 
@@ -551,12 +551,12 @@ html[lang|=zh] q:after {
 ```css
 /* good */
 panel {
-    opacity: .8
+    opacity: .8;
 }
 
 /* bad */
 panel {
-    opacity: 0.8
+    opacity: 0.8;
 }
 ```
 
