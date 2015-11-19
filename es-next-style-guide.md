@@ -782,8 +782,22 @@ export bar;
 
 解释：
 
-ES6 Module导出的是引用而非值，为防止外部的修改，尽量导出`const`定义的常量。
+ES6 Module导出的是引用而非值，为防止模块内后续的修改影响外部引用的值，尽量导出`const`定义的常量。
 
+```javascript
+// foo.js
+let x = 3;
+export default x;
+
+// 不小心写了这样的代码
+document.addEventListener('click', () => x += 1, false);
+
+// bar.js
+import x from 'foo';
+console.log(x); // 3
+// 用户点了一下
+console.log(x); // 4
+```
 
 #### [强制] 所有import语句写在模块开始处。
 
