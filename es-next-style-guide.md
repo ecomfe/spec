@@ -61,6 +61,7 @@
 
 
 
+
 ## 2 代码风格
 
 
@@ -248,7 +249,7 @@ class Foo {
 ```
 
 
-##### [强制] 箭头函数的参数只有一个时，参数部分的括号必须省略。
+##### [强制] 箭头函数的参数只有一个，并且不包含解构时，参数部分的括号必须省略。
 
 示例：
 
@@ -260,7 +261,7 @@ list.map(item => item * 2);
 list.map((item) => item * 2);
 ```
 
-##### [强制] 如果箭头函数的函数体只有一个表达式语句并且被作为返回值，必须省略`{}`和`return`。
+##### [强制] 箭头函数的函数体只有一个非`Object Literal`的单行表达式语句，且作为返回值时，必须省略`{}`和`return`。
 
 示例：
 
@@ -272,6 +273,26 @@ list.map(item => item * 2);
 list.map(item => {
     return item * 2;
 });
+```
+
+##### [强制] 箭头函数的函数体只有一个`Object Literal`，且作为返回值时，不得省略`{}`和`return`。
+
+示例：
+
+```javascript
+// good
+list.map(item => {
+    return {
+        name: item[0],
+        email: item[1]
+    };
+});
+
+// bad
+list.map(item => ({
+    name: item[0],
+    email: item[1]
+}));
 ```
 
 ##### [强制] 解构多个变量时，如果超过行长度限制，每个解构的变量必须单独一行。
@@ -465,7 +486,7 @@ let s = `Hello ${getFullName(getFirstName(), getLastName())}`;
 ### 3.4 函数
 
 
-#### [强制] 使用变量默认语法代替基于条件判断的默认值声明。
+#### [建议] 使用变量默认语法代替基于条件判断的默认值声明。
 
 解释：
 
@@ -997,12 +1018,14 @@ getUser(userId)
 ```
 
 
-#### [强制] 使用标准的 `Promise`。
+#### [强制] 使用标准的 `Promise` API。
 
 解释：
 
-1. 不得使用非标准的`Promise`，如`jQuery`的`Deferred`。
-2. 不得使用非标准的`Promise`扩展API，如`bluebird`的`Promise.any`等。
+1. 不允许使用非标准的`Promise` API，如`jQuery`的`Deferred`、`Q.js`的`defer`等。
+2. 不允许使用非标准的`Promise`扩展API，如`bluebird`的`Promise.any`等。
+
+使用标准的`Promise` API，当运行环境都支持时，可以把Promise Lib直接去掉。
 
 
 #### [强制] 不允许直接扩展 `Promise` 对象的 `prototype`。
