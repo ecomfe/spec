@@ -53,7 +53,11 @@
 
 随着ECMAScript的不断发展，越来越多更新的语言特性将被使用，给应用的开发带来方便。本文档的目标是使ECMAScript新特性的代码风格保持一致，并给予一些实践建议。
 
-本文档仅包含新特性部分。基础部分请遵循[JavaScript Style Guide](javascript-style-guide.md)
+本文档仅包含新特性部分。基础部分请遵循[JavaScript Style Guide](javascript-style-guide.md)。
+
+虽然本文档是针对ECMAScript设计的，但是在使用各种基于ECMAScript扩展的语言时(如JSX、TypeScript等)，适用的部分也应尽量遵循本文档的约定。
+
+
 
 
 
@@ -245,7 +249,7 @@ class Foo {
 ```
 
 
-##### [强制] 箭头函数的参数只有一个时，参数部分的括号必须省略。
+##### [强制] 箭头函数的参数只有一个，并且不包含解构时，参数部分的括号必须省略。
 
 示例：
 
@@ -257,7 +261,7 @@ list.map(item => item * 2);
 list.map((item) => item * 2);
 ```
 
-##### [强制] 如果箭头函数的函数体只有一个表达式语句并且被作为返回值，必须省略`{}`和`return`。
+##### [强制] 箭头函数的函数体只有一个非`Object Literal`的单行表达式语句，且作为返回值时，必须省略`{}`和`return`。
 
 示例：
 
@@ -269,6 +273,26 @@ list.map(item => item * 2);
 list.map(item => {
     return item * 2;
 });
+```
+
+##### [强制] 箭头函数的函数体只有一个`Object Literal`，且作为返回值时，不得省略`{}`和`return`。
+
+示例：
+
+```javascript
+// good
+list.map(item => {
+    return {
+        name: item[0],
+        email: item[1]
+    };
+});
+
+// bad
+list.map(item => ({
+    name: item[0],
+    email: item[1]
+}));
 ```
 
 ##### [强制] 解构多个变量时，如果超过行长度限制，每个解构的变量必须单独一行。
@@ -462,7 +486,7 @@ let s = `Hello ${getFullName(getFirstName(), getLastName())}`;
 ### 3.4 函数
 
 
-#### [强制] 使用变量默认语法代替基于条件判断的默认值声明。
+#### [建议] 使用变量默认语法代替基于条件判断的默认值声明。
 
 解释：
 
@@ -758,8 +782,22 @@ export bar;
 
 解释：
 
-ES6 Module导出的是引用而非值，为防止外部的修改，尽量导出`const`定义的常量。
+ES6 Module导出的是引用而非值，为防止模块内后续的修改影响外部引用的值，尽量导出`const`定义的常量。
 
+```javascript
+// foo.js
+let x = 3;
+export default x;
+
+// 不小心写了这样的代码
+document.addEventListener('click', () => x += 1, false);
+
+// bar.js
+import x from 'foo';
+console.log(x); // 3
+// 用户点了一下
+console.log(x); // 4
+```
 
 #### [强制] 所有import语句写在模块开始处。
 
@@ -994,12 +1032,14 @@ getUser(userId)
 ```
 
 
-#### [强制] 使用标准的 `Promise`。
+#### [强制] 使用标准的 `Promise` API。
 
 解释：
 
-1. 不得使用非标准的`Promise`，如`jQuery`的`Deferred`。
-2. 不得使用非标准的`Promise`扩展API，如`bluebird`的`Promise.any`等。
+1. 不允许使用非标准的`Promise` API，如`jQuery`的`Deferred`、`Q.js`的`defer`等。
+2. 不允许使用非标准的`Promise`扩展API，如`bluebird`的`Promise.any`等。
+
+使用标准的`Promise` API，当运行环境都支持时，可以把Promise Lib直接去掉。
 
 
 #### [强制] 不允许直接扩展 `Promise` 对象的 `prototype`。
@@ -1122,11 +1162,11 @@ ES标准的制定还在不断进行中，各种环境对语言特性的支持也
 这样，未来运行环境支持时，可以随时把`Promise`扩展直接扔掉，而应用代码无需任何修改。
 
 
-#### [建议] 需要预编译时，必须使用 `babel` 做为预编译工具。
+#### [建议] 需要预编译时，使用 `babel` 做为预编译工具。
 
 解释：
 
-由于不同环境的（如浏览器）JavaScript引擎对ESNext特性支持程度的问题，ESNext代码可能需要进行预编译。此时，必须使用`babel`做为预编译工具。由于`babel`最新的6暂时还不稳定，建议暂时使用5。
+由于不同环境的（如浏览器）JavaScript引擎对ESNext特性支持程度的问题，ESNext代码可能需要进行预编译。此时，建议使用`babel`做为预编译工具。由于`babel`最新的6暂时还不稳定，建议暂时使用5。
 
 不同的产品，对于浏览器支持的情况不同，使用 `babel` 的时候，需要设置的参数也有一些区别。下面在示例中给出一些建议的参数。
 
@@ -1146,12 +1186,6 @@ ES标准的制定还在不断进行中，各种环境对语言特性的支持也
 
 添加`--modules amd`参数即可。
 
-
-#### [建议] 使用 `loose` 生成更小、性能更高的代码。
-
-解释：
-
-使用`--loose all`将生成更直观、性能更高的代码，在绝大多数场景下能较好运行，但是生成代码与源代码的逻辑并不完全一致（如属性的可访问性）。具体请参照[loose文档](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/loose.md)。
 
 
 #### [建议] 使用 `external-helpers` 减少生成文件的大小。
