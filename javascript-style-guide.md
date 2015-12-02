@@ -875,7 +875,7 @@ loadingData.then(callback);
 |不允许为null|{!Object}|Object 类型, 但不是 null|
 |Function类型|{function(number, boolean)}|函数, 形参类型|
 |Function带返回值|{function(number, boolean):string}|函数, 形参, 返回值类型|
-|Promise|Promise.<resolveType, rejectType>|Promise，成功返回的数据类型，失败返回的错误类型|
+|Promise|Promise.&lt;resolveType, rejectType&gt;|Promise，成功返回的数据类型，失败返回的错误类型|
 |参数可选|@param {string=} name|可选参数, =为类型后缀|
 |可变参数|@param {...number} args|变长参数,  ...为类型前缀|
 |任意类型|{*}|任意类型|
@@ -2023,7 +2023,7 @@ var obj = {};
 var obj = new Object();
 ```
 
-##### [强制] 对象创建时，如果一个对象的所有 `属性` 均可以不添加引号，则所有 `属性` 不得添加引号。
+##### [建议] 对象创建时，如果一个对象的所有 `属性` 均可以不添加引号，建议所有 `属性` 不得添加引号。
 
 示例：
 
@@ -2034,7 +2034,7 @@ var info = {
 };
 ```
 
-##### [强制] 对象创建时，如果任何一个 `属性` 需要添加引号，则所有 `属性` 必须添加 `'`。
+##### [建议] 对象创建时，如果任何一个 `属性` 需要添加引号，则所有 `属性` 建议添加 `'`。
 
 解释：
 
