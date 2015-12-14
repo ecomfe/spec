@@ -263,11 +263,23 @@ class Foo {
 // good
 list.map(item => item * 2);
 
+// good
+let fetchName = async id => {
+    let user = await request(`users/${id}`);
+    return user.fullName;
+};
+
 // bad
 list.map((item) => item * 2);
+
+// bad
+let fetchName = async (id) => {
+    let user = await request(`users/${id}`);
+    return user.fullName;
+};
 ```
 
-##### [强制] 箭头函数的函数体只有一个非 `Object Literal` 的单行表达式语句，且作为返回值时，必须省略 `{}` 和 `return`。
+##### [建议] 箭头函数的函数体只有一个非 `Object Literal` 的单行表达式语句，且作为返回值时，省略 `{}` 和 `return`。
 
 示例：
 
