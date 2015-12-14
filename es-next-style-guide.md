@@ -1,5 +1,5 @@
 
-# JavaScript编码规范 - ESNext补充篇（草案）
+# JavaScript 编码规范 - ESNext 补充篇（草案）
 
 
 
@@ -38,9 +38,7 @@
 
 　　[3.9 集合](#user-content-39-%E9%9B%86%E5%90%88)
 
-　　[3.10 装饰器](#user-content-310-%E8%A3%85%E9%A5%B0%E5%99%A8)
-
-　　[3.11 异步](#user-content-311-%E5%BC%82%E6%AD%A5)
+　　[3.10 异步](#user-content-310-%E5%BC%82%E6%AD%A5)
 
 [4 环境](#user-content-4-%E7%8E%AF%E5%A2%83)
 
@@ -51,12 +49,13 @@
 ## 1 前言
 
 
-随着ECMAScript的不断发展，越来越多更新的语言特性将被使用，给应用的开发带来方便。本文档的目标是使ECMAScript新特性的代码风格保持一致，并给予一些实践建议。
+随着 ECMAScript 的不断发展，越来越多更新的语言特性将被使用，给应用的开发带来方便。本文档的目标是使 ECMAScript 新特性的代码风格保持一致，并给予一些实践建议。
 
-本文档仅包含新特性部分。基础部分请遵循[JavaScript Style Guide](javascript-style-guide.md)。
+本文档仅包含新特性部分。基础部分请遵循 [JavaScript Style Guide](javascript-style-guide.md)。
 
-虽然本文档是针对ECMAScript设计的，但是在使用各种基于ECMAScript扩展的语言时(如JSX、TypeScript等)，适用的部分也应尽量遵循本文档的约定。
+由于 ECMAScript 依然在快速的不断发展，本文档也将可能随时保持更新。更新内容主要涉及对新增的语言特性的格式规范化、实践指导，引擎与编译器环境变化的使用指导。
 
+虽然本文档是针对 ECMAScript 设计的，但是在使用各种基于 ECMAScript 扩展的语言时(如 JSX、TypeScript 等)，适用的部分也应尽量遵循本文档的约定。
 
 
 
@@ -71,13 +70,13 @@
 ### 2.1 文件
 
 
-##### [建议] ESNext语法的`JavaScript`文件使用`.js`扩展名。
+##### [建议] ESNext 语法的 JavaScript 文件使用 `.js` 扩展名。
 
-##### [强制] 当文件无法使用`.js`扩展名时，使用`.es`扩展名。
+##### [强制] 当文件无法使用 `.js` 扩展名时，使用 `.es` 扩展名。
 
 解释：
 
-某些应用开发时，可能同时包含ES5和ESNext文件，运行环境仅支持ES5，ESNext文件需要经过预编译。部分场景下，编译工具的选择可能需要通过扩展名区分，需要重新定义ESNext文件的扩展名。此时，ESNext文件必须使用`.es`扩展名。
+某些应用开发时，可能同时包含 ES 5和 ESNext 文件，运行环境仅支持 ES5，ESNext 文件需要经过预编译。部分场景下，编译工具的选择可能需要通过扩展名区分，需要重新定义ESNext文件的扩展名。此时，ESNext 文件必须使用 `.es` 扩展名。
 
 但是，更推荐使用其他条件作为是否需要编译的区分：
 
@@ -94,22 +93,17 @@
 #### 2.2.1 缩进
 
 
-##### [建议] 使用多行字符串时遵循缩进原则。
+##### [建议] 使用多行模板字符串时遵循缩进原则。当空行与空白字符敏感时，不使用多行模板字符串。
 
 解释：
 
-4空格为一个缩进，换行后添加一层缩进。将起始和结束的`` ` ``符号单独放一行，有助于生成HTML时的标签对齐。
+`4` 空格为一个缩进，换行后添加一层缩进。将起始和结束的 `` ` `` 符号单独放一行，有助于生成 HTML 时的标签对齐。
+
+为避免破坏缩进的统一，当空行与空白字符敏感时，建议使用 `多个模板字符串` 或 `普通字符串` 进行连接运算，也可使用数组 `join` 生成字符串。
 
 示例：
 
 ```javascript
-// good
-function foo() {
-    let bar = `Hello
-        World`;
-    console.log(bar);
-}
-
 // good
 function foo() {
     let html = `
@@ -118,6 +112,18 @@ function foo() {
             <p></p>
         </div>
     `;
+}
+
+// Good
+function greeting(name) {
+    return 'Hello, \n'
+        + `${name.firstName} ${name.lastName}`;
+}
+
+// Bad
+function greeting(name) {
+    return `Hello, 
+${name.firstName} ${name.lastName}`;
 }
 ```
 
@@ -160,7 +166,7 @@ function * caller() {
 
 解释：
 
-成员属性是当前Stage 0的标准，如果使用的话，则定义后加上分号。
+成员属性是当前 **Stage 0** 的标准，如果使用的话，则定义后加上分号。
 
 示例：
 
@@ -184,11 +190,11 @@ class Foo {
 }
 ```
 
-##### [强制] export语句后，不允许出现表示空语句的分号。
+##### [强制] `export` 语句后，不允许出现表示空语句的分号。
 
 解释：
 
-export关键字不影响后续语句类型。
+`export` 关键字不影响后续语句类型。
 
 示例：
 
@@ -214,7 +220,7 @@ export default bar() {
 
 解释：
 
-只有一种场景是必须加分号的：当属性key是computed property key时，其装饰器必须加分号，否则修饰key的`[]`会做为之前表达式的property accessor。
+只有一种场景是必须加分号的：当属性 `key` 是 `computed property key` 时，其装饰器必须加分号，否则修饰 `key` 的 `[]` 会做为之前表达式的 `property accessor`。
 
 上面描述的场景，装饰器后需要加分号。其余场景下的属性装饰器后不允许加分号。
 
@@ -261,7 +267,7 @@ list.map(item => item * 2);
 list.map((item) => item * 2);
 ```
 
-##### [强制] 箭头函数的函数体只有一个非`Object Literal`的单行表达式语句，且作为返回值时，必须省略`{}`和`return`。
+##### [强制] 箭头函数的函数体只有一个非 `Object Literal` 的单行表达式语句，且作为返回值时，必须省略 `{}` 和 `return`。
 
 示例：
 
@@ -275,7 +281,7 @@ list.map(item => {
 });
 ```
 
-##### [强制] 箭头函数的函数体只有一个`Object Literal`，且作为返回值时，不得省略`{}`和`return`。
+##### [强制] 箭头函数的函数体只有一个 `Object Literal`，且作为返回值时，不得省略 `{}` 和 `return`。
 
 示例：
 
@@ -332,23 +338,23 @@ let {name: personName, email: personEmail,
 ### 3.1 变量
 
 
-#### [强制] 使用let和const定义变量，不使用var。
+#### [强制] 使用 `let` 和 `const` 定义变量，不使用 `var`。
 
 解释：
 
-使用let和const定义时，变量作用域范围更明确。
+使用 `let` 和 `const` 定义时，变量作用域范围更明确。
 
 示例：
 
 ```javascript
 // good
 for (let i = 0; i < 10; i++) {
-    
+
 }
 
 // bad
 for (var i = 0; i < 10; i++) {
-    
+
 }
 ```
 
@@ -392,7 +398,7 @@ y = temp;
 
 解释：
 
-在这种场景下，使用结构将降低代码可读性。
+在这种场景下，使用解构将降低代码可读性。
 
 示例：
 
@@ -404,11 +410,11 @@ let len = myString.length;
 let {length: len} = myString;
 ```
 
-#### [强制] 不节省中间变量时，不允许因为使用解构产生中间对象。
+#### [强制] 如果不节省编写时产生的中间变量，解构表达式 `=` 号右边不允许是 `ObjectLiteral` 和 `ArrayLiteral`。
 
 解释：
 
-纯因为使用解构产生无用的中间对象是一种浪费。
+在这种场景下，使用解构将降低代码可读性，通常也并无收益。
 
 示例：
 
@@ -419,7 +425,6 @@ let one = 1;
 let two = 2;
 
 // bad
-// 下面的代码产生了数组对象[1, 2]，但是这个数组对象并没什么用
 let [one, two] = [1, 2];
 ```
 
@@ -427,7 +432,7 @@ let [one, two] = [1, 2];
 
 解释：
 
-剩余运算符之前的元素省略名称可能带来较大的程序阅读障碍。如果仅仅为了取数组后几项，请使用slice方法。
+剩余运算符之前的元素省略名称可能带来较大的程序阅读障碍。如果仅仅为了取数组后几项，请使用 `slice` 方法。
 
 示例：
 
@@ -445,26 +450,8 @@ let [,,, ...other] = myArray;
 ### 3.3 模板字符串
 
 
-#### [建议] 当对行首空格敏感时，避免使用多行字符串。
 
-解释：
-
-由于会破坏整体的缩进，使代码整体上缺乏结构性，视觉上变丑。
-
-示例：
-
-```javascript
-// bad
-function foo() {
-    // 缩进再多几层会更丑
-    let bar = `Hello
-World`;
-    console.log(bar);
-}
-```
-
-
-#### [强制] 字符串内变量替换时，不要使用2次及以上的函数调用。
+#### [强制] 字符串内变量替换时，不要使用 `2` 次及以上的函数调用。
 
 解释：
 
@@ -490,7 +477,7 @@ let s = `Hello ${getFullName(getFirstName(), getLastName())}`;
 
 解释：
 
-添加默认值有助于引擎的优化，在未来strong mode下也会有更好的效果。
+添加默认值有助于引擎的优化，在未来 `strong mode` 下也会有更好的效果。
 
 示例：
 
@@ -506,11 +493,11 @@ function foo(text) {
 ```
 
 
-#### [强制] 不要使用arguments对象，应使用`...args`代替。
+#### [强制] 不要使用 `arguments` 对象，应使用 `...args` 代替。
 
 解释：
 
-在未来strong mode下`arguments`将被禁用。
+在未来 `strong mode` 下 `arguments` 将被禁用。
 
 示例：
 
@@ -533,25 +520,18 @@ function foo() {
 
 
 
-#### [强制] 不得在顶层作用域下使用箭头函数。
+#### [强制] 一个函数被设计为需要 `call` 和 `apply` 的时候，不能是箭头函数。
 
 解释：
 
-顶层作用域包括全局代码、模块代码等，这个作用域下`this`对象为`undefined`或者`Global`对象，因此函数不应该绑定`this`。
-
-
-#### [强制] 一个函数被设计为需要call和apply的时候，不能是箭头函数。
-
-解释：
-
-箭头函数会强制绑定当前环境下的`this`。
+箭头函数会强制绑定当前环境下的 `this`。
 
 
 
 ### 3.6 对象
 
 
-#### [强制] 定义对象时，如果所有键均指向同名变量，则所有键都使用缩写；如果有一个键无法指向同名变量，则所有键都不使用缩写。
+#### [建议] 定义对象时，如果所有键均指向同名变量，则所有键都使用缩写；如果有一个键无法指向同名变量，则所有键都不使用缩写。
 
 解释：
 
@@ -582,11 +562,11 @@ let foo2 = {
 };
 ```
 
-#### [强制] 定义方法时使用`MethodDefinition`语法，不使用`PropertyName:FunctionExpression`语法。
+#### [强制] 定义方法时使用 `MethodDefinition` 语法，不使用 `PropertyName: FunctionExpression` 语法。
 
 解释：
 
-`MethodDefinition`语法更清晰简洁。
+`MethodDefinition` 语法更清晰简洁。
 
 示例：
 
@@ -606,11 +586,11 @@ let foo = {
 };
 ```
 
-#### [建议] 使用Object.keys进行对象遍历。
+#### [建议] 使用 `Object.keys` 进行对象遍历。
 
 解释：
 
-不建议使用`for .. in`进行对象的遍历，以避免遗漏`hasOwnProperty`产生的错误。
+不建议使用 `for .. in` 进行对象的遍历，以避免遗漏 `hasOwnProperty` 产生的错误。
 
 示例：
 
@@ -625,7 +605,7 @@ for (let key of Object.keys(foo)) {
 
 解释：
 
-箭头函数将`this`绑定到当前环境，在obj.method()调用时容易导致不期待的`this`。除非明确需要绑定`this`，否则不应使用箭头函数。
+箭头函数将 `this` 绑定到当前环境，在 `obj.method()` 调用时容易导致不期待的 `this`。除非明确需要绑定 `this`，否则不应使用箭头函数。
 
 示例：
 
@@ -673,11 +653,11 @@ foo[MY_KEY + 'Hash'] = 123;
 
 
 
-#### [强制] 使用class关键字定义一个类。
+#### [强制] 使用 `class` 关键字定义一个类。
 
 解释：
 
-直接使用`class`定义类更清晰。不要再使用`function`和`prototype`形式的定义。
+直接使用 `class` 定义类更清晰。不要再使用 `function` 和 `prototype` 形式的定义。
 
 ```javascript
 // good
@@ -703,11 +683,11 @@ TextNode.prototype.clone = function () {
 };
 ```
 
-#### [强制] 使用super访问父类成员，而非父类的prototype
+#### [强制] 使用 `super` 访问父类成员，而非父类的 `prototype`。
 
 解释：
 
-使用`super`和`super.foo`可以快速访问父类成员，而不必硬编码父类模块而导致修改和维护的不便，同时更节省代码。
+使用 `super` 和 `super.foo` 可以快速访问父类成员，而不必硬编码父类模块而导致修改和维护的不便，同时更节省代码。
 
 ```javascript
 // good
@@ -743,11 +723,11 @@ class TextNode extends Node {
 
 
 
-#### [强制] export与内容定义放在一起。
+#### [强制] `export` 与内容定义放在一起。
 
 解释：
 
-何处声明要导出的东西，就在何处使用`export`关键字，不做声明后再统一导出。
+何处声明要导出的东西，就在何处使用 `export` 关键字，不在声明后再统一导出。
 
 示例：
 
@@ -778,34 +758,8 @@ export bar;
 简而言之，当一个模块只扮演命名空间的作用时，使用命名导出。
 
 
-#### [建议] 导出时使用`const`定义。
 
-解释：
-
-ES6 Module导出的是引用而非值，为防止模块内后续的修改影响外部引用的值，尽量导出`const`定义的常量。
-
-```javascript
-// foo.js
-let x = 3;
-export default x;
-
-// 不小心写了这样的代码
-document.addEventListener('click', () => x += 1, false);
-
-// bar.js
-import x from 'foo';
-console.log(x); // 3
-// 用户点了一下
-console.log(x); // 4
-```
-
-#### [强制] 所有import语句写在模块开始处。
-
-解释：
-
-`import`会被默认提升至模块最前面，同时具备依赖声明的作用。
-
-浏览器如能尽早读取相关的`import`内容则有可能更早地请求相关的依赖模块，有一定的性能提升作用，在HTTP/2之后可能会具有更明显的效果。
+#### [强制] 所有 `import` 语句写在模块开始处。
 
 示例：
 
@@ -834,7 +788,7 @@ function foo() {
 
 解释：
 
-用数组展开代替`concat`方法，数组展开对`Iterable`有更好的兼容性。
+用数组展开代替 `concat` 方法，数组展开对 `Iterable` 有更好的兼容性。
 
 示例：
 
@@ -852,7 +806,7 @@ let bar = bar.concat(newValues);
 
 解释：
 
-使用数组展开语法进行复制，代码可读性较差。推荐使用`Array.from`方法进行复制操作。
+使用数组展开语法进行复制，代码可读性较差。推荐使用 `Array.from` 方法进行复制操作。
 
 示例：
 
@@ -864,30 +818,30 @@ let otherArr = Array.from(arr);
 let otherArr = [...arr];
 ```
 
-#### [建议] 尽可能使用`for .. of`进行遍历。
+#### [建议] 尽可能使用 `for .. of` 进行遍历。
 
 解释：
 
-使用`for .. of`可以更好地接受任何的`Iterable`对象，如`Map#values`生成的迭代器，使得方法的通用性更强。
+使用 `for .. of` 可以更好地接受任何的 `Iterable` 对象，如 `Map#values` 生成的迭代器，使得方法的通用性更强。
 
 以下情况除外：
 
-1. 遍历确实成为了性能瓶颈，需要使用原生`for`循环提升性能。
+1. 遍历确实成为了性能瓶颈，需要使用原生 `for` 循环提升性能。
 2. 需要遍历过程中的索引。
 
 
-#### [强制] 当键值有可能不是字符串时，必须使用Map；当元素有可能不是字符串时，必须使用Set。
+#### [强制] 当键值有可能不是字符串时，必须使用 `Map`；当元素有可能不是字符串时，必须使用 `Set`。
 
 解释：
 
-使用普通Object，对非字符串类型的key，需要自己实现序列化。并且运行过程中的对象变化难以通知Object。
+使用普通 Object，对非字符串类型的 `key`，需要自己实现序列化。并且运行过程中的对象变化难以通知 Object。
 
 
-#### [建议] 需要一个不可重复的集合时，应使用Set。
+#### [建议] 需要一个不可重复的集合时，应使用 `Set`。
 
 解释：
 
-不要使用`{foo: true}`这样的普通Object。
+不要使用 `{foo: true}` 这样的普通 `Object`。
 
 示例：
 
@@ -904,11 +858,11 @@ let members = {
 ```
 
 
-#### [建议] 当需要遍历功能时，使用Map和Set。
+#### [建议] 当需要遍历功能时，使用 `Map` 和 `Set`。
 
 解释：
 
-Map和Set是可遍历对象，能够方便地使用`for...of`遍历。不要使用使用普通Object。
+`Map` 和 `Set` 是可遍历对象，能够方便地使用 `for...of` 遍历。不要使用使用普通 Object。
 
 示例：
 
@@ -935,11 +889,11 @@ for (let key in membersAge) {
 }
 ```
 
-#### [建议] 程序运行过程中有添加或移除元素的操作时，使用Map和Set。
+#### [建议] 程序运行过程中有添加或移除元素的操作时，使用 `Map` 和 `Set`。
 
 解释：
 
-使用Map和Set，程序的可理解性更好；普通Object的语义更倾向于表达固定的结构。
+使用 `Map` 和 `Set`，程序的可理解性更好；普通 Object 的语义更倾向于表达固定的结构。
 
 示例：
 
@@ -961,20 +915,8 @@ delete membersAge['one'];
 
 
 
-### 3.10 装饰器
 
-
-
-#### [建议] 不在直接声明的普通对象上使用装饰器。
-
-解释：
-
-一个普通对象应该是干净而不需要各种装饰器注入逻辑的。
-
-
-
-
-### 3.11 异步
+### 3.10 异步
 
 
 #### [强制] 回调函数的嵌套不得超过3层。
@@ -1002,7 +944,7 @@ getUser(userId, function (user) {
 
 解释：
 
-相比`callback`，使用`Promise`能够使复杂异步过程的代码更清晰。
+相比 `callback`，使用 `Promise` 能够使复杂异步过程的代码更清晰。
 
 示例：
 
@@ -1036,24 +978,24 @@ getUser(userId)
 
 解释：
 
-1. 不允许使用非标准的`Promise` API，如`jQuery`的`Deferred`、`Q.js`的`defer`等。
-2. 不允许使用非标准的`Promise`扩展API，如`bluebird`的`Promise.any`等。
+1. 不允许使用非标准的 `Promise` API，如 `jQuery` 的 `Deferred`、`Q.js` 的 `defer` 等。
+2. 不允许使用非标准的 `Promise` 扩展 API，如 `bluebird` 的 `Promise.any` 等。
 
-使用标准的`Promise` API，当运行环境都支持时，可以把Promise Lib直接去掉。
+使用标准的 `Promise` API，当运行环境都支持时，可以把 Promise Lib 直接去掉。
 
 
 #### [强制] 不允许直接扩展 `Promise` 对象的 `prototype`。
 
 解释：
 
-理由和 **不允许修改和扩展任何原生对象和宿主对象的原型** 是一样的。如果想要使用更方便，可以用utility函数的形式。
+理由和 **不允许修改和扩展任何原生对象和宿主对象的原型** 是一样的。如果想要使用更方便，可以用 utility 函数的形式。
 
 
 #### [强制] 不得为了编写的方便，将可以并行的IO过程串行化。
 
 解释：
 
-并行IO消耗时间约等于IO时间最大的那个过程，串行的话消耗时间将是所有过程的时间之和。
+并行 IO 消耗时间约等于 IO 时间最大的那个过程，串行的话消耗时间将是所有过程的时间之和。
 
 示例：
 
@@ -1066,7 +1008,7 @@ requestData().then(function (data) {
 // good
 async function requestData() {
     const [tags, articles] = await Promise.all([
-        requestTags(), 
+        requestTags(),
         requestArticles()
     ]);
     return {tags, articles};
@@ -1081,11 +1023,11 @@ async function requestData() {
 }
 ```
 
-#### [建议] 使用 `async/await` 代替 `generator + co`。
+#### [建议] 使用 `async/await` 代替 `generator` + `co`。
 
 解释：
 
-使用语言自身的能力可以使代码更清晰，也无需引入`co`库。
+使用语言自身的能力可以使代码更清晰，也无需引入 `co` 库。
 
 示例：
 
@@ -1146,10 +1088,10 @@ function addReport(report, userId) {
 
 [查看环境对语言特性的支持程度](https://kangax.github.io/compat-table/es6/)
 
-ES标准的制定还在不断进行中，各种环境对语言特性的支持也日新月异。了解项目中用到了哪些ESNext的特性，了解项目的运行环境，并持续跟进这些特性在运行环境中的支持程度是很有必要的。这意味着：
+ES 标准的制定还在不断进行中，各种环境对语言特性的支持也日新月异。了解项目中用到了哪些 ESNext 的特性，了解项目的运行环境，并持续跟进这些特性在运行环境中的支持程度是很有必要的。这意味着：
 
-1. 如果有任何一个运行环境（比如chrome）支持了项目里用到的所有特性，你可以在开发时抛弃预编译。
-2. 如果所有环境都支持了某一特性（比如Promise），你可以抛弃相关的shim，或无需在预编译时进行转换。
+1. 如果有任何一个运行环境（比如 chrome）支持了项目里用到的所有特性，你可以在开发时抛弃预编译。
+2. 如果所有环境都支持了某一特性（比如 Promise），你可以抛弃相关的 shim，或无需在预编译时进行转换。
 3. 如果所有环境都支持了项目里用到的所有特性，你可以完全抛弃预编译。
 
 
@@ -1157,16 +1099,16 @@ ES标准的制定还在不断进行中，各种环境对语言特性的支持也
 
 解释：
 
-当前运行环境下没有`Promise`时，可以引入`shim`的扩展。如果自己实现，需要实现在`global`下，并且与标准API保持一致。
+当前运行环境下没有 `Promise` 时，可以引入 `shim` 的扩展。如果自己实现，需要实现在 `global` 下，并且与标准 API 保持一致。
 
-这样，未来运行环境支持时，可以随时把`Promise`扩展直接扔掉，而应用代码无需任何修改。
+这样，未来运行环境支持时，可以随时把 `Promise` 扩展直接扔掉，而应用代码无需任何修改。
 
 
 #### [建议] 需要预编译时，使用 `babel` 做为预编译工具。
 
 解释：
 
-由于不同环境的（如浏览器）JavaScript引擎对ESNext特性支持程度的问题，ESNext代码可能需要进行预编译。此时，建议使用`babel`做为预编译工具。由于`babel`最新的6暂时还不稳定，建议暂时使用5。
+由于不同环境的（如浏览器）JavaScript 引擎对 ESNext 特性支持程度的问题，ESNext 代码可能需要进行预编译。此时，建议使用`babel`做为预编译工具。由于 `babel` 最新的 **6** 暂时还不稳定，建议暂时使用5。
 
 不同的产品，对于浏览器支持的情况不同，使用 `babel` 的时候，需要设置的参数也有一些区别。下面在示例中给出一些建议的参数。
 
@@ -1180,11 +1122,11 @@ ES标准的制定还在不断进行中，各种环境对语言特性的支持也
 --loose all --modules amd --blacklist strict --stage 0
 ```
 
-#### [建议] 生成的代码在浏览器环境运行时，应生成AMD模块化代码。
+#### [建议] 生成的代码在浏览器环境运行时，应生成 AMD 模块化代码。
 
 解释：
 
-添加`--modules amd`参数即可。
+添加 `--modules amd` 参数即可。
 
 
 
@@ -1192,19 +1134,19 @@ ES标准的制定还在不断进行中，各种环境对语言特性的支持也
 
 解释：
 
-当babel在转换代码的过程中发现需要一些特性时，会在该文件头部生成对应的helper代码。默认情况下，对于每一个经由babel处理的文件，均会在文件头部生成对应需要的辅助函数，多份文件辅助函数存在重复，占用了不必要的代码体积。
+当 `babel` 在转换代码的过程中发现需要一些特性时，会在该文件头部生成对应的 `helper` 代码。默认情况下，对于每一个经由 `babel` 处理的文件，均会在文件头部生成对应需要的辅助函数，多份文件辅助函数存在重复，占用了不必要的代码体积。
 
-因此推荐打开`externalHelpers: true`选项，使babel在转换后内容中不写入helper相关的代码，而是使用一个外部的`.js`统一提供所有的helper。对于[external-helpers](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/external-helpers.md)的使用，可以有两种方式：
+因此推荐打开`externalHelpers: true`选项，使 `babel` 在转换后内容中不写入 `helper` 相关的代码，而是使用一个外部的 `.js`统一提供所有的 `helper`。对于[external-helpers](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/external-helpers.md)的使用，可以有两种方式：
 
-1. 默认方式：需要通过`<script>`自行引入`babel-polyfill.js` 和 `babel-external-helpers.js`。
-2. 定制方式：自己实现[babel-runtime](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/runtime.md)。
+1. 默认方式：需要通过 `<script>` 自行引入`babel-polyfill.js` 和 `babel-external-helpers.js`。
+2. 定制方式：自己实现 [babel-runtime](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/runtime.md)。
 
 示例：
 
 ```shell
 # 默认方式
 --loose all --modules amd --external-helpers
-# `babelHelpers`的代码可以通过执行`babel-external-helpers -t var`得到所有相关API的实现
+# `babelHelpers` 的代码可以通过执行 `babel-external-helpers -t var` 得到所有相关API的实现
 
 # 定制方式
 --loose all --modules amd --optional runtime
