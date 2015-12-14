@@ -93,22 +93,17 @@
 #### 2.2.1 缩进
 
 
-##### [建议] 使用多行字符串时遵循缩进原则。
+##### [建议] 使用多行模板字符串时遵循缩进原则。当空行与空白字符敏感时，不使用多行模板字符串。
 
 解释：
 
 `4` 空格为一个缩进，换行后添加一层缩进。将起始和结束的 `` ` `` 符号单独放一行，有助于生成 HTML 时的标签对齐。
 
+为避免破坏缩进的统一，当空行与空白字符敏感时，建议使用 `多个模板字符串` 或 `普通字符串` 进行连接运算，也可使用数组 `join` 生成字符串。
+
 示例：
 
 ```javascript
-// good
-function foo() {
-    let bar = `Hello
-        World`;
-    console.log(bar);
-}
-
 // good
 function foo() {
     let html = `
@@ -117,6 +112,18 @@ function foo() {
             <p></p>
         </div>
     `;
+}
+
+// Good
+function greeting(name) {
+    return 'Hello, \n'
+        + `${name.firstName} ${name.lastName}`;
+}
+
+// Bad
+function greeting(name) {
+    return `Hello, 
+${name.firstName} ${name.lastName}`;
 }
 ```
 
@@ -442,24 +449,6 @@ let [,,, ...other] = myArray;
 
 ### 3.3 模板字符串
 
-
-#### [建议] 当对行首空格敏感时，避免使用多行字符串。
-
-解释：
-
-由于会破坏整体的缩进，使代码整体上缺乏结构性，视觉上变丑。
-
-示例：
-
-```javascript
-// bad
-function foo() {
-    // 缩进再多几层会更丑
-    let bar = `Hello
-World`;
-    console.log(bar);
-}
-```
 
 
 #### [强制] 字符串内变量替换时，不要使用 `2` 次及以上的函数调用。
