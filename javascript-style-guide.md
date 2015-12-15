@@ -2006,7 +2006,7 @@ var str = '<p>' + htmlEncode(content) + '</p>';
 var str = '<input type="text" value="' + htmlEncode(value) + '">';
 
 // URL 转义
-var str = '<a href="/?key=' + urlEncode(value) + '">link</a>';
+var str = '<a href="/?key=' + htmlEncode(urlEncode(value)) + '">link</a>';
 
 // JavaScript字符串 转义 + HTML 转义
 var str = '<button onclick="check(\'' + htmlEncode(strLiteral(name)) + '\')">提交</button>';
