@@ -207,7 +207,7 @@ class Foo {
 export function foo() {
 }
 
-export default bar() {
+export default function bar() {
 }
 
 
@@ -215,7 +215,7 @@ export default bar() {
 export function foo() {
 };
 
-export default bar() {
+export default function bar() {
 };
 ```
 
