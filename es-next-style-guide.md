@@ -42,6 +42,10 @@
 
 [4 环境](#user-content-4-%E7%8E%AF%E5%A2%83)
 
+　　[4.1 运行环境](#user-content-41-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83)
+
+　　[4.2 预编译](#user-content-42-%E9%A2%84%E7%BC%96%E8%AF%91)
+
 
 
 
@@ -203,7 +207,7 @@ class Foo {
 export function foo() {
 }
 
-export default bar() {
+export default function bar() {
 }
 
 
@@ -211,7 +215,7 @@ export default bar() {
 export function foo() {
 };
 
-export default bar() {
+export default function bar() {
 };
 ```
 
@@ -263,11 +267,23 @@ class Foo {
 // good
 list.map(item => item * 2);
 
+// good
+let fetchName = async id => {
+    let user = await request(`users/${id}`);
+    return user.fullName;
+};
+
 // bad
 list.map((item) => item * 2);
+
+// bad
+let fetchName = async (id) => {
+    let user = await request(`users/${id}`);
+    return user.fullName;
+};
 ```
 
-##### [强制] 箭头函数的函数体只有一个非 `Object Literal` 的单行表达式语句，且作为返回值时，必须省略 `{}` 和 `return`。
+##### [建议] 箭头函数的函数体只有一个非 `Object Literal` 的单行表达式语句，且作为返回值时，省略 `{}` 和 `return`。
 
 示例：
 
@@ -1082,6 +1098,12 @@ function addReport(report, userId) {
 
 
 
+
+
+
+### 4.1 运行环境
+
+
 #### [建议] 持续跟进与关注运行环境对语言特性的支持程度。
 
 解释：
@@ -1094,6 +1116,8 @@ ES 标准的制定还在不断进行中，各种环境对语言特性的支持�
 2. 如果所有环境都支持了某一特性（比如 Promise），你可以抛弃相关的 shim，或无需在预编译时进行转换。
 3. 如果所有环境都支持了项目里用到的所有特性，你可以完全抛弃预编译。
 
+无论如何，在选择预编译工具时，你都需要清晰的知道你现阶段将在项目里使用哪些语言特性，然后了解预编译工具对语言特性的支持程度，做出选择。
+
 
 #### [强制] 在运行环境中没有 `Promise` 时，将 `Promise` 的实现 `shim` 到 `global` 中。
 
@@ -1104,13 +1128,17 @@ ES 标准的制定还在不断进行中，各种环境对语言特性的支持�
 这样，未来运行环境支持时，可以随时把 `Promise` 扩展直接扔掉，而应用代码无需任何修改。
 
 
-#### [建议] 需要预编译时，使用 `babel` 做为预编译工具。
+
+
+
+### 4.2 预编译
+
+
+#### [建议] 使用 `babel` 做为预编译工具时，建议使用 `5.x` 版本。
 
 解释：
 
-由于不同环境的（如浏览器）JavaScript 引擎对 ESNext 特性支持程度的问题，ESNext 代码可能需要进行预编译。此时，建议使用`babel`做为预编译工具。由于 `babel` 最新的 **6** 暂时还不稳定，建议暂时使用5。
-
-不同的产品，对于浏览器支持的情况不同，使用 `babel` 的时候，需要设置的参数也有一些区别。下面在示例中给出一些建议的参数。
+由于 `babel` 最新的 `6` 暂时还不稳定，建议暂时使用 `5.x`。不同的产品，对于浏览器支持的情况不同，使用 `babel` 的时候，需要设置的参数也有一些区别。下面在示例中给出一些建议的参数。
 
 示例：
 
@@ -1122,15 +1150,8 @@ ES 标准的制定还在不断进行中，各种环境对语言特性的支持�
 --loose all --modules amd --blacklist strict --stage 0
 ```
 
-#### [建议] 生成的代码在浏览器环境运行时，应生成 AMD 模块化代码。
 
-解释：
-
-添加 `--modules amd` 参数即可。
-
-
-
-#### [建议] 使用 `external-helpers` 减少生成文件的大小。
+#### [建议] 使用 `babel` 做为预编译工具时，通过 `external-helpers` 减少生成文件的大小。
 
 解释：
 
@@ -1151,6 +1172,48 @@ ES 标准的制定还在不断进行中，各种环境对语言特性的支持�
 # 定制方式
 --loose all --modules amd --optional runtime
 ```
+
+#### [建议] 使用 `TypeScript` 做为预编译工具时，建议使用 `1.6+` 版本。
+
+解释：
+
+`TypeScript` 1.6 之后，基本摒弃了之前的与 ESNext 相冲突的地方。目前 `TypeScript` 的思路就是遵循标准，将 stage 已经足够成熟的功能纳入，并提供静态类型和类型检查，所以其在 stage 0/1 的支持上不如 `babel`。另外，`TypeScript` 不能指定关闭某个 transform，但其编译速度比 `babel` 更高。
+
+`TypeScript` 的常用参数在下面给出了示例。
+
+示例：
+
+```shell
+--module amd --target ES3
+--module commonjs --target ES6
+```
+
+
+#### [建议] 使用 `TypeScript` 做为预编译工具时，不使用 `tsc` 命令。
+
+解释：
+
+`TypeScript` 提供的 `tsc` 命令只支持后缀名 `.ts`、`.tsx`、`.d.ts` 的文件编译，对于 JavaScript 来说，保持后缀名为 `.js` 是原则，本文档的 `文件` 章节也有所要求。
+
+如果要使用 `TypeScript` 做为预编译工具，可基于其 [Compiler API](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API) 开发自己的预编译工具。如果你是 FIS 用户，可以使用 [FIS TypeScript 插件](https://github.com/fex-team/fis3-parser-typescript)。
+
+
+#### [建议] 生成的代码在浏览器环境运行时，应生成 AMD 模块化代码。
+
+解释：
+
+AMD 在浏览器环境应用较为成熟。
+
+
+#### [建议] 浏览器端项目中如果 ESNext 代码和 ES3/5 代码混合，不要使用 `TypeScript` 做为预编译工具。
+
+解释：
+
+`TypeScript` 产生的 module 代码使用 exports.default 导出默认的 export，但是没有直接为 module.exports 赋值，导致在另外一个普通文件中使用 require('moduleName') 是拿不到东西的。
+
+需要使用 `TypeScript` 的话，建议整个项目所有文件都是 ESNext module 的，采用混合的 module 容易出现不可预期的结果。
+
+
 
 
 
