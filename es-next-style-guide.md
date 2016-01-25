@@ -65,6 +65,7 @@
 
 
 
+
 ## 2 代码风格
 
 
@@ -1212,6 +1213,19 @@ AMD 在浏览器环境应用较为成熟。
 `TypeScript` 产生的 module 代码使用 exports.default 导出默认的 export，但是没有直接为 module.exports 赋值，导致在另外一个普通文件中使用 require('moduleName') 是拿不到东西的。
 
 需要使用 `TypeScript` 的话，建议整个项目所有文件都是 ESNext module 的，采用混合的 module 容易出现不可预期的结果。
+
+
+#### [建议] AMD/CommonJS 模块依赖 ESNext 模块时，AMD/CommonJS 模块对 default export 的 require 需要改造。
+
+解释：
+
+ESNext 模块经过编译后，named export 会挂载在 exports 对象上，default export 也会挂载在 exports 对象上名称为 default 的属性。同时 exports 对象会包含一个值为 true 的 __esModule 属性。那么问题来了，当 AMD/CommonJS 模块依赖了 ESNext 模块时，require 期望拿到的是 exports.default，但你实际上拿到的是 exports。
+
+所以，老的 AMD/CommonJS 模块依赖了 default export 的 ESNext 模块时，对 default export 的 require 需要改造成 `require('name').default`。
+
+另外，如果是 ESNext 模块之间的互相依赖，transpiler 会通过加入中间对象和引入 interop 方法，所以不会产生这个问题。
+
+
 
 
 

@@ -417,7 +417,7 @@ alert(document.getElementById('foo').tagName);
 示例：
 
 ```html
-<link rel="stylesheet" src="page.css">
+<link rel="stylesheet" href="page.css">
 ```
 
 
