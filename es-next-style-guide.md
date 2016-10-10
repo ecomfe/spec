@@ -65,7 +65,6 @@
 
 
 
-
 ## 2 代码风格
 
 
@@ -127,7 +126,7 @@ function greeting(name) {
 
 // Bad
 function greeting(name) {
-    return `Hello, 
+    return `Hello,
 ${name.firstName} ${name.lastName}`;
 }
 ```
@@ -284,7 +283,9 @@ let fetchName = async (id) => {
 };
 ```
 
-##### [建议] 箭头函数的函数体只有一个非 `Object Literal` 的单行表达式语句，且作为返回值时，省略 `{}` 和 `return`。
+##### [建议] 箭头函数的函数体只有一个单行表达式语句，且作为返回值时，省略 `{}` 和 `return`。
+
+如果单个表达式过长，可以使用 `()` 进行包裹。
 
 示例：
 
@@ -292,30 +293,25 @@ let fetchName = async (id) => {
 // good
 list.map(item => item * 2);
 
+let foo = () => (
+    condition
+        ? returnValueA()
+        : returnValueB()
+);
+
 // bad
 list.map(item => {
     return item * 2;
 });
 ```
 
-##### [强制] 箭头函数的函数体只有一个 `Object Literal`，且作为返回值时，不得省略 `{}` 和 `return`。
+##### [建议] 箭头函数的函数体只有一个 `Object Literal`，且作为返回值时，使用 `()` 包裹。
 
 示例：
 
 ```javascript
 // good
-list.map(item => {
-    return {
-        name: item[0],
-        email: item[1]
-    };
-});
-
-// bad
-list.map(item => ({
-    name: item[0],
-    email: item[1]
-}));
+list.map(item => ({name: item[0], email: item[1]}));
 ```
 
 ##### [强制] 解构多个变量时，如果超过行长度限制，每个解构的变量必须单独一行。
@@ -603,7 +599,7 @@ let foo = {
 };
 ```
 
-#### [建议] 使用 `Object.keys` 进行对象遍历。
+#### [建议] 使用 `Object.keys` 或 `Object.entries` 进行对象遍历。
 
 解释：
 
@@ -615,6 +611,11 @@ let foo = {
 // good
 for (let key of Object.keys(foo)) {
     let value = foo[key];
+}
+
+// good
+for (let [key, value] of Object.entries(foo)) {
+    // ...
 }
 ```
 
@@ -762,8 +763,8 @@ function foo() {
 
 const bar = 3;
 
-export foo;
-export bar;
+export {foo};
+export {bar};
 ```
 
 #### [建议] 相互之间无关联的内容使用命名导出。
