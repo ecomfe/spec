@@ -58,7 +58,6 @@ HTML 作为描述网页结构的超文本标记语言，在百度一直有着广
 
 
 
-
 ## 2 代码风格
 
 
@@ -67,14 +66,28 @@ HTML 作为描述网页结构的超文本标记语言，在百度一直有着广
 
 #### [强制] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
 
+解释：
+对于非 HTML 标签之间的缩进，比如 script 或 style 标签内容缩进，与 script 或 style 标签的缩进同级。
 
 示例：
 
 ```html
+<style>
+/* 样式内容的第一级缩进与所属的 style 标签对齐 */
+ul {
+    padding: 0;
+}
+</style>
 <ul>
     <li>first</li>
     <li>second</li>
 </ul>
+<script>
+// 脚本代码的第一级缩进与所属的 script 标签对齐
+require(['app'], function (app) {
+    app.init();
+});
+</script>
 ```
 
 #### [建议] 每行不得超过 `120` 个字符。
@@ -338,7 +351,6 @@ alert(document.getElementById('foo').tagName);
 ```html
 <ol data-ui-type="Select"></ol>
 ```
-
 
 
 
