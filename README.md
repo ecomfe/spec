@@ -11,6 +11,7 @@ This repository contains the specifications.
 - [包结构规范](package.md) <span class="std-rec">[1.1]</span>
 - [项目目录结构规范](directory.md) <span class="std-rec">[1.1]</span>
 - [图表库标准](chart.md) <span class="std-rec">[1.0]</span>
+- [react编码规范](react-code-style.md) <span class="std-rec">[draft]</span>
 
 
 Lint and fix tool：[FECS](http://fecs.baidu.com/)
