@@ -157,12 +157,12 @@
     10. `getChildContext`
     11. `componentWillMount`
     12. `componentDidMount`
-    13. `componentWillUpdate`
-    14. `componentDidUpdate`
-    15. `componentWillUnmount`
-    16. 事件处理方法
-    17. 其它方法
-    18. `shouldComponentUpdate`
+    13. `shouldComponentUpdate`
+    14. `componentWillUpdate`
+    15. `componentDidUpdate`
+    16. `componentWillUnmount`
+    17. 事件处理方法
+    18. 其它方法
     19. `render`
 
     其中`shouldComponentUpdate`和`render`是一个组件最容易被阅读的函数，因此放在最下方有助于快速定位。
