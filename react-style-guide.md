@@ -189,7 +189,7 @@
             static displayName = `asPure(${componentName})`
 
             render() {
-                return <Component {..this.props} />;
+                return <Component {...this.props} />;
             }
         };
     };
