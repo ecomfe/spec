@@ -254,7 +254,7 @@
     使用类属性语法虽然可以避免引入一个`autobind`的实现，但存在一定的缺陷：
 
     1. 对于新手不容易理解函数内的`this`的定义。
-    2. 无法在函数时使用其它的装饰器（如`memoize`、`deprecated`或检验相关的逻辑等）。
+    2. 无法在函数上使用其它的装饰器（如`memoize`、`deprecated`或检验相关的逻辑等）。
 
     因此，推荐使用`@autobind`装饰器实现`this`的事先绑定，推荐使用[core-decorators](https://www.npmjs.com/package/core-decorators)库提供的相关装饰器实现。
 
