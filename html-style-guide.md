@@ -4,47 +4,47 @@
 
 
 
-[1 前言](#1-%E5%89%8D%E8%A8%80)
+[1 前言](#user-content-1-%E5%89%8D%E8%A8%80)
 
-[2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+[2 代码风格](#user-content-2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
 
-　　[2.1 缩进与换行](#21-%E7%BC%A9%E8%BF%9B%E4%B8%8E%E6%8D%A2%E8%A1%8C)
+　　[2.1 缩进与换行](#user-content-21-%E7%BC%A9%E8%BF%9B%E4%B8%8E%E6%8D%A2%E8%A1%8C)
 
-　　[2.2 命名](#22-%E5%91%BD%E5%90%8D)
+　　[2.2 命名](#user-content-22-%E5%91%BD%E5%90%8D)
 
-　　[2.3 标签](#23-%E6%A0%87%E7%AD%BE)
+　　[2.3 标签](#user-content-23-%E6%A0%87%E7%AD%BE)
 
-　　[2.4 属性](#24-%E5%B1%9E%E6%80%A7)
+　　[2.4 属性](#user-content-24-%E5%B1%9E%E6%80%A7)
 
-[3 通用](#3-%E9%80%9A%E7%94%A8)
+[3 通用](#user-content-3-%E9%80%9A%E7%94%A8)
 
-　　[3.1 DOCTYPE](#31-doctype)
+　　[3.1 DOCTYPE](#user-content-31-doctype)
 
-　　[3.2 编码](#32-%E7%BC%96%E7%A0%81)
+　　[3.2 编码](#user-content-32-%E7%BC%96%E7%A0%81)
 
-　　[3.3 CSS和JavaScript引入](#33-css%E5%92%8Cjavascript%E5%BC%95%E5%85%A5)
+　　[3.3 CSS 和 JavaScript 引入](#user-content-33-css-%E5%92%8C-javascript-%E5%BC%95%E5%85%A5)
 
-[4 head](#4-head)
+[4 head](#user-content-4-head)
 
-　　[4.1 title](#41-title)
+　　[4.1 title](#user-content-41-title)
 
-　　[4.2 favicon](#42-favicon)
+　　[4.2 favicon](#user-content-42-favicon)
 
-　　[4.3 viewport](#43-viewport)
+　　[4.3 viewport](#user-content-43-viewport)
 
-[5 图片](#5-%E5%9B%BE%E7%89%87)
+[5 图片](#user-content-5-%E5%9B%BE%E7%89%87)
 
-[6 表单](#6-%E8%A1%A8%E5%8D%95)
+[6 表单](#user-content-6-%E8%A1%A8%E5%8D%95)
 
-　　[6.1 控件标题](#61-%E6%8E%A7%E4%BB%B6%E6%A0%87%E9%A2%98)
+　　[6.1 控件标题](#user-content-61-%E6%8E%A7%E4%BB%B6%E6%A0%87%E9%A2%98)
 
-　　[6.2 按钮](#62-%E6%8C%89%E9%92%AE)
+　　[6.2 按钮](#user-content-62-%E6%8C%89%E9%92%AE)
 
-　　[6.3 可访问性 (A11Y)](#63-%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7-a11y)
+　　[6.3 可访问性 (A11Y)](#user-content-63-%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7-a11y)
 
-[7 多媒体](#7-%E5%A4%9A%E5%AA%92%E4%BD%93)
+[7 多媒体](#user-content-7-%E5%A4%9A%E5%AA%92%E4%BD%93)
 
-[8 模板中的 HTML](#8-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84-html)
+[8 模板中的 HTML](#user-content-8-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84-html)
 
 
 
@@ -53,7 +53,7 @@
 ## 1 前言
 
 
-HTML作为描述网页结构的超文本标记语言，在百度一直有着广泛的应用。本文档的目标是使HTML代码风格保持一致，容易被理解和被维护。
+HTML 作为描述网页结构的超文本标记语言，在百度一直有着广泛的应用。本文档的目标是使 HTML 代码风格保持一致，容易被理解和被维护。
 
 
 
@@ -66,14 +66,28 @@ HTML作为描述网页结构的超文本标记语言，在百度一直有着广�
 
 #### [强制] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
 
+解释：
+对于非 HTML 标签之间的缩进，比如 script 或 style 标签内容缩进，与 script 或 style 标签的缩进同级。
 
 示例：
 
 ```html
+<style>
+/* 样式内容的第一级缩进与所属的 style 标签对齐 */
+ul {
+    padding: 0;
+}
+</style>
 <ul>
     <li>first</li>
     <li>second</li>
 </ul>
+<script>
+// 脚本代码的第一级缩进与所属的 script 标签对齐
+require(['app'], function (app) {
+    app.init();
+});
+</script>
 ```
 
 #### [建议] 每行不得超过 `120` 个字符。
@@ -105,7 +119,7 @@ HTML作为描述网页结构的超文本标记语言，在百度一直有着广�
 
 解释：
 
-同一个页面中，不同的元素包含相同的 id，不符合 id 的属性含义。并且使用 document.getElementById 时可能导致难以追查的问题。
+同一个页面中，不同的元素包含相同的 `id`，不符合 `id` 的属性含义。并且使用 `document.getElementById` 时可能导致难以追查的问题。
 
 
 #### [建议] `id` 建议单词全字母小写，单词间以 `-` 分隔。同项目必须保持风格一致。
@@ -136,18 +150,18 @@ HTML作为描述网页结构的超文本标记语言，在百度一直有着广�
 
 解释：
 
-不允许 class 只用于让 JavaScript 选择某些元素，class 应该具有明确的语义和样式。否则容易导致 css class 泛滥。
+不允许 `class` 只用于让 JavaScript 选择某些元素，`class` 应该具有明确的语义和样式。否则容易导致 CSS class 泛滥。
 
-使用 id、属性选择作为 hook 是更好的方式。
+使用 `id`、属性选择作为 hook 是更好的方式。
 
 
 #### [强制] 同一页面，应避免使用相同的 `name` 与 `id`。
 
 解释：
 
-IE 浏览器会混淆元素的 id 和 name 属性， document.getElementById 可能获得不期望的元素。所以在对元素的 id 与 name 属性的命名需要非常小心。
+IE 浏览器会混淆元素的 `id` 和 `name` 属性， `document.getElementById` 可能获得不期望的元素。所以在对元素的 `id` 与 `name` 属性的命名需要非常小心。
 
-一个比较好的实践是，为 id 和 name 使用不同的命名法。
+一个比较好的实践是，为 `id` 和 `name` 使用不同的命名法。
 
 示例：
 
@@ -180,7 +194,7 @@ alert(document.getElementById('foo').tagName);
 
 解释：
 
-常见无需自闭合标签有input、br、img、hr等。
+常见无需自闭合标签有 `input`、`br`、`img`、`hr` 等。
 
 
 示例：
@@ -221,12 +235,12 @@ alert(document.getElementById('foo').tagName);
 
 解释：
 
-比如 div 不得置于 p 中，tbody 必须置于 table 中。
+比如 `div` 不得置于 `p` 中，`tbody` 必须置于 `table` 中。
 
 详细的标签嵌套规则参见[HTML DTD](http://www.cs.tut.fi/~jkorpela/html5.dtd)中的 `Elements` 定义部分。
 
 
-#### [建议] `HTML` 标签的使用应该遵循标签的语义。
+#### [建议] HTML 标签的使用应该遵循标签的语义。
 
 解释：
 
@@ -258,7 +272,7 @@ alert(document.getElementById('foo').tagName);
 ```
 
 
-#### [建议] 在 `CSS` 可以实现相同需求的情况下不得使用表格进行布局。
+#### [建议] 在 CSS 可以实现相同需求的情况下不得使用表格进行布局。
 
 解释：
 
@@ -340,7 +354,6 @@ alert(document.getElementById('foo').tagName);
 
 
 
-
 ## 3 通用
 
 
@@ -363,7 +376,7 @@ alert(document.getElementById('foo').tagName);
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 ```
 
-#### [建议] 在 `html` 标签上设置正确的 lang 属性。
+#### [建议] 在 `html` 标签上设置正确的 `lang` 属性。
 
 解释：
 
@@ -404,11 +417,11 @@ alert(document.getElementById('foo').tagName);
 
 解释：
 
-UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。
+`UTF-8` 编码具有更广泛的适应性。`BOM` 在使用程序或工具处理文件时可能造成不必要的干扰。
 
 
 
-### 3.3 CSS和JavaScript引入
+### 3.3 CSS 和 JavaScript 引入
 
 
 #### [强制] 引入 `CSS` 时必须指明 `rel="stylesheet"`。
@@ -416,7 +429,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 示例：
 
 ```html
-<link rel="stylesheet" src="page.css">
+<link rel="stylesheet" href="page.css">
 ```
 
 
@@ -424,7 +437,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 
 解释：
 
-`text/css` 和 `text/javascript` 是 type 的默认值。
+`text/css` 和 `text/javascript` 是 `type` 的默认值。
 
 
 #### [建议] 展现定义放置于外部 `CSS` 中，行为定义放置于外部 `JavaScript` 中。
@@ -445,7 +458,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 
 解释：
 
-将 script 放在页面中间将阻断页面的渲染。出于性能方面的考虑，如非必要，请遵守此条建议。
+将 `script` 放在页面中间将阻断页面的渲染。出于性能方面的考虑，如非必要，请遵守此条建议。
 
 
 示例：
@@ -488,7 +501,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 
 解释：
 
-title 中如果包含 ascii 之外的字符，浏览器需要知道字符编码类型才能进行解码，否则可能导致乱码。
+`title` 中如果包含 ASCII 之外的字符，浏览器需要知道字符编码类型才能进行解码，否则可能导致乱码。
 
 
 示例：
@@ -507,10 +520,10 @@ title 中如果包含 ascii 之外的字符，浏览器需要知道字符编码�
 
 解释：
 
-在未指定 favicon 时，大多数浏览器会请求 Web Server 根目录下的 favicon.ico 。为了保证favicon可访问，避免404，必须遵循以下两种方法之一：
+在未指定 favicon 时，大多数浏览器会请求 Web Server 根目录下的 `favicon.ico` 。为了保证 favicon 可访问，避免 404，必须遵循以下两种方法之一：
 
-1. 在 Web Server 根目录放置 favicon.ico 文件。
-2. 使用 link 指定 favicon。
+1. 在 Web Server 根目录放置 `favicon.ico` 文件。
+2. 使用 `link` 指定 favicon。
 
 
 示例：
@@ -526,9 +539,9 @@ title 中如果包含 ascii 之外的字符，浏览器需要知道字符编码�
 
 解释：
 
-viewport meta tag可以设置可视区域的宽度和初始缩放大小，避免在移动设备上出现页面展示不正常。
+viewport meta tag 可以设置可视区域的宽度和初始缩放大小，避免在移动设备上出现页面展示不正常。
 
-比如，在页面宽度小于 980px 时，若需 iOS 设备友好，应当设置 viewport 的 width 值来适应你的页面宽度。同时因为不同移动设备分辨率不同，在设置时，应当使用 device-width 和 device-height 变量。
+比如，在页面宽度小于 `980px` 时，若需 iOS 设备友好，应当设置 viewport 的 `width` 值来适应你的页面宽度。同时因为不同移动设备分辨率不同，在设置时，应当使用 `device-width` 和 `device-height` 变量。
 
 另外，为了使 viewport 正常工作，在页面内容样式布局设计上也要做相应调整，如避免绝对定位等。关于 viewport 的更多介绍，可以参见 [Safari Web Content Guide的介绍](https://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html#//apple_ref/doc/uid/TP40006509-SW26)
 
@@ -543,14 +556,14 @@ viewport meta tag可以设置可视区域的宽度和初始缩放大小，避免
 
 解释：
 
-src 取值为空，会导致部分浏览器重新加载一次当前页面，参考：<https://developer.yahoo.com/performance/rules.html#emptysrc> 
+`src` 取值为空，会导致部分浏览器重新加载一次当前页面，参考：<https://developer.yahoo.com/performance/rules.html#emptysrc>
 
 
 #### [建议] 避免为 `img` 添加不必要的 `title` 属性。
 
-解释：  
+解释：
 
-多余的 title 影响看图体验，并且增加了页面尺寸。
+多余的 `title` 影响看图体验，并且增加了页面尺寸。
 
 #### [建议] 为重要图片添加 `alt` 属性。
 
@@ -560,12 +573,12 @@ src 取值为空，会导致部分浏览器重新加载一次当前页面，参�
 
 #### [建议] 添加 `width` 和 `height` 属性，以避免页面抖动。
 
-#### [建议] 有下载需求的图片采用 `img` 标签实现，无下载需求的图片采用 `CSS` 背景图实现。
+#### [建议] 有下载需求的图片采用 `img` 标签实现，无下载需求的图片采用 CSS 背景图实现。
 
 解释：
 
-1. 产品 logo、用户头像、用户产生的图片等有潜在下载需求的图片，以 img 形式实现，能方便用户下载。
-2. 无下载需求的图片，比如：icon、背景、代码使用的图片等，尽可能采用 css 背景图实现。
+1. 产品 logo、用户头像、用户产生的图片等有潜在下载需求的图片，以 `img` 形式实现，能方便用户下载。
+2. 无下载需求的图片，比如：icon、背景、代码使用的图片等，尽可能采用 CSS 背景图实现。
 
 
 
@@ -581,10 +594,10 @@ src 取值为空，会导致部分浏览器重新加载一次当前页面，参�
 
 有两种方式：
 
-1. 将控件置于 label 内。
-2. label 的 for 属性指向控件的 id。
+1. 将控件置于 `label` 内。
+2. `label` 的 `for` 属性指向控件的 `id`。
 
-推荐使用第一种，减少不必要的 id。如果 DOM 结构不允许直接嵌套，则应使用第二种。
+推荐使用第一种，减少不必要的 `id`。如果 DOM 结构不允许直接嵌套，则应使用第二种。
 
 
 示例：
@@ -603,7 +616,7 @@ src 取值为空，会导致部分浏览器重新加载一次当前页面，参�
 
 解释：
 
-button 元素的默认 type 为 submit，如果被置于 form 元素中，点击后将导致表单提交。为显示区分其作用方便理解，必须给出 type 属性。
+`button` 元素的默认 `type` 为 `submit`，如果被置于 `form` 元素中，点击后将导致表单提交。为显示区分其作用方便理解，必须给出 `type` 属性。
 
 
 示例：
@@ -617,13 +630,13 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 
 解释：
 
-由于浏览器兼容性问题，使用按钮的 name 属性会带来许多难以发现的问题。具体情况可参考[此文](http://w3help.org/zh-cn/causes/CM2001)。
+由于浏览器兼容性问题，使用按钮的 `name` 属性会带来许多难以发现的问题。具体情况可参考[此文](http://w3help.org/zh-cn/causes/CM2001)。
 
 
 ### 6.3 可访问性 (A11Y)
 
 
-#### [建议] 负责主要功能的按钮在 `DOM` 中的顺序应靠前。
+#### [建议] 负责主要功能的按钮在 DOM 中的顺序应靠前。
 
 解释：
 
@@ -660,11 +673,11 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 </div>
 ```
 
-#### [建议] 当使用 `JavaScript` 进行表单提交时，如果条件允许，应使原生提交功能正常工作。
+#### [建议] 当使用 JavaScript 进行表单提交时，如果条件允许，应使原生提交功能正常工作。
 
 解释：
 
-当浏览器 JS 运行错误或关闭 JS 时，提交功能将无法工作。如果正确指定了 form 元素的 action 属性和表单控件的 name 属性时，提交仍可继续进行。
+当浏览器 JS 运行错误或关闭 JS 时，提交功能将无法工作。如果正确指定了 `form` 元素的 `action` 属性和表单控件的 `name` 属性时，提交仍可继续进行。
 
 
 示例：
@@ -754,7 +767,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 ## 8 模板中的 HTML
 
 
-#### [建议] 模板代码的缩进优先保证 `HTML` 代码的缩进规则。
+#### [建议] 模板代码的缩进优先保证 HTML 代码的缩进规则。
 
 示例：
 
@@ -782,7 +795,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 {/if}
 ```
 
-#### [建议] 模板代码应以保证 `HTML` 单个标签语法的正确性为基本原则。
+#### [建议] 模板代码应以保证 HTML 单个标签语法的正确性为基本原则。
 
 示例：
 

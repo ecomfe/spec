@@ -4,73 +4,73 @@
 
 
 
-[1 前言](#1-%E5%89%8D%E8%A8%80)
+[1 前言](#user-content-1-%E5%89%8D%E8%A8%80)
 
-[2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+[2 代码风格](#user-content-2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
 
-　　[2.1 文件](#21-%E6%96%87%E4%BB%B6)
+　　[2.1 文件](#user-content-21-%E6%96%87%E4%BB%B6)
 
-　　[2.2 缩进](#22-%E7%BC%A9%E8%BF%9B)
+　　[2.2 缩进](#user-content-22-%E7%BC%A9%E8%BF%9B)
 
-　　[2.3 空格](#23-%E7%A9%BA%E6%A0%BC)
+　　[2.3 空格](#user-content-23-%E7%A9%BA%E6%A0%BC)
 
-　　[2.4 行长度](#24-%E8%A1%8C%E9%95%BF%E5%BA%A6)
+　　[2.4 行长度](#user-content-24-%E8%A1%8C%E9%95%BF%E5%BA%A6)
 
-　　[2.5 选择器](#25-%E9%80%89%E6%8B%A9%E5%99%A8)
+　　[2.5 选择器](#user-content-25-%E9%80%89%E6%8B%A9%E5%99%A8)
 
-　　[2.6 属性](#26-%E5%B1%9E%E6%80%A7)
+　　[2.6 属性](#user-content-26-%E5%B1%9E%E6%80%A7)
 
-[3 通用](#3-%E9%80%9A%E7%94%A8)
+[3 通用](#user-content-3-%E9%80%9A%E7%94%A8)
 
-　　[3.1 选择器](#31-%E9%80%89%E6%8B%A9%E5%99%A8)
+　　[3.1 选择器](#user-content-31-%E9%80%89%E6%8B%A9%E5%99%A8)
 
-　　[3.2 属性缩写](#32-%E5%B1%9E%E6%80%A7%E7%BC%A9%E5%86%99)
+　　[3.2 属性缩写](#user-content-32-%E5%B1%9E%E6%80%A7%E7%BC%A9%E5%86%99)
 
-　　[3.3 属性书写顺序](#33-%E5%B1%9E%E6%80%A7%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F)
+　　[3.3 属性书写顺序](#user-content-33-%E5%B1%9E%E6%80%A7%E4%B9%A6%E5%86%99%E9%A1%BA%E5%BA%8F)
 
-　　[3.4 清除浮动](#34-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8)
+　　[3.4 清除浮动](#user-content-34-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8)
 
-　　[3.5 !important](#35-important)
+　　[3.5 !important](#user-content-35-important)
 
-　　[3.6 z-index](#36-z-index)
+　　[3.6 z-index](#user-content-36-z-index)
 
-[4 值与单位](#4-%E5%80%BC%E4%B8%8E%E5%8D%95%E4%BD%8D)
+[4 值与单位](#user-content-4-%E5%80%BC%E4%B8%8E%E5%8D%95%E4%BD%8D)
 
-　　[4.1 文本](#41-%E6%96%87%E6%9C%AC)
+　　[4.1 文本](#user-content-41-%E6%96%87%E6%9C%AC)
 
-　　[4.2 数值](#42-%E6%95%B0%E5%80%BC)
+　　[4.2 数值](#user-content-42-%E6%95%B0%E5%80%BC)
 
-　　[4.3 url()](#43-url)
+　　[4.3 url()](#user-content-43-url)
 
-　　[4.4 长度](#44-%E9%95%BF%E5%BA%A6)
+　　[4.4 长度](#user-content-44-%E9%95%BF%E5%BA%A6)
 
-　　[4.5 颜色](#45-%E9%A2%9C%E8%89%B2)
+　　[4.5 颜色](#user-content-45-%E9%A2%9C%E8%89%B2)
 
-　　[4.6 2D 位置](#46-2d-%E4%BD%8D%E7%BD%AE)
+　　[4.6 2D 位置](#user-content-46-2d-%E4%BD%8D%E7%BD%AE)
 
-[5 文本编排](#5-%E6%96%87%E6%9C%AC%E7%BC%96%E6%8E%92)
+[5 文本编排](#user-content-5-%E6%96%87%E6%9C%AC%E7%BC%96%E6%8E%92)
 
-　　[5.1 字体族](#51-%E5%AD%97%E4%BD%93%E6%97%8F)
+　　[5.1 字体族](#user-content-51-%E5%AD%97%E4%BD%93%E6%97%8F)
 
-　　[5.2 字号](#52-%E5%AD%97%E5%8F%B7)
+　　[5.2 字号](#user-content-52-%E5%AD%97%E5%8F%B7)
 
-　　[5.3 字体风格](#53-%E5%AD%97%E4%BD%93%E9%A3%8E%E6%A0%BC)
+　　[5.3 字体风格](#user-content-53-%E5%AD%97%E4%BD%93%E9%A3%8E%E6%A0%BC)
 
-　　[5.4 字重](#54-%E5%AD%97%E9%87%8D)
+　　[5.4 字重](#user-content-54-%E5%AD%97%E9%87%8D)
 
-　　[5.5 行高](#55-%E8%A1%8C%E9%AB%98)
+　　[5.5 行高](#user-content-55-%E8%A1%8C%E9%AB%98)
 
-[6 变换与动画](#6-%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%8A%A8%E7%94%BB)
+[6 变换与动画](#user-content-6-%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%8A%A8%E7%94%BB)
 
-[7 响应式](#7-%E5%93%8D%E5%BA%94%E5%BC%8F)
+[7 响应式](#user-content-7-%E5%93%8D%E5%BA%94%E5%BC%8F)
 
-[8 兼容性](#8-%E5%85%BC%E5%AE%B9%E6%80%A7)
+[8 兼容性](#user-content-8-%E5%85%BC%E5%AE%B9%E6%80%A7)
 
-　　[8.1 属性前缀](#81-%E5%B1%9E%E6%80%A7%E5%89%8D%E7%BC%80)
+　　[8.1 属性前缀](#user-content-81-%E5%B1%9E%E6%80%A7%E5%89%8D%E7%BC%80)
 
-　　[8.2 Hack](#82-hack)
+　　[8.2 Hack](#user-content-82-hack)
 
-　　[8.3 Expression](#83-expression)
+　　[8.3 Expression](#user-content-83-expression)
 
 
 
@@ -79,9 +79,11 @@
 ## 1 前言
 
 
-CSS作为网页样式的描述语言，在百度一直有着广泛的应用。本文档的目标是使CSS代码风格保持一致，容易被理解和被维护。
+CSS 作为网页样式的描述语言，在百度一直有着广泛的应用。本文档的目标是使 CSS 代码风格保持一致，容易被理解和被维护。
 
-虽然本文档是针对CSS设计的，但是在使用各种CSS的预编译器(如less、sass、stylus等)时，适用的部分也应尽量遵循本文档的约定。
+虽然本文档是针对 CSS 设计的，但是在使用各种 CSS 的预编译器(如 less、sass、stylus 等)时，适用的部分也应尽量遵循本文档的约定。
+
+
 
 
 ## 2 代码风格
@@ -239,12 +241,12 @@ input:checked~button {
 ```css
 /* good */
 article[character="juliet"] {
-    voice-family: "Vivien Leigh", victoria, female
+    voice-family: "Vivien Leigh", victoria, female;
 }
 
 /* bad */
 article[character='juliet'] {
-    voice-family: "Vivien Leigh", victoria, female
+    voice-family: "Vivien Leigh", victoria, female;
 }
 ```
 
@@ -319,7 +321,7 @@ p.danger-message {
 }
 ```
 
-#### [建议] 选择器的嵌套层级应不大于 3 级，位置靠后的限定条件应尽可能精确。
+#### [建议] 选择器的嵌套层级应不大于 `3` 级，位置靠后的限定条件应尽可能精确。
 
 示例：
 
@@ -361,7 +363,7 @@ p.danger-message {
 
 解释：
 
-border / margin / padding 等缩写会同时设置多个属性的值，容易覆盖不需要覆盖的设定。如某些方向需要继承其他声明的值，则应该分开设置。
+`border` / `margin` / `padding` 等缩写会同时设置多个属性的值，容易覆盖不需要覆盖的设定。如某些方向需要继承其他声明的值，则应该分开设置。
 
 
 示例：
@@ -467,7 +469,7 @@ article {
 
 解释：
 
-必须注意的是，仅在设计上 `确实不允许任何其它场景覆盖样式` 时，才使用内联的 `!important` 样式。通常在第三方环境的应用中使用这种方案。下面的 z-index 章节是其中一个特殊场景的典型样例。
+必须注意的是，仅在设计上 `确实不允许任何其它场景覆盖样式` 时，才使用内联的 `!important` 样式。通常在第三方环境的应用中使用这种方案。下面的 `z-index` 章节是其中一个特殊场景的典型样例。
 
 
 
@@ -551,12 +553,12 @@ html[lang|=zh] q:after {
 ```css
 /* good */
 panel {
-    opacity: .8
+    opacity: .8;
 }
 
 /* bad */
 panel {
-    opacity: 0.8
+    opacity: 0.8;
 }
 ```
 
@@ -802,7 +804,7 @@ h1 {
 
 解释：
 
-由于 Windows 的字体渲染机制，小于 12px 的文字显示效果极差、难以辨认。
+由于 Windows 的字体渲染机制，小于 `12px` 的文字显示效果极差、难以辨认。
 
 
 ### 5.3 字体风格
@@ -812,7 +814,7 @@ h1 {
 
 解释：
 
-由于中文字体没有 italic 风格的实现，所有浏览器下都会 fallback 到 obilique 实现 (自动拟合为斜体)，小字号下 (特别是 Windows 下会在小字号下使用点阵字体的情况下) 显示效果差，造成阅读困难。
+由于中文字体没有 `italic` 风格的实现，所有浏览器下都会 fallback 到 `obilique` 实现 (自动拟合为斜体)，小字号下 (特别是 Windows 下会在小字号下使用点阵字体的情况下) 显示效果差，造成阅读困难。
 
 
 ### 5.4 字重
@@ -822,11 +824,11 @@ h1 {
 
 解释：
 
-CSS 的字重分 100 – 900 共九档，但目前受字体本身质量和浏览器的限制，实际上支持 400 和 700 两档，分别等价于关键词 normal 和 bold。
+CSS 的字重分 100 – 900 共九档，但目前受字体本身质量和浏览器的限制，实际上支持 `400` 和 `700` 两档，分别等价于关键词 `normal` 和 `bold`。
 
-浏览器本身使用一系列[启发式规则](http://www.w3.org/TR/CSS21/fonts.html#propdef-font-weight)来进行匹配，在 <700 时一般匹配字体的 Regular 字重，>=700 时匹配 Bold 字重。
+浏览器本身使用一系列[启发式规则](http://www.w3.org/TR/CSS21/fonts.html#propdef-font-weight)来进行匹配，在 `<700` 时一般匹配字体的 Regular 字重，`>=700` 时匹配 Bold 字重。
 
-但已有浏览器开始支持 =600 时匹配 Semibold 字重 (见[此表](http://justineo.github.io/slideshows/font/#/3/15))，故使用数值描述增加了灵活性，也更简短。
+但已有浏览器开始支持 `=600` 时匹配 Semibold 字重 (见[此表](http://justineo.github.io/slideshows/font/#/3/15))，故使用数值描述增加了灵活性，也更简短。
 
 示例：
 
@@ -849,9 +851,9 @@ h1 {
 
 解释：
 
-将 line-height 设置为数值，浏览器会基于当前元素设置的 font-size 进行再次计算。在不同字号的文本段落组合中，能达到较为舒适的行间间隔效果，避免在每个设置了 font-size 都需要设置 line-height。
+将 `line-height` 设置为数值，浏览器会基于当前元素设置的 `font-size` 进行再次计算。在不同字号的文本段落组合中，能达到较为舒适的行间间隔效果，避免在每个设置了 `font-size` 都需要设置 `line-height`。
 
-当 line-height 用于控制垂直居中时，还是应该设置成与容器高度一致。
+当 `line-height` 用于控制垂直居中时，还是应该设置成与容器高度一致。
 
 
 示例：
@@ -895,7 +897,7 @@ h1 {
 * `transform: rotate(ndeg);`
 * `opacity: 0..1;`
 
-典型的，可以使用 translate 来代替 left 作为动画属性。
+典型的，可以使用 `translate` 来代替 `left` 作为动画属性。
 
 示例：
 

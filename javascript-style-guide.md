@@ -4,117 +4,117 @@
 
 
 
-[1 前言](#1-%E5%89%8D%E8%A8%80)
+[1 前言](#user-content-1-%E5%89%8D%E8%A8%80)
 
-[2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+[2 代码风格](#user-content-2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
 
-　　[2.1 文件](#21-%E6%96%87%E4%BB%B6)
+　　[2.1 文件](#user-content-21-%E6%96%87%E4%BB%B6)
 
-　　[2.2 结构](#22-%E7%BB%93%E6%9E%84)
+　　[2.2 结构](#user-content-22-%E7%BB%93%E6%9E%84)
 
-　　　　[2.2.1 缩进](#221-%E7%BC%A9%E8%BF%9B)
+　　　　[2.2.1 缩进](#user-content-221-%E7%BC%A9%E8%BF%9B)
 
-　　　　[2.2.2 空格](#222-%E7%A9%BA%E6%A0%BC)
+　　　　[2.2.2 空格](#user-content-222-%E7%A9%BA%E6%A0%BC)
 
-　　　　[2.2.3 换行](#223-%E6%8D%A2%E8%A1%8C)
+　　　　[2.2.3 换行](#user-content-223-%E6%8D%A2%E8%A1%8C)
 
-　　　　[2.2.4 语句](#224-%E8%AF%AD%E5%8F%A5)
+　　　　[2.2.4 语句](#user-content-224-%E8%AF%AD%E5%8F%A5)
 
-　　[2.3 命名](#23-%E5%91%BD%E5%90%8D)
+　　[2.3 命名](#user-content-23-%E5%91%BD%E5%90%8D)
 
-　　[2.4 注释](#24-%E6%B3%A8%E9%87%8A)
+　　[2.4 注释](#user-content-24-%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.1 单行注释](#241-%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A)
+　　　　[2.4.1 单行注释](#user-content-241-%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.2 多行注释](#242-%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A)
+　　　　[2.4.2 多行注释](#user-content-242-%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.3 文档化注释](#243-%E6%96%87%E6%A1%A3%E5%8C%96%E6%B3%A8%E9%87%8A)
+　　　　[2.4.3 文档化注释](#user-content-243-%E6%96%87%E6%A1%A3%E5%8C%96%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.4 类型定义](#244-%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89)
+　　　　[2.4.4 类型定义](#user-content-244-%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89)
 
-　　　　[2.4.5 文件注释](#245-%E6%96%87%E4%BB%B6%E6%B3%A8%E9%87%8A)
+　　　　[2.4.5 文件注释](#user-content-245-%E6%96%87%E4%BB%B6%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.6 命名空间注释](#246-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E6%B3%A8%E9%87%8A)
+　　　　[2.4.6 命名空间注释](#user-content-246-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.7 类注释](#247-%E7%B1%BB%E6%B3%A8%E9%87%8A)
+　　　　[2.4.7 类注释](#user-content-247-%E7%B1%BB%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.8 函数/方法注释](#248-%E5%87%BD%E6%95%B0/%E6%96%B9%E6%B3%95%E6%B3%A8%E9%87%8A)
+　　　　[2.4.8 函数/方法注释](#user-content-248-%E5%87%BD%E6%95%B0/%E6%96%B9%E6%B3%95%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.9 事件注释](#249-%E4%BA%8B%E4%BB%B6%E6%B3%A8%E9%87%8A)
+　　　　[2.4.9 事件注释](#user-content-249-%E4%BA%8B%E4%BB%B6%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.10 常量注释](#2410-%E5%B8%B8%E9%87%8F%E6%B3%A8%E9%87%8A)
+　　　　[2.4.10 常量注释](#user-content-2410-%E5%B8%B8%E9%87%8F%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.11 复杂类型注释](#2411-%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A)
+　　　　[2.4.11 复杂类型注释](#user-content-2411-%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.12 AMD 模块注释](#2412-amd-%E6%A8%A1%E5%9D%97%E6%B3%A8%E9%87%8A)
+　　　　[2.4.12 AMD 模块注释](#user-content-2412-amd-%E6%A8%A1%E5%9D%97%E6%B3%A8%E9%87%8A)
 
-　　　　[2.4.13 细节注释](#2413-%E7%BB%86%E8%8A%82%E6%B3%A8%E9%87%8A)
+　　　　[2.4.13 细节注释](#user-content-2413-%E7%BB%86%E8%8A%82%E6%B3%A8%E9%87%8A)
 
-[3 语言特性](#3-%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7)
+[3 语言特性](#user-content-3-%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7)
 
-　　[3.1 变量](#31-%E5%8F%98%E9%87%8F)
+　　[3.1 变量](#user-content-31-%E5%8F%98%E9%87%8F)
 
-　　[3.2 条件](#32-%E6%9D%A1%E4%BB%B6)
+　　[3.2 条件](#user-content-32-%E6%9D%A1%E4%BB%B6)
 
-　　[3.3 循环](#33-%E5%BE%AA%E7%8E%AF)
+　　[3.3 循环](#user-content-33-%E5%BE%AA%E7%8E%AF)
 
-　　[3.4 类型](#34-%E7%B1%BB%E5%9E%8B)
+　　[3.4 类型](#user-content-34-%E7%B1%BB%E5%9E%8B)
 
-　　　　[3.4.1 类型检测](#341-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B)
+　　　　[3.4.1 类型检测](#user-content-341-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B)
 
-　　　　[3.4.2 类型转换](#342-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2)
+　　　　[3.4.2 类型转换](#user-content-342-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2)
 
-　　[3.5 字符串](#35-%E5%AD%97%E7%AC%A6%E4%B8%B2)
+　　[3.5 字符串](#user-content-35-%E5%AD%97%E7%AC%A6%E4%B8%B2)
 
-　　[3.6 对象](#36-%E5%AF%B9%E8%B1%A1)
+　　[3.6 对象](#user-content-36-%E5%AF%B9%E8%B1%A1)
 
-　　[3.7 数组](#37-%E6%95%B0%E7%BB%84)
+　　[3.7 数组](#user-content-37-%E6%95%B0%E7%BB%84)
 
-　　[3.8 函数](#38-%E5%87%BD%E6%95%B0)
+　　[3.8 函数](#user-content-38-%E5%87%BD%E6%95%B0)
 
-　　　　[3.8.1 函数长度](#381-%E5%87%BD%E6%95%B0%E9%95%BF%E5%BA%A6)
+　　　　[3.8.1 函数长度](#user-content-381-%E5%87%BD%E6%95%B0%E9%95%BF%E5%BA%A6)
 
-　　　　[3.8.2 参数设计](#382-%E5%8F%82%E6%95%B0%E8%AE%BE%E8%AE%A1)
+　　　　[3.8.2 参数设计](#user-content-382-%E5%8F%82%E6%95%B0%E8%AE%BE%E8%AE%A1)
 
-　　　　[3.8.3 闭包](#383-%E9%97%AD%E5%8C%85)
+　　　　[3.8.3 闭包](#user-content-383-%E9%97%AD%E5%8C%85)
 
-　　　　[3.8.4 空函数](#384-%E7%A9%BA%E5%87%BD%E6%95%B0)
+　　　　[3.8.4 空函数](#user-content-384-%E7%A9%BA%E5%87%BD%E6%95%B0)
 
-　　[3.9 面向对象](#39-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
+　　[3.9 面向对象](#user-content-39-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
 
-　　[3.10 动态特性](#310-%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7)
+　　[3.10 动态特性](#user-content-310-%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7)
 
-　　　　[3.10.1 eval](#3101-eval)
+　　　　[3.10.1 eval](#user-content-3101-eval)
 
-　　　　[3.10.2 动态执行代码](#3102-%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81)
+　　　　[3.10.2 动态执行代码](#user-content-3102-%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81)
 
-　　　　[3.10.3 with](#3103-with)
+　　　　[3.10.3 with](#user-content-3103-with)
 
-　　　　[3.10.4 delete](#3104-delete)
+　　　　[3.10.4 delete](#user-content-3104-delete)
 
-　　　　[3.10.5 对象属性](#3105-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7)
+　　　　[3.10.5 对象属性](#user-content-3105-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7)
 
-[4 浏览器环境](#4-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
+[4 浏览器环境](#user-content-4-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
 
-　　[4.1 模块化](#41-%E6%A8%A1%E5%9D%97%E5%8C%96)
+　　[4.1 模块化](#user-content-41-%E6%A8%A1%E5%9D%97%E5%8C%96)
 
-　　　　[4.1.1 AMD](#411-amd)
+　　　　[4.1.1 AMD](#user-content-411-amd)
 
-　　　　[4.1.2 define](#412-define)
+　　　　[4.1.2 define](#user-content-412-define)
 
-　　　　[4.1.3 require](#413-require)
+　　　　[4.1.3 require](#user-content-413-require)
 
-　　[4.2 DOM](#42-dom)
+　　[4.2 DOM](#user-content-42-dom)
 
-　　　　[4.2.1 元素获取](#421-%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96)
+　　　　[4.2.1 元素获取](#user-content-421-%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96)
 
-　　　　[4.2.2 样式获取](#422-%E6%A0%B7%E5%BC%8F%E8%8E%B7%E5%8F%96)
+　　　　[4.2.2 样式获取](#user-content-422-%E6%A0%B7%E5%BC%8F%E8%8E%B7%E5%8F%96)
 
-　　　　[4.2.3 样式设置](#423-%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE)
+　　　　[4.2.3 样式设置](#user-content-423-%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE)
 
-　　　　[4.2.4 DOM 操作](#424-dom-%E6%93%8D%E4%BD%9C)
+　　　　[4.2.4 DOM 操作](#user-content-424-dom-%E6%93%8D%E4%BD%9C)
 
-　　　　[4.2.5 DOM 事件](#425-dom-%E4%BA%8B%E4%BB%B6)
+　　　　[4.2.5 DOM 事件](#user-content-425-dom-%E4%BA%8B%E4%BB%B6)
 
 
 
@@ -123,9 +123,11 @@
 ## 1 前言
 
 
-JavaScript在百度一直有着广泛的应用，特别是在浏览器端的行为管理。本文档的目标是使JavaScript代码风格保持一致，容易被理解和被维护。
+JavaScript 在百度一直有着广泛的应用，特别是在浏览器端的行为管理。本文档的目标是使 JavaScript 代码风格保持一致，容易被理解和被维护。
 
-虽然本文档是针对JavaScript设计的，但是在使用各种JavaScript的预编译语言时(如TypeScript等)时，适用的部分也应尽量遵循本文档的约定。
+虽然本文档是针对 JavaScript 设计的，但是在使用各种 JavaScript 的预编译语言时(如 TypeScript 等)时，适用的部分也应尽量遵循本文档的约定。
+
+
 
 
 
@@ -139,7 +141,7 @@ JavaScript在百度一直有着广泛的应用，特别是在浏览器端的行�
 ### 2.1 文件
 
 
-##### [建议] `JavaScript` 文件使用无 `BOM` 的 `UTF-8` 编码。
+##### [建议] JavaScript 文件使用无 `BOM` 的 `UTF-8` 编码。
 
 解释：
 
@@ -309,7 +311,7 @@ var funcName = function funcName () {
 funcName ();
 ```
 
-##### [强制] `,` 和 `;` 前不允许有空格。
+##### [强制] `,` 和 `;` 前不允许有空格。如果不位于行尾，`,` 和 `;` 后必须跟一个空格。
 
 示例：
 
@@ -430,7 +432,7 @@ var result = number1 + number2 + number3 +
     number4 + number5;
 ```
 
-##### [强制] 在函数声明、函数表达式、函数调用、对象创建、数组创建、for语句等场景中，不允许在 `,` 或 `;` 前换行。
+##### [强制] 在函数声明、函数表达式、函数调用、对象创建、数组创建、`for` 语句等场景中，不允许在 `,` 或 `;` 前换行。
 
 示例：
 
@@ -484,7 +486,7 @@ function setStyle(element, property, value) {
 
 ```javascript
 // 较复杂的逻辑条件组合，将每个条件独立一行，逻辑运算符放置在行首进行分隔，或将部分逻辑按逻辑组合进行分隔。
-// 建议最终将右括号 ) 与左大括号 { 放在独立一行，保证与 if 内语句块能容易视觉辨识。
+// 建议最终将右括号 ) 与左大括号 { 放在独立一行，保证与 `if` 内语句块能容易视觉辨识。
 if (user.isAuthenticated()
     && user.isInRole('admin')
     && user.hasAuthority('add-admin')
@@ -495,15 +497,15 @@ if (user.isAuthenticated()
 
 // 按一定长度截断字符串，并使用 + 运算符进行连接。
 // 分隔字符串尽量按语义进行，如不要在一个完整的名词中间断开。
-// 特别的，对于HTML片段的拼接，通过缩进，保持和HTML相同的结构。
-var html = '' // 此处用一个空字符串，以便整个HTML片段都在新行严格对齐
+// 特别的，对于 HTML 片段的拼接，通过缩进，保持和 HTML 相同的结构。
+var html = '' // 此处用一个空字符串，以便整个 HTML 片段都在新行严格对齐
     + '<article>'
     +     '<h1>Title here</h1>'
     +     '<p>This is a paragraph</p>'
     +     '<footer>Complete</footer>'
     + '</article>';
 
-// 也可使用数组来进行拼接，相对 + 更容易调整缩进。
+// 也可使用数组来进行拼接，相对 `+` 更容易调整缩进。
 var html = [
     '<article>',
         '<h1>Title here</h1>',
@@ -522,14 +524,14 @@ foo(
 );
 
 // 也可以按逻辑对参数进行组合。
-// 最经典的是baidu.format函数，调用时将参数分为“模板”和“数据”两块
+// 最经典的是 baidu.format 函数，调用时将参数分为“模板”和“数据”两块
 baidu.format(
     dateFormatTemplate,
     year, month, date, hour, minute, second
 );
 
 // 当函数调用时，如果有一个或以上参数跨越多行，应当每一个参数独立一行。
-// 这通常出现在匿名函数或者对象初始化等作为参数时，如setTimeout函数等。
+// 这通常出现在匿名函数或者对象初始化等作为参数时，如 `setTimeout` 函数等。
 setTimeout(
     function () {
         alert('hello');
@@ -538,11 +540,11 @@ setTimeout(
 );
 
 order.data.read(
-    'id=' + me.model.id, 
+    'id=' + me.model.id,
     function (data) {
         me.attchToModel(data.result);
         callback();
-    }, 
+    },
     300
 );
 
@@ -560,7 +562,7 @@ var result = condition
     ? thisIsAVeryVeryLongResult
     : resultB;
 
-// 数组和对象初始化的混用，严格按照每个对象的 { 和结束 } 在独立一行的风格书写。
+// 数组和对象初始化的混用，严格按照每个对象的 `{` 和结束 `}` 在独立一行的风格书写。
 var array = [
     {
         // ...
@@ -715,7 +717,7 @@ function TextNode(options) {
 }
 ```
 
-##### [强制] 类的 `方法 / 属性` 使用 `Camel命名法`。
+##### [强制] 类的 `方法` / `属性` 使用 `Camel命名法`。
 
 示例：
 
@@ -846,7 +848,7 @@ loadingData.then(callback);
 #### 2.4.4 类型定义
 
 
-##### [强制] 类型定义都是以`{`开始, 以`}`结束。
+##### [强制] 类型定义都是以 `{` 开始, 以 `}` 结束。
 
 解释：
 
@@ -873,6 +875,7 @@ loadingData.then(callback);
 |不允许为null|{!Object}|Object 类型, 但不是 null|
 |Function类型|{function(number, boolean)}|函数, 形参类型|
 |Function带返回值|{function(number, boolean):string}|函数, 形参, 返回值类型|
+|Promise|Promise.&lt;resolveType, rejectType&gt;|Promise，成功返回的数据类型，失败返回的错误类型|
 |参数可选|@param {string=} name|可选参数, =为类型后缀|
 |可变参数|@param {...number} args|变长参数,  ...为类型前缀|
 |任意类型|{*}|任意类型|
@@ -997,14 +1000,14 @@ function Fronteer() {
 util.extend(
     Fronteer.prototype,
     /** @lends Fronteer.prototype */{
-        _getLevel: function () {
+        getLevel: function () {
             // TODO
         }
     }
 );
 ```
 
-##### [强制] 类的属性或方法等成员信息使用 `@public` / `@protected` / `@private` 中的任意一个，指明可访问性。
+##### [强制] 类的属性或方法等成员信息不是 `public` 的，应使用 `@protected` 或 `@private` 标识可访问性。
 
 解释：
 
@@ -1028,7 +1031,7 @@ var Fronteer = function () {
      * @type {string}
      * @private
      */
-    this._level = 'T12';
+    this.level = 'T12';
 
     // constructor body
 };
@@ -1040,7 +1043,7 @@ util.inherits(Fronteer, Developer);
  * @private
  * @return {string} 返回值描述
  */
-Fronteer.prototype._getLevel = function () {
+Fronteer.prototype.getLevel = function () {
 };
 ```
 
@@ -1050,7 +1053,12 @@ Fronteer.prototype._getLevel = function () {
 
 ##### [强制] 函数/方法注释必须包含函数说明，有参数和返回值时必须使用注释标识。
 
-##### [强制] 参数和返回值注释必须包含类型信息和说明。
+解释：
+
+当 `return` 关键字仅作退出函数/方法使用时，无须对返回值作注释标识。
+
+
+##### [强制] 参数和返回值注释必须包含类型信息，且不允许省略参数的说明。
 
 ##### [建议] 当函数是内部函数，外部不可访问时，可以使用 `@inner` 标识。
 
@@ -1110,13 +1118,18 @@ function foo(option) {
 /**
  * 值变更时触发
  *
- * @event
+ * @event Select#change
  * @param {Object} e e描述
  * @param {string} e.before before描述
  * @param {string} e.after after描述
  */
-onchange: function (e) {
-}
+this.fire(
+    'change',
+    {
+        before: 'foo',
+        after: 'bar'
+    }
+);
 ```
 
 ##### [强制] 在会广播事件的函数前使用 `@fires` 标识广播的事件，在广播事件代码前使用 `@event` 标识事件。
@@ -1133,6 +1146,7 @@ onchange: function (e) {
  * @private
  */
 Select.prototype.clickHandler = function () {
+
     /**
      * 值变更时触发
      *
@@ -1462,7 +1476,7 @@ function foo(p1, p2, opt_p3) {
 ### 3.1 变量
 
 
-##### [强制] 变量在使用前必须通过 `var` 定义。
+##### [强制] 变量、函数在使用前必须先定义。
 
 解释：
 
@@ -1479,11 +1493,20 @@ var name = 'MyName';
 name = 'MyName';
 ```
 
+原则上不建议使用全局变量，对于已有的全局变量或第三方框架引入的全局变量，需要根据检查工具的语法标识。
+
+示例：
+
+```javascript
+/* globals jQuery */
+var element = jQuery('#element-id');
+```
+
 ##### [强制] 每个 `var` 只能声明一个变量。
 
 解释：
 
-一个 var 声明多个变量，容易导致较长的行长度，并且在修改时容易造成逗号和分号的混淆。
+一个 `var` 声明多个变量，容易导致较长的行长度，并且在修改时容易造成逗号和分号的混淆。
 
 
 示例：
@@ -1503,14 +1526,14 @@ var hangModules = [],
 
 ##### [强制] 变量必须 `即用即声明`，不得在函数或其它形式的代码块起始位置统一声明所有变量。
 
-解释： 
+解释：
 
 变量声明与使用的距离越远，出现的跨度越大，代码的阅读与维护成本越高。虽然JavaScript的变量是函数作用域，还是应该根据编程中的意图，缩小变量出现的距离空间。
 
 
 示例：
 
-```javascript 
+```javascript
 // good
 function kv2List(source) {
     var list = [];
@@ -1521,6 +1544,7 @@ function kv2List(source) {
                 k: key,
                 v: source[key]
             };
+
             list.push(item);
         }
     }
@@ -1540,6 +1564,7 @@ function kv2List(source) {
                 k: key,
                 v: source[key]
             };
+
             list.push(item);
         }
     }
@@ -1556,11 +1581,11 @@ function kv2List(source) {
 ### 3.2 条件
 
 
-##### [强制] 在 Equality Expression 中使用类型严格的 `===`。仅当判断 null 或 undefined 时，允许使用 `== null`。
+##### [强制] 在 Equality Expression 中使用类型严格的 `===`。仅当判断 `null` 或 `undefined` 时，允许使用 `== null`。
 
 解释：
 
-使用 === 可以避免等于判断中隐式的类型转换。
+使用 `===` 可以避免等于判断中隐式的类型转换。
 
 
 示例：
@@ -1684,7 +1709,7 @@ switch (typeof variable) {
 var type = typeof variable;
 if (type === 'object') {
     // ......
-} 
+}
 else if (type === 'number' || type === 'boolean' || type === 'string') {
     // ......
 }
@@ -1777,7 +1802,7 @@ for (var i = 0, len = elements.length; i < len; i++) {
 
 解释：
 
-虽然现代浏览器都对数组长度进行了缓存，但对于一些宿主对象和老旧浏览器的数组对象，在每次 length 访问时会动态计算元素个数，此时缓存 length 能有效提高程序性能。
+虽然现代浏览器都对数组长度进行了缓存，但对于一些宿主对象和老旧浏览器的数组对象，在每次 `length` 访问时会动态计算元素个数，此时缓存 `length` 能有效提高程序性能。
 
 
 示例：
@@ -1911,7 +1936,7 @@ var num = 3.14;
 !!num;
 ```
 
-##### [建议] `number` 去除小数点，使用 `Math.floor / Math.round / Math.ceil`，不使用 `parseInt`。
+##### [建议] `number` 去除小数点，使用 `Math.floor` / `Math.round` / `Math.ceil`，不使用 `parseInt`。
 
 示例：
 
@@ -1935,7 +1960,7 @@ parseInt(num, 10);
 
 解释：
 
-1. 输入单引号不需要按住 shift，方便输入。
+1. 输入单引号不需要按住 `shift`，方便输入。
 2. 实际使用中，字符串经常用来拼接 HTML。为方便 HTML 中包含双引号而不需要转义写法。
 
 示例：
@@ -1949,8 +1974,8 @@ var html = '<div class="cls">拼接HTML可以省去双引号转义</div>';
 
 解释：
 
-1. 使用 + 拼接字符串，如果拼接的全部是 StringLiteral，压缩工具可以对其进行自动合并的优化。所以，静态字符串建议使用 + 拼接。
-2. 在现代浏览器下，使用 + 拼接字符串，性能较数组的方式要高。
+1. 使用 `+` 拼接字符串，如果拼接的全部是 StringLiteral，压缩工具可以对其进行自动合并的优化。所以，静态字符串建议使用 `+` 拼接。
+2. 在现代浏览器下，使用 `+` 拼接字符串，性能较数组的方式要高。
 3. 如需要兼顾老旧浏览器，应尽量使用数组拼接字符串。
 
 示例：
@@ -1965,13 +1990,37 @@ var str = [
     '</ul>'
 ].join('');
 
-// 使用 + 拼接字符串
+// 使用 `+` 拼接字符串
 var str2 = '' // 建议第一个为空字符串, 第二个换行开始并缩进开始, 对齐代码, 方便阅读
     + '<ul>',
     +    '<li>第一项</li>',
     +    '<li>第二项</li>',
     + '</ul>';
 ```
+
+##### [建议] 使用字符串拼接的方式生成HTML，需要根据语境进行合理的转义。
+
+解释：
+
+在 `JavaScript` 中拼接，并且最终将输出到页面中的字符串，需要进行合理转义，以防止安全漏洞。下面的示例代码为场景说明，不能直接运行。
+
+
+示例：
+
+```javascript
+// HTML 转义
+var str = '<p>' + htmlEncode(content) + '</p>';
+
+// HTML 转义
+var str = '<input type="text" value="' + htmlEncode(value) + '">';
+
+// URL 转义
+var str = '<a href="/?key=' + htmlEncode(urlEncode(value)) + '">link</a>';
+
+// JavaScript字符串 转义 + HTML 转义
+var str = '<button onclick="check(\'' + htmlEncode(strLiteral(name)) + '\')">提交</button>';
+```
+
 
 ##### [建议] 复杂的数据到视图字符串的转换过程，选用一种模板引擎。
 
@@ -1981,6 +2030,7 @@ var str2 = '' // 建议第一个为空字符串, 第二个换行开始并缩进�
 
 1. 在开发过程中专注于数据，将视图生成的过程由另外一个层级维护，使程序逻辑结构更清晰。
 2. 优秀的模板引擎，通过模板编译技术和高质量的编译产物，能获得比手工拼接字符串更高的性能。
+3. 模板引擎能方便的对动态数据进行相应的转义，部分模板引擎默认进行HTML转义，安全性更好。
 
 - artTemplate: 体积较小，在所有环境下性能高，语法灵活。
 - dot.js: 体积小，在现代浏览器下性能高，语法灵活。
@@ -1997,7 +2047,7 @@ var str2 = '' // 建议第一个为空字符串, 第二个换行开始并缩进�
 
 ##### [强制] 使用对象字面量 `{}` 创建新 `Object`。
 
-示例： 
+示例：
 
 ```javascript
 // good
@@ -2007,9 +2057,9 @@ var obj = {};
 var obj = new Object();
 ```
 
-##### [强制] 对象创建时，如果一个对象的所有 `属性` 均可以不添加引号，则所有 `属性` 不得添加引号。
+##### [建议] 对象创建时，如果一个对象的所有 `属性` 均可以不添加引号，建议所有 `属性` 不添加引号。
 
-示例： 
+示例：
 
 ```javascript
 var info = {
@@ -2018,14 +2068,14 @@ var info = {
 };
 ```
 
-##### [强制] 对象创建时，如果任何一个 `属性` 需要添加引号，则所有 `属性` 必须添加 `'`。
+##### [建议] 对象创建时，如果任何一个 `属性` 需要添加引号，则所有 `属性` 建议添加 `'`。
 
 解释：
 
 如果属性不符合 Identifier 和 NumberLiteral 的形式，就需要以 StringLiteral 的形式提供。
 
 
-示例： 
+示例：
 
 ```javascript
 // good
@@ -2045,7 +2095,7 @@ var info = {
 
 ##### [强制] 不允许修改和扩展任何原生对象和宿主对象的原型。
 
-示例： 
+示例：
 
 ```javascript
 // 以下行为绝对禁止
@@ -2059,10 +2109,10 @@ String.prototype.trim = function () {
 
 属性名符合 Identifier 的要求，就可以通过 `.` 来访问，否则就只能通过 `[expr]` 方式访问。
 
-通常在 JavaScript 中声明的对象，属性命名是使用 Camel 命名法，用 `.` 来访问更清晰简洁。部分特殊的属性(比如来自后端的JSON)，可能采用不寻常的命名方式，可以通过 `[expr]` 方式访问。
+通常在 JavaScript 中声明的对象，属性命名是使用 Camel 命名法，用 `.` 来访问更清晰简洁。部分特殊的属性（比如来自后端的 JSON ），可能采用不寻常的命名方式，可以通过 `[expr]` 方式访问。
 
 
-示例： 
+示例：
 
 ```javascript
 info.age;
@@ -2104,13 +2154,15 @@ var arr = new Array();
 
 解释：
 
-数组对象可能存在数字以外的属性, 这种情况下 for in 不会得到正确结果.
+数组对象可能存在数字以外的属性, 这种情况下 `for in` 不会得到正确结果。
 
 示例：
 
 ```javascript
 var arr = ['a', 'b', 'c'];
-arr.other = 'other things'; // 这里仅作演示, 实际中应使用Object类型
+
+// 这里仅作演示, 实际中应使用 Object 类型
+arr.other = 'other things';
 
 // 正确的遍历方式
 for (var i = 0, len = arr.length; i < len; i++) {
@@ -2118,7 +2170,7 @@ for (var i = 0, len = arr.length; i < len; i++) {
 }
 
 // 错误的遍历方式
-for (i in arr) {
+for (var i in arr) {
     console.log(i);
 }
 ```
@@ -2127,7 +2179,7 @@ for (i in arr) {
 
 解释：
 
-自己实现的常规排序算法，在性能上并不优于数组默认的 sort 方法。以下两种场景可以自己实现排序：
+自己实现的常规排序算法，在性能上并不优于数组默认的 `sort` 方法。以下两种场景可以自己实现排序：
 
 1. 需要稳定的排序算法，达到严格一致的排序结果。
 2. 数据特点鲜明，适合使用桶排。
@@ -2165,13 +2217,13 @@ function syncViewStateOnUserAction() {
         y.checked = false;
     }
 
-    if (!a.value) {
-        warning.innerText = 'Please enter it';
-        submitButton.disabled = true;
-    }
-    else {
+    if (a.value) {
         warning.innerText = '';
         submitButton.disabled = false;
+    }
+    else {
+        warning.innerText = 'Please enter it';
+        submitButton.disabled = true;
     }
 }
 
@@ -2183,21 +2235,19 @@ function syncViewStateOnUserAction() {
 }
 
 function syncXStateToView() {
+    y.checked = x.checked;
+
     if (x.checked) {
-        y.checked = true;
         z.value = '';
-    }
-    else {
-        y.checked = false;
     }
 }
 
 function checkAAvailability() {
-    if (!a.value) {
-        displayWarningForAMissing();
+    if (a.value) {
+        clearWarnignForA();
     }
     else {
-        clearWarnignForA();
+        displayWarningForAMissing();
     }
 }
 ```
@@ -2210,16 +2260,16 @@ function checkAAvailability() {
 
 解释：
 
-除去不定长参数以外，函数具备不同逻辑意义的参数建议控制在 6 个以内，过多参数会导致维护难度增大。
+除去不定长参数以外，函数具备不同逻辑意义的参数建议控制在 `6` 个以内，过多参数会导致维护难度增大。
 
-某些情况下，如使用 AMD Loader 的 require 加载多个模块时，其 callback 可能会存在较多参数，因此对函数参数的个数不做强制限制。
+某些情况下，如使用 AMD Loader 的 `require` 加载多个模块时，其 `callback` 可能会存在较多参数，因此对函数参数的个数不做强制限制。
 
 
 ##### [建议] 通过 `options` 参数传递非数据输入型参数。
 
 解释：
 
-有些函数的参数并不是作为算法的输入，而是对算法的某些分支条件判断之用，此类参数建议通过一个 options 参数传递。
+有些函数的参数并不是作为算法的输入，而是对算法的某些分支条件判断之用，此类参数建议通过一个 `options` 参数传递。
 
 如下函数：
 
@@ -2232,6 +2282,7 @@ function checkAAvailability() {
  */
 function removeElement(element, removeEventListeners) {
     element.parent.removeChild(element);
+
     if (removeEventListeners) {
         element.clearEventListeners();
     }
@@ -2250,6 +2301,7 @@ function removeElement(element, removeEventListeners) {
  */
 function removeElement(element, options) {
     element.parent.removeChild(element);
+
     if (options.removeEventListeners) {
         element.clearEventListeners();
     }
@@ -2258,8 +2310,8 @@ function removeElement(element, options) {
 
 这种模式有几个显著的优势：
 
-- boolean 型的配置项具备名称，从调用的代码上更易理解其表达的逻辑意义。
-- 当配置项有增长时，无需无休止地增加参数个数，不会出现 removeElement(element, true, false, false, 3) 这样难以理解的调用代码。
+- `boolean` 型的配置项具备名称，从调用的代码上更易理解其表达的逻辑意义。
+- 当配置项有增长时，无需无休止地增加参数个数，不会出现 `removeElement(element, true, false, false, 3)` 这样难以理解的调用代码。
 - 当部分配置参数可选时，多个参数的形式非常难处理重载逻辑，而使用一个 options 对象只需判断属性是否存在，实现得以简化。
 
 
@@ -2273,7 +2325,7 @@ function removeElement(element, options) {
 
 在 JavaScript 中，无需特别的关键词就可以使用闭包，一个函数可以任意访问在其定义的作用域外的变量。需要注意的是，函数的作用域是静态的，即在定义时决定，与调用的时机和方式没有任何关系。
 
-闭包会阻止一些变量的垃圾回收，对于较老旧的JavaScript引擎，可能导致外部所有变量均无法回收。
+闭包会阻止一些变量的垃圾回收，对于较老旧的 JavaScript 引擎，可能导致外部所有变量均无法回收。
 
 首先一个较为明确的结论是，以下内容会影响到闭包内变量的回收：
 
@@ -2281,23 +2333,23 @@ function removeElement(element, options) {
 - 嵌套的函数中是否有 **直接调用eval**。
 - 是否使用了 with 表达式。
 
-Chakra、V8 和 SpiderMonkey 将受以上因素的影响，表现出不尽相同又较为相似的回收策略，而JScript.dll和Carakan则完全没有这方面的优化，会完整保留整个 LexicalEnvironment 中的所有变量绑定，造成一定的内存消耗。
+Chakra、V8 和 SpiderMonkey 将受以上因素的影响，表现出不尽相同又较为相似的回收策略，而 JScript.dll 和 Carakan 则完全没有这方面的优化，会完整保留整个 LexicalEnvironment 中的所有变量绑定，造成一定的内存消耗。
 
-由于对闭包内变量有回收优化策略的 Chakra、V8 和 SpiderMonkey 引擎的行为较为相似，因此可以总结如下，当返回一个函数 fn 时：
+由于对闭包内变量有回收优化策略的 Chakra、V8 和 SpiderMonkey 引擎的行为较为相似，因此可以总结如下，当返回一个函数 **fn** 时：
 
-1. 如果 fn 的 [[Scope]] 是ObjectEnvironment（with 表达式生成 ObjectEnvironment，函数和 catch 表达式生成 DeclarativeEnvironment），则：
+1. 如果 **fn** 的 `[[Scope]]` 是 ObjectEnvironment（with 表达式生成 ObjectEnvironment，函数和 catch 表达式生成 DeclarativeEnvironment），则：
     1. 如果是 V8 引擎，则退出全过程。
     2. 如果是 SpiderMonkey，则处理该 ObjectEnvironment 的外层 LexicalEnvironment。
 2. 获取当前 LexicalEnvironment 下的所有类型为 Function 的对象，对于每一个 Function 对象，分析其 FunctionBody：
-    1. 如果 FunctionBody 中含有 **直接调用eval**，则退出全过程。
+    1. 如果 FunctionBody 中含有 **直接调用 eval**，则退出全过程。
     2. 否则得到所有的 Identifier。
-    3. 对于每一个 Identifier，设其为 name，根据查找变量引用的规则，从 LexicalEnvironment 中找出名称为 name 的绑定 binding。
-    4. 对 binding 添加 notSwap 属性，其值为 true。
-3. 检查当前 LexicalEnvironment 中的每一个变量绑定，如果该绑定有 notSwap 属性且值为 true，则：
-    1. 如果是V8引擎，删除该绑定。
-    2. 如果是SpiderMonkey，将该绑定的值设为 undefined，将删除 notSwap 属性。
+    3. 对于每一个 Identifier，设其为 **name**，根据查找变量引用的规则，从 LexicalEnvironment 中找出名称为 **name** 的绑定 binding。
+    4. 对 binding 添加 **notSwap** 属性，其值为 `true`。
+3. 检查当前 LexicalEnvironment 中的每一个变量绑定，如果该绑定有 **notSwap** 属性且值为 `true`，则：
+    1. 如果是 V8 引擎，删除该绑定。
+    2. 如果是 SpiderMonkey，将该绑定的值设为 `undefined`，将删除 **notSwap** 属性。
 
-对于Chakra引擎，暂无法得知是按 V8 的模式还是按 SpiderMonkey 的模式进行。
+对于 Chakra 引擎，暂无法得知是按 V8 的模式还是按 SpiderMonkey 的模式进行。
 
 如果有 **非常庞大** 的对象，且预计会在 **老旧的引擎** 中执行，则使用闭包时，注意将闭包不需要的对象置为空引用。
 
@@ -2381,7 +2433,7 @@ MyClass.prototype.hooks.after = EMPTY_FUNCTION;
 
 解释：
 
-通常使用其他 library 的类继承方案都会进行 constructor 修正。如果是自己实现的类继承方案，需要进行 constructor 修正。
+通常使用其他 library 的类继承方案都会进行 `constructor` 修正。如果是自己实现的类继承方案，需要进行 `constructor` 修正。
 
 
 示例：
@@ -2389,7 +2441,7 @@ MyClass.prototype.hooks.after = EMPTY_FUNCTION;
 ```javascript
 /**
  * 构建类之间的继承关系
- * 
+ *
  * @param {Function} subClass 子类函数
  * @param {Function} superClass 父类函数
  */
@@ -2428,7 +2480,7 @@ Animal.prototype.jump = function () {
 
 ##### [建议] 属性在构造函数中声明，方法在原型中声明。
 
-解释： 
+解释：
 
 原型对象的成员被所有实例共享，能节约内存占用。所以编码时我们应该遵守这样的原则：原型对象包含程序不会修改的成员，如方法函数或配置项。
 
@@ -2466,8 +2518,8 @@ TextNode.prototype.clone = function () {
 
 常见禁止默认行为的方式有两种：
 
-1. 事件监听函数中 return false。
-2. 事件对象中包含禁止默认行为的方法，如 preventDefault。
+1. 事件监听函数中 `return false`。
+2. 事件对象中包含禁止默认行为的方法，如 `preventDefault`。
 
 
 
@@ -2482,9 +2534,9 @@ TextNode.prototype.clone = function () {
 
 解释：
 
-直接 eval，指的是以函数方式调用 eval 的调用方法。直接 eval 调用执行代码的作用域为本地作用域，应当避免。
+直接 `eval`，指的是以函数方式调用 `eval` 的调用方法。直接 `eval` 调用执行代码的作用域为本地作用域，应当避免。
 
-如果有特殊情况需要使用直接 eval，需在代码中用详细的注释说明为何必须使用直接 eval，不能使用其它动态执行代码的方式，同时需要其他资深工程师进行 Code Review。
+如果有特殊情况需要使用直接 `eval`，需在代码中用详细的注释说明为何必须使用直接 `eval`，不能使用其它动态执行代码的方式，同时需要其他资深工程师进行 Code Review。
 
 ##### [建议] 尽量避免使用 `eval` 函数。
 
@@ -2496,7 +2548,7 @@ TextNode.prototype.clone = function () {
 
 解释：
 
-通过 new Function 生成的函数作用域是全局使用域，不会影响当当前的本地作用域。如果有动态代码执行的需求，建议使用 new Function。
+通过 `new Function` 生成的函数作用域是全局使用域，不会影响当当前的本地作用域。如果有动态代码执行的需求，建议使用 `new Function`。
 
 
 示例：
@@ -2515,7 +2567,7 @@ var result = handler($('#x').val(), $('#y').val());
 
 解释：
 
-使用 with 可能会增加代码的复杂度，不利于阅读和管理；也会对性能有影响。大多数使用 with 的场景都能使用其他方式较好的替代。所以，尽量不要使用 with。
+使用 `with` 可能会增加代码的复杂度，不利于阅读和管理；也会对性能有影响。大多数使用 `with` 的场景都能使用其他方式较好的替代。所以，尽量不要使用 `with`。
 
 
 
@@ -2527,16 +2579,16 @@ var result = handler($('#x').val(), $('#y').val());
 
 解释：
 
-如果没有特别的需求，减少或避免使用`delete`。`delete`的使用会破坏部分 JavaScript 引擎的性能优化。
+如果没有特别的需求，减少或避免使用 `delete`。`delete` 的使用会破坏部分 JavaScript 引擎的性能优化。
 
 
 ##### [建议] 处理 `delete` 可能产生的异常。
 
 解释：
 
-对于有被遍历需求，且值 null 被认为具有业务逻辑意义的值的对象，移除某个属性必须使用 delete 操作。
+对于有被遍历需求，且值 `null` 被认为具有业务逻辑意义的值的对象，移除某个属性必须使用 `delete` 操作。
 
-在严格模式或IE下使用 delete 时，不能被删除的属性会抛出异常，因此在不确定属性是否可以删除的情况下，建议添加 try-catch 块。
+在严格模式或 IE 下使用 `delete` 时，不能被删除的属性会抛出异常，因此在不确定属性是否可以删除的情况下，建议添加 `try-catch` 块。
 
 示例：
 
@@ -2563,7 +2615,7 @@ JavaScript 因其脚本语言的动态特性，当一个对象未被 seal 或 fr
 
 但是随意地对 非自身控制的对象 进行修改，很容易造成代码在不可预知的情况下出现问题。因此，设计良好的组件、函数应该避免对外部传入的对象的修改。
 
-下面代码的 selectNode 方法修改了由外部传入的 datasource 对象。如果 datasource 用在其它场合（如另一个 Tree 实例）下，会造成状态的混乱。
+下面代码的 **selectNode** 方法修改了由外部传入的 **datasource** 对象。如果 **datasource** 用在其它场合（如另一个 Tree 实例）下，会造成状态的混乱。
 
 ```javascript
 function Tree(datasource) {
@@ -2580,7 +2632,7 @@ Tree.prototype.selectNode = function (id) {
 };
 ```
 
-对于此类场景，需要使用额外的对象来维护，使用由自身控制，不与外部产生任何交互的 selectedNodeIndex 对象来维护节点的选中状态，不对 datasource 作任何修改。
+对于此类场景，需要使用额外的对象来维护，使用由自身控制，不与外部产生任何交互的 **selectedNodeIndex** 对象来维护节点的选中状态，不对 **datasource** 作任何修改。
 
 ```javascript
 function Tree(datasource) {
@@ -2589,12 +2641,15 @@ function Tree(datasource) {
 }
 
 Tree.prototype.selectNode = function (id) {
+
     // 从datasource中找出节点对象
     var node = this.findNode(id);
+
     if (node) {
         this.selectedNodeIndex[id] = true;
         this.flushView();
     }
+
 };
 ```
 
@@ -2605,8 +2660,8 @@ Tree.prototype.selectNode = function (id) {
 
 解释：
 
-- 如果一个属性被设计为 boolean 类型，则不要使用 1 / 0 作为其值。对于标识性的属性，如对代码体积有严格要求，可以从一开始就设计为 number 类型且将 0 作为否定值。
-- 从 DOM 中取出的值通常为 string 类型，如果有对象或函数的接收类型为 number 类型，提前作好转换，而不是期望对象、函数可以处理多类型的值。
+- 如果一个属性被设计为 `boolean` 类型，则不要使用 `1` 或 `0` 作为其值。对于标识性的属性，如对代码体积有严格要求，可以从一开始就设计为 `number` 类型且将 `0` 作为否定值。
+- 从 DOM 中取出的值通常为 `string` 类型，如果有对象或函数的接收类型为 `number` 类型，提前作好转换，而不是期望对象、函数可以处理多类型的值。
 
 
 
@@ -2659,9 +2714,9 @@ AMD 作为由社区认可的模块定义形式，提供多种重载提供灵活�
 
 解释：
 
-在 AMD 的设计思想里，模块名称是和所在路径相关的，匿名的模块更利于封包和迁移。模块依赖应在模块定义内部通过 local require 引用。
+在 AMD 的设计思想里，模块名称是和所在路径相关的，匿名的模块更利于封包和迁移。模块依赖应在模块定义内部通过 `local require` 引用。
 
-所以，推荐使用 define(factory) 的形式进行模块定义。
+所以，推荐使用 `define(factory)` 的形式进行模块定义。
 
 
 示例：
@@ -2721,15 +2776,15 @@ var foo = require('foo');
 
 解释：
 
-1. 在模块定义中使用 global require，对封装性是一种破坏。
-2. 在 AMD 里，global require 是可以被重命名的。并且 Loader 甚至没有全局的 require 变量，而是用 Loader 名称做为 global require。模块定义不应该依赖使用的 Loader。
+1. 在模块定义中使用 `global require`，对封装性是一种破坏。
+2. 在 AMD 里，`global require` 是可以被重命名的。并且 Loader 甚至没有全局的 `require` 变量，而是用 Loader 名称做为 `global require`。模块定义不应该依赖使用的 Loader。
 
 
-##### [强制] Package在实现时，内部模块的 `require` 必须使用 `relative id`。
+##### [强制] Package 在实现时，内部模块的 `require` 必须使用 `relative id`。
 
 解释：
 
-对于任何可能通过 发布-引入 的形式复用的第三方库、框架、包，开发者所定义的名称不代表使用者使用的名称。因此不要基于任何名称的假设。在实现源码中，require 自身的其它模块时使用 relative id。
+对于任何可能通过 发布-引入 的形式复用的第三方库、框架、包，开发者所定义的名称不代表使用者使用的名称。因此不要基于任何名称的假设。在实现源码中，`require` 自身的其它模块时使用 `relative id`。
 
 示例：
 
@@ -2746,7 +2801,7 @@ define(
 
 解释：
 
-有些模块是依赖的模块，但不会在模块实现中被直接调用，最为典型的是 css / js / tpl 等 Plugin 所引入的外部内容。此类内容建议放在模块定义最开始处统一引用。
+有些模块是依赖的模块，但不会在模块实现中被直接调用，最为典型的是 `css` / `js` / `tpl` 等 Plugin 所引入的外部内容。此类内容建议放在模块定义最开始处统一引用。
 
 示例：
 
