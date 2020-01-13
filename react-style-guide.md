@@ -228,7 +228,7 @@
 
 - [建议]使用`@autobind`进行事件处理方法与`this`的绑定。
 
-    由于`PureComponent`使用[`shallowEqual`](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/core/shallowEqual.js)`进行是否渲染的判断，如果在JSX中使用`bind`或箭头函数绑定`this`会造成子组件每次获取的函数都是一个新的引用，这破坏了`shouldComponentUpdate`的逻辑，引入了无意义的重复渲染，因此需要在`render`调用之前就将事件处理方法与`this`绑定，在每次`render`调用中获取同样的引用。
+    由于`PureComponent`使用[`shallowEqual`](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/core/shallowEqual.js)进行是否渲染的判断，如果在JSX中使用`bind`或箭头函数绑定`this`会造成子组件每次获取的函数都是一个新的引用，这破坏了`shouldComponentUpdate`的逻辑，引入了无意义的重复渲染，因此需要在`render`调用之前就将事件处理方法与`this`绑定，在每次`render`调用中获取同样的引用。
 
     当前比较流行的事前绑定`this`的方法有2种，其一使用类属性的语法：
 
