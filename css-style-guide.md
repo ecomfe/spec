@@ -10,7 +10,7 @@
 
 　　[2.1 文件](#user-content-21-%E6%96%87%E4%BB%B6)
 
-　　[2.2 缩进](#user-content-22-%E7%BC%A9%E8%BF%9B)
+　　[2.2 模块](#user-content-22-%E7%BC%A9%E8%BF%9B)
 
 　　[2.3 空格](#user-content-23-%E7%A9%BA%E6%A0%BC)
 
@@ -64,14 +64,6 @@
 
 [7 响应式](#user-content-7-%E5%93%8D%E5%BA%94%E5%BC%8F)
 
-[8 兼容性](#user-content-8-%E5%85%BC%E5%AE%B9%E6%80%A7)
-
-　　[8.1 属性前缀](#user-content-81-%E5%B1%9E%E6%80%A7%E5%89%8D%E7%BC%80)
-
-　　[8.2 Hack](#user-content-82-hack)
-
-　　[8.3 Expression](#user-content-83-expression)
-
 
 
 
@@ -98,19 +90,54 @@ CSS 作为网页样式的描述语言，在百度一直有着广泛的应用。�
 
 UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。
 
-### 2.2 缩进
+### 2.2 模块
 
 
-#### [强制] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
+#### [强制] 使用 /* */ 注释，如果是公用模块，模块与模块之间用明显分割线划分，并注明哪个模块
+           注意：公用样式必须用用大写和下划线组合，显式表明公用模块样式，不能随意改（例如 utilies.scss 立马的样式）
 
 
 示例：
 
 ```css
-.selector {
-    margin: 0;
-    padding: 0;
+/* good */
+
+/* 公用样式 */
+.HIDE {
+  display: none;
 }
+
+.BUTTON-WHITE {
+  color: #FFC000;
+  background-color: #FFF;
+  border: 1px solid #FFC000;
+
+  &:hover {
+    color: #FFF;
+    border: 1px solid #FED762;
+  }
+}
+
+/* --------------------------------------------------------- */
+/* 动画样式 */
+/* --------------------------------------------------------- */
+/** component 淡入淡出 */
+.component-fade-enter-active {
+  animation: fadein .35s ease-in-out;
+}
+
+.component-fade-leave-active {
+  animation: fadeout .35s ease-in-out;
+}
+
+
+/* bad */
+
+// 公用样式
+.hide {
+  display: none;
+}
+
 ```
 
 ### 2.3 空格
@@ -121,7 +148,13 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 示例：
 
 ```css
+
+/* good */
 .selector {
+}
+
+/* back */
+.selector{
 }
 ```
 
@@ -158,21 +191,21 @@ font-family: Arial, sans-serif;
 ```css
 /* 不同属性值按逻辑分组 */
 background:
-    transparent url(aVeryVeryVeryLongUrlIsPlacedHere)
-    no-repeat 0 0;
+  transparent url(aVeryVeryVeryLongUrlIsPlacedHere)
+  no-repeat 0 0;
 
 /* 可重复多次的属性，每次重复一行 */
 background-image:
-    url(aVeryVeryVeryLongUrlIsPlacedHere)
-    url(anotherVeryVeryVeryLongUrlIsPlacedHere);
+  url(aVeryVeryVeryLongUrlIsPlacedHere)
+  url(anotherVeryVeryVeryLongUrlIsPlacedHere);
 
 /* 类似函数的属性值可以根据函数调用的缩进进行 */
 background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.04, rgb(88,94,124)),
-    color-stop(0.52, rgb(115,123,162))
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.04, rgb(88,94,124)),
+  color-stop(0.52, rgb(115,123,162))
 );
 ```
 
@@ -188,12 +221,12 @@ background-image: -webkit-gradient(
 .post,
 .page,
 .comment {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
 /* bad */
 .post, .page, .comment {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 ```
 
@@ -204,28 +237,28 @@ background-image: -webkit-gradient(
 ```css
 /* good */
 main > nav {
-    padding: 10px;
+  padding: 10px;
 }
 
 label + input {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 input:checked ~ button {
-    background-color: #69C;
+  background-color: #69C;
 }
 
 /* bad */
 main>nav {
-    padding: 10px;
+  padding: 10px;
 }
 
 label+input {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 input:checked~button {
-    background-color: #69C;
+  background-color: #69C;
 }
 ```
 
@@ -241,12 +274,12 @@ input:checked~button {
 ```css
 /* good */
 article[character="juliet"] {
-    voice-family: "Vivien Leigh", victoria, female;
+  voice-family: "Vivien Leigh", victoria, female;
 }
 
 /* bad */
 article[character='juliet'] {
-    voice-family: "Vivien Leigh", victoria, female;
+  voice-family: "Vivien Leigh", victoria, female;
 }
 ```
 
@@ -260,8 +293,8 @@ article[character='juliet'] {
 ```css
 /* good */
 .selector {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* bad */
@@ -275,17 +308,14 @@ article[character='juliet'] {
 ```css
 /* good */
 .selector {
-    margin: 0;
+  margin: 0;
 }
 
 /* bad */
 .selector {
-    margin: 0
+  margin: 0
 }
 ```
-
-
-
 
 
 
@@ -297,7 +327,7 @@ article[character='juliet'] {
 ### 3.1 选择器
 
 
-#### [强制] 如无必要，不得为 `id`、`class` 选择器添加类型选择器进行限定。
+#### [强制] 如无必要，不得为 `id`、`class` 选择器添加类型选择器进行限定。不能为 id 进行样式匹配。
 
 解释：
 
@@ -308,16 +338,20 @@ article[character='juliet'] {
 
 
 ```css
+<div id="demo" class="message"></div>
+
 /* good */
-#error,
-.danger-message {
-    font-color: #c00;
+.message {
+  font-color: #c00;
 }
 
 /* bad */
-dialog#error,
-p.danger-message {
-    font-color: #c00;
+#error {
+  font-color: #c00;
+}
+
+div.message {
+  font-color: #c00;
 }
 ```
 
@@ -327,12 +361,13 @@ p.danger-message {
 
 ```css
 /* good */
-#username input {}
+.username .info-input {}
 .comment .avatar {}
 
 /* bad */
-.page .header .login #username input {}
+.username .info-input div {}
 .comment div * {}
+.page .header .login #username input {}
 ```
 
 
@@ -341,21 +376,36 @@ p.danger-message {
 
 
 
-#### [建议] 在可以使用缩写的情况下，尽量使用属性缩写。
+#### [建议] 尽量不使用属性缩写。
 
 示例：
 
 ```css
 /* good */
 .post {
-    font: 12px/1.5 arial, sans-serif;
+  font-family: arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 /* bad */
 .post {
-    font-family: arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.5;
+  font: 12px/1.5 arial, sans-serif;
+}
+```
+#### [建议] 0.01, 0,2 等最好写成 .01, .2。
+
+示例：
+
+```css
+/* good */
+.post {
+  color: rgba(23, 23, 23, .3);
+}
+
+/* bad */
+.post {
+  color: rgba(23, 23, 23, 0.3);
 }
 ```
 
@@ -371,27 +421,27 @@ p.danger-message {
 ```css
 /* centering <article class="page"> horizontally and highlight featured ones */
 article {
-    margin: 5px;
-    border: 1px solid #999;
+  margin: 5px;
+  border: 1px solid #999;
 }
 
 /* good */
 .page {
-    margin-right: auto;
-    margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .featured {
-    border-color: #69c;
+  border-color: #69c;
 }
 
 /* bad */
 .page {
-    margin: 5px auto; /* introducing redundancy */
+  margin: 5px auto; /* introducing redundancy */
 }
 
 .featured {
-    border: 1px solid #69c; /* introducing redundancy */
+  border: 1px solid #69c; /* introducing redundancy */
 }
 ```
 
@@ -399,7 +449,7 @@ article {
 ### 3.3 属性书写顺序
 
 
-#### [建议] 同一 rule set 下的属性在书写时，应按功能进行分组，并以 **Formatting Model（布局方式、位置） > Box Model（尺寸） > Typographic（文本相关） > Visual（视觉效果）** 的顺序书写，以提高代码的可读性。
+#### [建议] 同一 rule set 下的属性在书写时，应按功能进行分组，并以 ** 继承 -> Formatting Model（布局方式、位置） -> Box Model（尺寸） > Typographic（文本相关） -> Visual（视觉效果）** 的顺序书写，以提高代码的可读性。
 
 解释：
 
@@ -408,34 +458,61 @@ article {
 - Typographic 相关属性包括：`font` / `line-height` / `text-align` / `word-wrap` 等
 - Visual 相关属性包括：`background` / `color` / `transition` / `list-style` 等
 
-另外，如果包含 `content` 属性，应放在最前面。
+另外，继承后面必须有一行空行，其他空行不强制，如果包含 `content` 属性，应放在最前面。
 
 
 示例：
 
 ```css
-.sidebar {
-    /* formatting model: positioning schemes / offsets / z-indexes / display / ...  */
-    position: absolute;
-    top: 50px;
-    left: 0;
-    overflow-x: hidden;
+/* good */
+.COMMON-STYLE {
+  color: #FFC000;
+}
 
-    /* box model: sizes / margins / paddings / borders / ...  */
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ddd;
+.demo {
+  @extend .COMMON-STYLE;
 
-    /* typographic: font / aligns / text styles / ... */
-    font-size: 14px;
-    line-height: 20px;
+  width: 20px;
+  height: 20px;
+}
 
-    /* visual: colors / shadows / gradients / ... */
-    background: #f5f5f5;
-    color: #333;
-    -webkit-transition: color 1s;
-       -moz-transition: color 1s;
-            transition: color 1s;
+.selector {
+  @extend .COMMON-STYLE;
+
+  /* formatting model: positioning schemes / offsets / z-indexes / display / ...  */
+  z-index: 9;
+  position: absolution;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  vertical-align: middle;
+  overflow-x: hidden;
+
+  /* box model: sizes / margins /  borders / paddings /...  */
+  box-sizing: border-box;
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  
+  /* typographic: font / aligns / text styles / ... */
+  line-height: 100px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  word-wrap: no-wrap;
+  
+  color: #FFC000;
+  background-color: #fff;
+  background-image: url('test.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  transition: color .35s ease-in-out;
 }
 ```
 
@@ -455,8 +532,18 @@ article {
 * overflow 非 visible
 
 如希望使用更小副作用的清除浮动方法，参见 [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/) 一文。
-
-另需注意，对已经触发 BFC 的元素不需要再进行 clearfix。
+公用 clearfix  样式
+.CLEARFIX {
+  zoom: 1;
+}
+.CLEARFIX:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
 
 
 ### 3.5 !important
@@ -522,24 +609,24 @@ article {
 ```css
 /* good */
 html[lang|="zh"] q:before {
-    font-family: "Microsoft YaHei", sans-serif;
-    content: "“";
+  font-family: "Microsoft YaHei", sans-serif;
+  content: "“";
 }
 
 html[lang|="zh"] q:after {
-    font-family: "Microsoft YaHei", sans-serif;
-    content: "”";
+  font-family: "Microsoft YaHei", sans-serif;
+  content: "”";
 }
 
 /* bad */
 html[lang|=zh] q:before {
-    font-family: 'Microsoft YaHei', sans-serif;
-    content: '“';
+  font-family: 'Microsoft YaHei', sans-serif;
+  content: '“';
 }
 
 html[lang|=zh] q:after {
-    font-family: "Microsoft YaHei", sans-serif;
-    content: "”";
+  font-family: "Microsoft YaHei", sans-serif;
+  content: "”";
 }
 ```
 
@@ -553,12 +640,12 @@ html[lang|=zh] q:after {
 ```css
 /* good */
 panel {
-    opacity: .8;
+  opacity: .8;
 }
 
 /* bad */
 panel {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 ```
 
@@ -571,7 +658,7 @@ panel {
 
 ```css
 body {
-    background: url(bg.png);
+  background: url(bg.png);
 }
 ```
 
@@ -583,7 +670,7 @@ body {
 
 ```css
 body {
-    background: url(//baidu.com/img/bg.png) no-repeat 0 0;
+  background: url(//baidu.com/img/bg.png) no-repeat 0 0;
 }
 ```
 
@@ -598,12 +685,12 @@ body {
 ```css
 /* good */
 body {
-    padding: 0 5px;
+  padding: 0 5px;
 }
 
 /* bad */
 body {
-    padding: 0px 5px;
+  padding: 0px 5px;
 }
 ```
 
@@ -623,14 +710,14 @@ body {
 ```css
 /* good */
 .success {
-    box-shadow: 0 0 2px rgba(0, 128, 0, .3);
-    border-color: #008000;
+  box-shadow: 0 0 2px rgba(0, 128, 0, .3);
+  border-color: #008000;
 }
 
 /* bad */
 .success {
-    box-shadow: 0 0 2px rgba(0,128,0,.3);
-    border-color: rgb(0, 128, 0);
+  box-shadow: 0 0 2px rgba(0,128,0,.3);
+  border-color: rgb(0, 128, 0);
 }
 ```
 
@@ -641,12 +728,12 @@ body {
 ```css
 /* good */
 .success {
-    background-color: #aca;
+  background-color: #aca;
 }
 
 /* bad */
 .success {
-    background-color: #aaccaa;
+  background-color: #aaccaa;
 }
 ```
 
@@ -657,16 +744,16 @@ body {
 ```css
 /* good */
 .success {
-    color: #90ee90;
+  color: #90ee90;
 }
 
 /* bad */
 .success {
-    color: lightgreen;
+  color: lightgreen;
 }
 ```
 
-#### [建议] 颜色值中的英文字符采用小写。如不用小写也需要保证同一项目内保持大小写一致。
+#### [建议] 颜色值中的英文字符采用大写。如不用小写也需要保证同一项目内保持大小写一致。
 
 
 示例：
@@ -674,21 +761,63 @@ body {
 ```css
 /* good */
 .success {
-    background-color: #aca;
-    color: #90ee90;
+  background-color: #aca;
+  color: #90ee90;
 }
 
 /* good */
 .success {
-    background-color: #ACA;
-    color: #90EE90;
+  background-color: #ACA;
+  color: #90EE90;
 }
 
 /* bad */
 .success {
-    background-color: #ACA;
-    color: #90ee90;
+  background-color: #ACA;
+  color: #90ee90;
 }
+```
+
+#### [建议] 如果颜色值在项目中多次出现，可提取出变量引用。
+
+示例：
+
+```css/** global color */
+$black: #000;
+$white: #FFF;
+$dark-grey: #333;
+$default-grey: #666;
+$light-grey: #999;
+$lighter-grey: #aaa;
+
+$facebook-color: #3B5998;
+$twitter-color: #2297E9;
+$google-plus-color: #D44635;
+$vk-color: #2E74AE;
+
+/** custom them */
+$them-grey-bg: #F2F2F2;
+$them-yellow: #FFC000;
+$border-color: #E2E2E2;
+$them-yellow-light: #FFCC00;
+$them-yellow-lighter: #FFE643;
+
+$text-default-color: #999;
+$text-hover-color: #FFC000;
+$text-press-color: #DF9D04;
+$button-default-color: #FFC000;
+$button-hover-color: #FED762;
+$button-press-color: #DF9D04;
+$login-icon-color: #979797;
+
+/** global font size */
+$smallest-font: 14px;
+$smaller-font: 16px;
+$small-font: 24px;
+$default-font: 28px;
+$large-font: 34px;
+$larger-font: 36px;
+$title-font: 32px;
 ```
 
 
@@ -707,12 +836,12 @@ body {
 ```css
 /* good */
 body {
-    background-position: center top; /* 50% 0% */
+  background-position: center top; /* 50% 0% */
 }
 
 /* bad */
 body {
-    background-position: top; /* 50% 0% */
+  background-position: top; /* 50% 0% */
 }
 ```
 
@@ -748,7 +877,7 @@ body {
 
 ```css
 h1 {
-    font-family: "Microsoft YaHei";
+  font-family: "Microsoft YaHei";
 }
 ```
 
@@ -764,12 +893,12 @@ h1 {
 ```css
 /* Display according to platform */
 .article {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 /* Specific for most platforms */
 h1 {
-    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
 }
 ```
 
@@ -780,20 +909,20 @@ h1 {
 ```css
 /* good */
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 h1 {
-    font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
 }
 
 /* bad */
 body {
-    font-family: arial, sans-serif;
+  font-family: arial, sans-serif;
 }
 
 h1 {
-    font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
 }
 ```
 
@@ -835,12 +964,12 @@ CSS 的字重分 100 – 900 共九档，但目前受字体本身质量和浏览
 ```css
 /* good */
 h1 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 /* bad */
 h1 {
-    font-weight: bold;
+  font-weight: bold;
 }
 ```
 
@@ -860,7 +989,7 @@ h1 {
 
 ```css
 .container {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 ```
 
@@ -877,12 +1006,12 @@ h1 {
 ```css
 /* good */
 .box {
-    transition: color 1s, border-color 1s;
+  transition: color 1s, border-color 1s;
 }
 
 /* bad */
 .box {
-    transition: all 1s;
+  transition: all 1s;
 }
 ```
 
@@ -904,19 +1033,19 @@ h1 {
 ```css
 /* good */
 .box {
-    transition: transform 1s;
+  transition: transform 1s;
 }
 .box:hover {
-    transform: translate(20px); /* move right for 20px */
+  transform: translate(20px); /* move right for 20px */
 }
 
 /* bad */
 .box {
-    left: 0;
-    transition: left 1s;
+  left: 0;
+  transition: left 1s;
 }
 .box:hover {
-    left: 20px; /* move right for 20px */
+  left: 20px; /* move right for 20px */
 }
 ```
 
@@ -977,86 +1106,6 @@ h1 {
 
 #### [建议] 尽可能给出在高分辨率设备 (Retina) 下效果更佳的样式。
 
-
-
-## 8 兼容性
-
-
-### 8.1 属性前缀
-
-
-#### [强制] 带私有前缀的属性由长到短排列，按冒号位置对齐。
-
-解释：
-
-标准属性放在最后，按冒号对齐方便阅读，也便于在编辑器内进行多行编辑。
-
-
-示例：
-
-```css
-.box {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
-```
-
-
-### 8.2 Hack
-
-
-#### [建议] 需要添加 `hack` 时应尽可能考虑是否可以采用其他方式解决。
-
-解释：
-
-如果能通过合理的 HTML 结构或使用其他的 CSS 定义达到理想的样式，则不应该使用 hack 手段解决问题。通常 hack 会导致维护成本的增加。
-
-#### [建议] 尽量使用 `选择器 hack` 处理兼容性，而非 `属性 hack`。
-
-解释：
-
-尽量使用符合 CSS 语法的 selector hack，可以避免一些第三方库无法识别 hack 语法的问题。
-
-
-示例：
-
-```css
-/* IE 7 */
-*:first-child + html #header {
-    margin-top: 3px;
-    padding: 5px;
-}
-
-/* IE 6 */
-* html #header {
-    margin-top: 5px;
-    padding: 4px;
-}
-```
-
-
-#### [建议] 尽量使用简单的 `属性 hack`。
-
-示例：
-
-```css
-.box {
-    _display: inline; /* fix double margin */
-    float: left;
-    margin-left: 20px;
-}
-
-.container {
-    overflow: hidden;
-    *zoom: 1; /* triggering hasLayout */
-}
-```
-
-### 8.3 Expression
-
-
-#### [强制] 禁止使用 `Expression`。
 
 
 
