@@ -1,57 +1,9 @@
 
-# JavaScript 编码规范 - ESNext 补充篇（草案）
+# JavaScript 编码规范 - ESNext 补充篇
 
-
-
-
-[1 前言](#user-content-1-%E5%89%8D%E8%A8%80)
-
-[2 代码风格](#user-content-2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
-
-　　[2.1 文件](#user-content-21-%E6%96%87%E4%BB%B6)
-
-　　[2.2 结构](#user-content-22-%E7%BB%93%E6%9E%84)
-
-　　　　[2.2.1 缩进](#user-content-221-%E7%BC%A9%E8%BF%9B)
-
-　　　　[2.2.2 空格](#user-content-222-%E7%A9%BA%E6%A0%BC)
-
-　　　　[2.2.3 语句](#user-content-223-%E8%AF%AD%E5%8F%A5)
-
-[3 语言特性](#user-content-3-%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7)
-
-　　[3.1 变量](#user-content-31-%E5%8F%98%E9%87%8F)
-
-　　[3.2 解构](#user-content-32-%E8%A7%A3%E6%9E%84)
-
-　　[3.3 模板字符串](#user-content-33-%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2)
-
-　　[3.4 函数](#user-content-34-%E5%87%BD%E6%95%B0)
-
-　　[3.5 箭头函数](#user-content-35-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
-
-　　[3.6 对象](#user-content-36-%E5%AF%B9%E8%B1%A1)
-
-　　[3.7 类](#user-content-37-%E7%B1%BB)
-
-　　[3.8 模块](#user-content-38-%E6%A8%A1%E5%9D%97)
-
-　　[3.9 集合](#user-content-39-%E9%9B%86%E5%90%88)
-
-　　[3.10 异步](#user-content-310-%E5%BC%82%E6%AD%A5)
-
-[4 环境](#user-content-4-%E7%8E%AF%E5%A2%83)
-
-　　[4.1 运行环境](#user-content-41-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83)
-
-　　[4.2 预编译](#user-content-42-%E9%A2%84%E7%BC%96%E8%AF%91)
-
-
-
-
+**注：本文在公示完成后将合并至 JavaScript 编码规范。**
 
 ## 1 前言
-
 
 随着 ECMAScript 的不断发展，越来越多更新的语言特性将被使用，给应用的开发带来方便。本文档的目标是使 ECMAScript 新特性的代码风格保持一致，并给予一些实践建议。
 
@@ -61,79 +13,21 @@
 
 虽然本文档是针对 ECMAScript 设计的，但是在使用各种基于 ECMAScript 扩展的语言时(如 JSX、TypeScript 等)，适用的部分也应尽量遵循本文档的约定。
 
-
-
-
-
 ## 2 代码风格
-
-
-
-
 
 ### 2.1 文件
 
-
 ##### [建议] ESNext 语法的 JavaScript 文件使用 `.js` 扩展名。
-
-##### [强制] 当文件无法使用 `.js` 扩展名时，使用 `.es` 扩展名。
 
 解释：
 
-某些应用开发时，可能同时包含 ES 5和 ESNext 文件，运行环境仅支持 ES5，ESNext 文件需要经过预编译。部分场景下，编译工具的选择可能需要通过扩展名区分，需要重新定义ESNext文件的扩展名。此时，ESNext 文件必须使用 `.es` 扩展名。
+所谓更新的 ES 标准，本身也是 ES 的一部分，保持 `.js` 扩展名即可。
 
-但是，更推荐使用其他条件作为是否需要编译的区分：
-
-1. 基于文件内容。
-2. 不同类型文件放在不同目录下。
-
-
-
-
+对于特定情况，使用 ES Module 的文件，可以有选择地使用 `.mjs` 后缀，对于 CommonJS 的文件，可以使用 `.cjs` 后缀。
 
 ### 2.2 结构
 
-
-#### 2.2.1 缩进
-
-
-##### [建议] 使用多行模板字符串时遵循缩进原则。当空行与空白字符敏感时，不使用多行模板字符串。
-
-解释：
-
-`4` 空格为一个缩进，换行后添加一层缩进。将起始和结束的 `` ` `` 符号单独放一行，有助于生成 HTML 时的标签对齐。
-
-为避免破坏缩进的统一，当空行与空白字符敏感时，建议使用 `多个模板字符串` 或 `普通字符串` 进行连接运算，也可使用数组 `join` 生成字符串。
-
-示例：
-
-```javascript
-// good
-function foo() {
-    let html = `
-        <div>
-            <p></p>
-            <p></p>
-        </div>
-    `;
-}
-
-// Good
-function greeting(name) {
-    return 'Hello, \n'
-        + `${name.firstName} ${name.lastName}`;
-}
-
-// Bad
-function greeting(name) {
-    return `Hello,
-${name.firstName} ${name.lastName}`;
-}
-```
-
-
-#### 2.2.2 空格
-
+#### 2.2.1 空格
 
 ##### [强制] 使用 `generator` 时，`*` 前面不允许有空格，`*` 后面必须有一个空格。
 
@@ -155,8 +49,7 @@ function * caller() {
 }
 ```
 
-
-#### 2.2.3 语句
+#### 2.2.2 语句
 
 
 ##### [强制] 类声明结束不允许添加分号。
@@ -165,40 +58,11 @@ function * caller() {
 
 与函数声明保持一致。
 
-
-##### [强制] 类成员定义中，方法定义后不允许添加分号，成员属性定义后必须添加分号。
-
-解释：
-
-成员属性是当前 **Stage 0** 的标准，如果使用的话，则定义后加上分号。
-
-示例：
-
-```javascript
-// good
-class Foo {
-    foo = 3;
-
-    bar() {
-
-    }
-}
-
-// bad
-class Foo {
-    foo = 3
-
-    bar() {
-
-    }
-}
-```
-
 ##### [强制] `export` 语句后，不允许出现表示空语句的分号。
 
 解释：
 
-`export` 关键字不影响后续语句类型。
+`export` 关键字不影响后续语句类型，如后缀是一个函数定义，则它依然是函数定义而不需要结尾的分号，类定义同理。
 
 示例：
 
@@ -218,46 +82,6 @@ export function foo() {
 export default function bar() {
 };
 ```
-
-
-##### [强制] 属性装饰器后，可以不加分号的场景，不允许加分号。
-
-解释：
-
-只有一种场景是必须加分号的：当属性 `key` 是 `computed property key` 时，其装饰器必须加分号，否则修饰 `key` 的 `[]` 会做为之前表达式的 `property accessor`。
-
-上面描述的场景，装饰器后需要加分号。其余场景下的属性装饰器后不允许加分号。
-
-示例：
-
-```javascript
-// good
-class Foo {
-    @log('INFO')
-    bar() {
-
-    }
-
-    @log('INFO');
-    ['bar' + 2]() {
-
-    }
-}
-
-// bad
-class Foo {
-    @log('INFO');
-    bar() {
-
-    }
-
-    @log('INFO')
-    ['bar' + 2]() {
-
-    }
-}
-```
-
 
 ##### [强制] 箭头函数的参数只有一个，并且不包含解构时，参数部分的括号必须省略。
 
@@ -305,13 +129,18 @@ list.map(item => {
 });
 ```
 
-##### [建议] 箭头函数的函数体只有一个 `Object Literal`，且作为返回值时，使用 `()` 包裹。
+##### [建议] 箭头函数的函数体只有一个 `Object Literal`，且作为返回值时，不使用 `return` ，使用 `()` 包裹返回的对象。
 
 示例：
 
 ```javascript
 // good
 list.map(item => ({name: item[0], email: item[1]}));
+
+// bad
+list.map(item => {
+    return {name: item[0], email: item[1]};
+});
 ```
 
 ##### [强制] 解构多个变量时，如果超过行长度限制，每个解构的变量必须单独一行。
@@ -337,16 +166,56 @@ let {name: personName, email: personEmail,
 } = person;
 ```
 
+##### [建议] 对于对象初始化、数组初始化、`import` 及 `export` 语句，当其多个子元素占用多行时，最后一个元素后必须保留逗号。
 
+解释：
 
+ES Next允许以上语法最后保留逗号，多行时保留逗号有助于快速添加或删除子元素。
 
+本条规则不适用于函数调用和声明的参数，函数最后一个参数不得包含逗号。
 
+示例：
+
+```javascript
+// good
+const array = [
+    foo,
+    bar,
+];
+
+const array = [foo, bar]; // 单行的最后没有逗号
+
+const object = {
+    foo: bar,
+    x: y,
+};
+
+const object = {foo: bar}; // 单行的最后没有逗号
+
+import {
+    foo,
+    bar,
+} from 'module';
+
+import {foo, bar} from 'module'; // 单行的最后没有逗号
+
+export {
+    foo,
+    bar,
+};
+
+export {foo, bar};  // 单行的最后没有逗号
+
+// bad
+const array = [foo, bar,];
+
+const object = {
+    foo: bar,
+    x: y
+};
+```
 
 ## 3 语言特性
-
-
-
-
 
 ### 3.1 变量
 
@@ -371,12 +240,9 @@ for (var i = 0; i < 10; i++) {
 }
 ```
 
-
-
 ### 3.2 解构
 
-
-#### [强制] 不要使用3层及以上的解构。
+#### [建议] 不要使用3层及以上的解构。
 
 解释：
 
@@ -423,11 +289,11 @@ let len = myString.length;
 let {length: len} = myString;
 ```
 
-#### [强制] 如果不节省编写时产生的中间变量，解构表达式 `=` 号右边不允许是 `ObjectLiteral` 和 `ArrayLiteral`。
+#### [建议] 如果不节省编写时产生的中间变量，解构表达式 `=` 号右边不允许是 `ObjectLiteral` 和 `ArrayLiteral`。
 
 解释：
 
-在这种场景下，使用解构将降低代码可读性，通常也并无收益。
+在这种场景下，使用解构将降低代码可读性，通常也并无收益。如果2个变量有非常强的相关性，可以考虑使用 `ArrayLiteral` 进行声明，但通常我们并不会遇到此类场景。
 
 示例：
 
@@ -458,13 +324,9 @@ let other = myArray.slice(3);
 let [,,, ...other] = myArray;
 ```
 
-
-
 ### 3.3 模板字符串
 
-
-
-#### [强制] 字符串内变量替换时，不要使用 `2` 次及以上的函数调用。
+#### [建议] 字符串内变量替换时，不要使用 `2` 次及以上的函数调用。
 
 解释：
 
@@ -481,16 +343,10 @@ let s = `Hello ${fullName}`;
 let s = `Hello ${getFullName(getFirstName(), getLastName())}`;
 ```
 
-
-
 ### 3.4 函数
 
 
 #### [建议] 使用变量默认语法代替基于条件判断的默认值声明。
-
-解释：
-
-添加默认值有助于引擎的优化，在未来 `strong mode` 下也会有更好的效果。
 
 示例：
 
@@ -508,10 +364,6 @@ function foo(text) {
 
 #### [强制] 不要使用 `arguments` 对象，应使用 `...args` 代替。
 
-解释：
-
-在未来 `strong mode` 下 `arguments` 将被禁用。
-
 示例：
 
 ```javascript
@@ -526,20 +378,13 @@ function foo() {
 }
 ```
 
-
-
-
 ### 3.5 箭头函数
-
-
 
 #### [强制] 一个函数被设计为需要 `call` 和 `apply` 的时候，不能是箭头函数。
 
 解释：
 
 箭头函数会强制绑定当前环境下的 `this`。
-
-
 
 ### 3.6 对象
 
@@ -579,7 +424,9 @@ let foo2 = {
 
 解释：
 
-`MethodDefinition` 语法更清晰简洁。
+方法和函数是不同的东西，方法是与该对象相关的，通常会使用 `this` ，而函数则是更多是独立的逻辑，此时将对象视为一个类似命名空间的容器，本身函数与对象间没有强从属关系。
+
+因此，当定义一个对象的方法时，应当明确使用 `MethodDefinition` 语法。
 
 示例：
 
@@ -619,29 +466,6 @@ for (let [key, value] of Object.entries(foo)) {
 }
 ```
 
-#### [建议] 定义对象的方法不应使用箭头函数。
-
-解释：
-
-箭头函数将 `this` 绑定到当前环境，在 `obj.method()` 调用时容易导致不期待的 `this`。除非明确需要绑定 `this`，否则不应使用箭头函数。
-
-示例：
-
-```javascript
-// good
-let foo = {
-    bar(x, y) {
-        return x + y;
-    }
-};
-
-// bad
-let foo = {
-    bar: (x, y) => x + y
-};
-```
-
-
 #### [建议] 尽量使用计算属性键在一个完整的字面量中完整地定义一个对象，避免对象定义后直接增加对象属性。
 
 解释：
@@ -663,13 +487,7 @@ let foo = {};
 foo[MY_KEY + 'Hash'] = 123;
 ```
 
-
-
-
-
 ### 3.7 类
-
-
 
 #### [强制] 使用 `class` 关键字定义一个类。
 
@@ -735,11 +553,7 @@ class TextNode extends Node {
 }
 ```
 
-
-
 ### 3.8 模块
-
-
 
 #### [强制] `export` 与内容定义放在一起。
 
@@ -755,7 +569,6 @@ export function foo() {
 }
 
 export const bar = 3;
-
 
 // bad
 function foo() {
@@ -774,8 +587,6 @@ export {bar};
 举个例子，工具对象中的各个方法，相互之间并没有强关联，通常外部会选择几个使用，则应该使用命名导出。
 
 简而言之，当一个模块只扮演命名空间的作用时，使用命名导出。
-
-
 
 #### [强制] 所有 `import` 语句写在模块开始处。
 
@@ -796,11 +607,7 @@ function foo() {
 }
 ```
 
-
-
-
 ### 3.9 集合
-
 
 #### [建议] 对数组进行连接操作时，使用数组展开语法。
 
@@ -820,20 +627,21 @@ let foo = foo.concat(newValue);
 let bar = bar.concat(newValues);
 ```
 
-#### [建议] 不要使用数组展开进行数组的复制操作。
+#### [建议] 使用数组展开语法进行数组的复制操作。
 
 解释：
 
-使用数组展开语法进行复制，代码可读性较差。推荐使用 `Array.from` 方法进行复制操作。
+使用数组展开可以快速地进行数组复制，也便于插入、追加其它元素。
 
 示例：
 
 ```javascript
 // good
-let otherArr = Array.from(arr);
+let otherArr = [...arr];
 
 // bad
-let otherArr = [...arr];
+let otherArr = arr.slice();
+let otherArr = Array.from(arr);
 ```
 
 #### [建议] 尽可能使用 `for .. of` 进行遍历。
@@ -847,6 +655,7 @@ let otherArr = [...arr];
 1. 遍历确实成为了性能瓶颈，需要使用原生 `for` 循环提升性能。
 2. 需要遍历过程中的索引。
 
+当然，如果可以使用 `filter` 或 `map` 等函数完成逻辑，不建议使用 `for .. of` 的遍历来实现。
 
 #### [强制] 当键值有可能不是字符串时，必须使用 `Map`；当元素有可能不是字符串时，必须使用 `Set`。
 
@@ -854,6 +663,7 @@ let otherArr = [...arr];
 
 使用普通 Object，对非字符串类型的 `key`，需要自己实现序列化。并且运行过程中的对象变化难以通知 Object。
 
+同时，如果一个对象从语义上应当是一个 `Map` 或 `Set` 对象，建议直接使用这2个类型，而不是使用 `Obejct` 来模拟行为。
 
 #### [建议] 需要一个不可重复的集合时，应使用 `Set`。
 
@@ -874,7 +684,6 @@ let members = {
     three: true
 };
 ```
-
 
 #### [建议] 当需要遍历功能时，使用 `Map` 和 `Set`。
 
@@ -930,9 +739,6 @@ membersAge.two = 20;
 membersAge.three = 30;
 delete membersAge['one'];
 ```
-
-
-
 
 ### 3.10 异步
 
@@ -991,7 +797,6 @@ getUser(userId)
     );
 ```
 
-
 #### [强制] 使用标准的 `Promise` API。
 
 解释：
@@ -1000,7 +805,6 @@ getUser(userId)
 2. 不允许使用非标准的 `Promise` 扩展 API，如 `bluebird` 的 `Promise.any` 等。
 
 使用标准的 `Promise` API，当运行环境都支持时，可以把 Promise Lib 直接去掉。
-
 
 #### [强制] 不允许直接扩展 `Promise` 对象的 `prototype`。
 
@@ -1041,87 +845,27 @@ async function requestData() {
 }
 ```
 
-#### [建议] 使用 `async/await` 代替 `generator` + `co`。
-
-解释：
-
-使用语言自身的能力可以使代码更清晰，也无需引入 `co` 库。
-
-示例：
-
-```javascript
-addReport(report, userId).then(
-    function () {
-        notice('Saved!');
-    },
-    function (message) {
-        notice(message);
-    }
-);
-
-// good
-async function addReport(report, userId) {
-    let user = await getUser(userId);
-    let isValid = await validateUser(user);
-
-    if (isValid) {
-        let savePromise = saveReport(report, user);
-        return savePromise();
-    }
-
-    return Promise.reject('Invalid');
-}
-
-// bad
-function addReport(report, userId) {
-    return co(function* () {
-        let user = yield getUser(userId);
-        let isValid = yield validateUser(user);
-
-        if (isValid) {
-            let savePromise = saveReport(report, user);
-            return savePromise();
-        }
-
-        return Promise.reject('Invalid');
-    });
-}
-```
-
-
-
-
-
-
-
-
-
 ## 4 环境
 
-
-
-
-
-
 ### 4.1 运行环境
-
 
 #### [建议] 持续跟进与关注运行环境对语言特性的支持程度。
 
 解释：
 
-[查看环境对语言特性的支持程度](https://kangax.github.io/compat-table/es6/)
+你可以通过 [MDN](https://developer.mozilla.org/zh-CN/) 或 [Can I use](https://caniuse.com/) 来查询各类特性在浏览器中的支持程度。
+
+你可以通过 [Browserslist](https://browsersl.ist/) 来向各类工具提供你需要兼容的运行时，以便各类工具自动判断进行源码的转换。
 
 ES 标准的制定还在不断进行中，各种环境对语言特性的支持也日新月异。了解项目中用到了哪些 ESNext 的特性，了解项目的运行环境，并持续跟进这些特性在运行环境中的支持程度是很有必要的。这意味着：
 
-1. 如果有任何一个运行环境（比如 chrome）支持了项目里用到的所有特性，你可以在开发时抛弃预编译。
-2. 如果所有环境都支持了某一特性（比如 Promise），你可以抛弃相关的 shim，或无需在预编译时进行转换。
+1. 如果有任何一个运行环境（比如 Chrome）支持了项目里用到的所有特性，你可以在开发时抛弃预编译。
+2. 如果所有环境都支持了某一特性（比如 `Array.prototype.flatMap`），你可以抛弃相关的 shim，或无需在预编译时进行转换。
 3. 如果所有环境都支持了项目里用到的所有特性，你可以完全抛弃预编译。
 
 无论如何，在选择预编译工具时，你都需要清晰的知道你现阶段将在项目里使用哪些语言特性，然后了解预编译工具对语言特性的支持程度，做出选择。
 
-
-#### [强制] 在运行环境中没有 `Promise` 时，将 `Promise` 的实现 `shim` 到 `global` 中。
+#### [强制] 在运行环境中没有 `Promise` 时，将 `Promise` 的实现 shim 到 `global` 中。
 
 解释：
 
@@ -1129,106 +873,4 @@ ES 标准的制定还在不断进行中，各种环境对语言特性的支持�
 
 这样，未来运行环境支持时，可以随时把 `Promise` 扩展直接扔掉，而应用代码无需任何修改。
 
-
-
-
-
-### 4.2 预编译
-
-
-#### [建议] 使用 `babel` 做为预编译工具时，建议使用 `5.x` 版本。
-
-解释：
-
-由于 `babel` 最新的 `6` 暂时还不稳定，建议暂时使用 `5.x`。不同的产品，对于浏览器支持的情况不同，使用 `babel` 的时候，需要设置的参数也有一些区别。下面在示例中给出一些建议的参数。
-
-示例：
-
-```shell
-＃ 建议的参数
---loose all --modules amd --blacklist strict
-
-＃ 如果需要使用 es7.classProperties、es7.decorators 等一些特性，需要额外的 --stage 0 参数
---loose all --modules amd --blacklist strict --stage 0
-```
-
-
-#### [建议] 使用 `babel` 做为预编译工具时，通过 `external-helpers` 减少生成文件的大小。
-
-解释：
-
-当 `babel` 在转换代码的过程中发现需要一些特性时，会在该文件头部生成对应的 `helper` 代码。默认情况下，对于每一个经由 `babel` 处理的文件，均会在文件头部生成对应需要的辅助函数，多份文件辅助函数存在重复，占用了不必要的代码体积。
-
-因此推荐打开`externalHelpers: true`选项，使 `babel` 在转换后内容中不写入 `helper` 相关的代码，而是使用一个外部的 `.js`统一提供所有的 `helper`。对于[external-helpers](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/external-helpers.md)的使用，可以有两种方式：
-
-1. 默认方式：需要通过 `<script>` 自行引入`babel-polyfill.js` 和 `babel-external-helpers.js`。
-2. 定制方式：自己实现 [babel-runtime](https://github.com/babel/babel.github.io/blob/5.0.0/docs/usage/runtime.md)。
-
-示例：
-
-```shell
-# 默认方式
---loose all --modules amd --external-helpers
-# `babelHelpers` 的代码可以通过执行 `babel-external-helpers -t var` 得到所有相关API的实现
-
-# 定制方式
---loose all --modules amd --optional runtime
-```
-
-#### [建议] 使用 `TypeScript` 做为预编译工具时，建议使用 `1.6+` 版本。
-
-解释：
-
-`TypeScript` 1.6 之后，基本摒弃了之前的与 ESNext 相冲突的地方。目前 `TypeScript` 的思路就是遵循标准，将 stage 已经足够成熟的功能纳入，并提供静态类型和类型检查，所以其在 stage 0/1 的支持上不如 `babel`。另外，`TypeScript` 不能指定关闭某个 transform，但其编译速度比 `babel` 更高。
-
-`TypeScript` 的常用参数在下面给出了示例。
-
-示例：
-
-```shell
---module amd --target ES3
---module commonjs --target ES6
-```
-
-
-#### [建议] 使用 `TypeScript` 做为预编译工具时，不使用 `tsc` 命令。
-
-解释：
-
-`TypeScript` 提供的 `tsc` 命令只支持后缀名 `.ts`、`.tsx`、`.d.ts` 的文件编译，对于 JavaScript 来说，保持后缀名为 `.js` 是原则，本文档的 `文件` 章节也有所要求。
-
-如果要使用 `TypeScript` 做为预编译工具，可基于其 [Compiler API](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API) 开发自己的预编译工具。如果你是 FIS 用户，可以使用 [FIS TypeScript 插件](https://github.com/fex-team/fis3-parser-typescript)。
-
-
-#### [建议] 生成的代码在浏览器环境运行时，应生成 AMD 模块化代码。
-
-解释：
-
-AMD 在浏览器环境应用较为成熟。
-
-
-#### [建议] 浏览器端项目中如果 ESNext 代码和 ES3/5 代码混合，不要使用 `TypeScript` 做为预编译工具。
-
-解释：
-
-`TypeScript` 产生的 module 代码使用 exports.default 导出默认的 export，但是没有直接为 module.exports 赋值，导致在另外一个普通文件中使用 require('moduleName') 是拿不到东西的。
-
-需要使用 `TypeScript` 的话，建议整个项目所有文件都是 ESNext module 的，采用混合的 module 容易出现不可预期的结果。
-
-
-#### [建议] AMD/CommonJS 模块依赖 ESNext 模块时，AMD/CommonJS 模块对 default export 的 require 需要改造。
-
-解释：
-
-ESNext 模块经过编译后，named export 会挂载在 exports 对象上，default export 也会挂载在 exports 对象上名称为 default 的属性。同时 exports 对象会包含一个值为 true 的 __esModule 属性。那么问题来了，当 AMD/CommonJS 模块依赖了 ESNext 模块时，require 期望拿到的是 exports.default，但你实际上拿到的是 exports。
-
-所以，老的 AMD/CommonJS 模块依赖了 default export 的 ESNext 模块时，对 default export 的 require 需要改造成 `require('name').default`。
-
-另外，如果是 ESNext 模块之间的互相依赖，transpiler 会通过加入中间对象和引入 interop 方法，所以不会产生这个问题。
-
-
-
-
-
-
-
+当选择 shim 时，使用 `core-js` 作为实现。
